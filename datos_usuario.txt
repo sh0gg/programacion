@@ -1,0 +1,20 @@
+Datos ingresados a las 13:47 de 20/9/2024:
+Nombre: David
+Edad: 22
+Correo: davidbesada@live.com
+-------------------------
+Datos ingresados a las 13:48 de 20/9/2024:
+Nombre: Antonio
+Edad: 18
+Correo: antoniobesada@live.com
+-------------------------
+Datos ingresados a las 13:50 de 20/9/2024:
+Nombre: Pepito
+Edad: 120
+Correo: pepitodelospalotes@gmail.com
+-------------------------
+Datos ingresados a las 13:53 de 20/9/2024:
+Nombre: Julio DopeSmoke The Man Himself
+Edad: 99
+Correo: 99julio99@hotmail.com
+-------------------------
