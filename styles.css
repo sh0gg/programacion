@@ -4,6 +4,7 @@
     background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
     background-size: 200% 200%; /* Aumenta el tamaño del background para una animación fluida */
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rainbow-animation 5s linear infinite; /* Ajusta la duración según tu preferencia */
 }
@@ -14,23 +15,28 @@
     100% { background-position: 100% 100%; }
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .container {
     display: flex;
-    justify-content: center; /* Centra el div horizontalmente */
-    align-items: center; /* Centra el div verticalmente */
-    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la ventana */
-    background-color: #f0f0f0; /* Fondo claro para el contenedor */
+    justify-content: center; 
+    align-items: center; 
+    min-height: 400px;
+    background-color: #f0f0f0; 
 }
 
 #coloreado {
-    background-color: #333; /* Fondo oscuro para el div */
-    padding: 100px; /* Padding de 100px en todos los lados */
-    color: white; /* Color del texto blanco para buen contraste */
-    text-align: center; /* Centra el texto dentro del div */
-    display: flex; /* Permite usar Flexbox para centrar el texto */
-    justify-content: center; /* Centra el texto horizontalmente */
-    align-items: center; /* Centra el texto verticalmente */
-    border-radius: 10px; /* (Opcional) Bordes redondeados para un efecto visual más suave */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* (Opcional) Sombra para un efecto de profundidad */
+    background-color: #333;
+    padding: 100px;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
