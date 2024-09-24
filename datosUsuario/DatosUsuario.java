@@ -67,7 +67,7 @@ public class DatosUsuario {
         
 
         // Escribir los datos en un archivo de texto
-        try (PrintWriter writer = new PrintWriter(new FileWriter("C:\\Users\\xarro\\Programación\\datos_usuario.txt", true))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("..\\datos_usuario.txt", true))) {
             writer.println("Datos ingresados a las " + hora + ":" + minu + " de " + diaMes + "/" + numMes + "/" + numAno + ":");
             writer.println("Nombre: " + nombre);
             writer.println("Apellido: " + apellido);
@@ -81,7 +81,7 @@ public class DatosUsuario {
         }
 
         // Ruta del archivo CSV
-        String filePath = "C:\\Users\\xarro\\Programación\\datos_usuario.csv";
+        String filePath = "..\\datos_usuario.csv";
 
         // Escribir los datos en un archivo CSV
         try {
