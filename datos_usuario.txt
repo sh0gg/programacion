@@ -50,22 +50,6 @@ A PARTIR DE AQUÍ LOS DATOS SE EXPORTAN TAMBIÉN A CSV
 ####################################################
 
 -------------------------
-Datos ingresados a las 9:28 de 23/9/2024:
-Nombre: David
-Apellido: Besada
-Edad:22
-Fecha de nacimiento: 2002-04-03
-Nació un: Miércoles
-Correo: davidbesada@live.com
--------------------------
-Datos ingresados a las 9:29 de 23/9/2024:
-Nombre: Antonio
-Apellido: Besada
-Edad:18
-Fecha de nacimiento: 2005-11-18
-Nació un: Viernes
-Correo: antoniobesada@gmail.com
--------------------------
 Datos ingresados a las 9:32 de 23/9/2024:
 Nombre: David
 Apellido: Besada
