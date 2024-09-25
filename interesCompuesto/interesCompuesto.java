@@ -14,6 +14,7 @@ public class interesCompuesto {
 
         // System.out.print("Introduce el número de pagos por año: ");
         // int pagosPorAño = scanner.nextInt();
+        
         int pagosPorAño = 1;
 
         // Tasa de interés fija
