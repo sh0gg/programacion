@@ -74,3 +74,11 @@ Fecha de nacimiento: 2001-01-11
 Nació un: Jueves
 Correo: asdsad@hasdasd.com
 -------------------------
+Datos ingresados a las 13:41 de 24/9/2024:
+Nombre: carlos
+Apellido: de la Torre Aboal
+Edad:18
+Fecha de nacimiento: 2006-02-14
+Nació un: Martes
+Correo: carlosdelatorreaboal@gmail.com
+-------------------------
