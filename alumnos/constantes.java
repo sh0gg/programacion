@@ -12,5 +12,7 @@ public class constantes {
         System.out.println("Número de sesiones semanales del módulo de Programación: " + programSessionsWeek);
         System.out.println("Número de meses del año: " + months);
 
+        // asdasd asdsa
+
     }
 }
