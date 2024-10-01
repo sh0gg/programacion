@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Selectores CSS</title>
+
+    <style type="text/css">
+        /*Introduce el selector correpondiente para que afecte a los elementos que indica
+	  el comentario que cada declarción tiene encima*/
+
+        /* Todos los elementos de la pagina */
+            * {
+            font-family: "Open Sans", Arial, sans-serif;
+            font-size: 1.4em;
+            line-height: 1.7;
+            color: #534954;
+        }
+
+        /* Los parrafos de la pagina */
+           p  {
+            color: #765;
+        }
+
+        /* Todos los párrafos de clase "ini"*/
+          p.ini  {
+            font-weight: bold;
+            font-style: oblique;
+            font-size: 2em;
+        }
+
+        /* Los elementos h1 de la pagina */
+           h1 {
+            font-weight: bold;
+            font-size: 3em;
+        }
+
+
+        /* Los párrafos que estén en el div con id "principal" */
+          div#principal  {
+            color: skyblue;
+            padding: 1.2em;
+        }
+
+        /* Los elemento span que esten dentro de párrafos*/
+           p span {
+            background: lightgreen;
+
+        }
+
+        /* Los elementos con id "principal" o con id "secundaria" */
+
+            #principal,#secundaria {
+            background: #339966;
+            border: 1px solid grey;
+            padding: 2em;
+            border-radius: 8px;
+        }
+
+
+        /* Todos los enlaces que estén dentro de párrafos con clase "ini" */
+           p.ini a {
+            text-decoration: none;
+            color: FF9019;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="principal">
+        <h1><span>Es simplemente </span>el texto de relleno de las imprentas y archivos de texto.</h1>
+        <a href="#">Lorem Ipsum</a>
+        <p class="ini"> Ha sido el texto de relleno estándar de las <a href="#">industrias desde el año 1500</a></p>
+        <p> Ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T.
+            persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que
+            logró hacer un libro de textos especimen.</p>
+        <p>No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos,
+            quedando esencialmente igual al original.</p>
+
+    </div>
+
+    <div id="noticia-secundaria">
+        <h1><span>El trozo</span> de texto estándar de Lorem Ipsum</h1>
+        <p class="ini">Usado desde el año 1500 es <a href="#">reproducido debajo</a> para aquellos interesados.</p>
+        <p> Las secciones 1.10.32 y 1.10.33 de "de Finibus Bonorum et Malorum" por Cicero son también reproducidas en su
+            forma original exacta, acompañadas por versiones en Inglés de la traducción realizada en 1914 por H.
+            Rackham.</p>
+        <p>Usa un diccionario de mas de 200 palabras provenientes del latín, combinadas con estructuras muy útiles de
+            sentencias, para generar texto de que <span>Lorem Ipsum</span>parezca razonable.</p>
+
+    </div>
+
+
+</body>
+
+</html>
