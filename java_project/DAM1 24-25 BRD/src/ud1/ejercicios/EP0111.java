@@ -11,19 +11,24 @@ import java.util.Scanner;
 public class EP0111 {
     public static void main(String[] args) {
 
+        double baseImponible;
+        double ivaImporte;
+        int ivaInt;
+        
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Introduce el precio del artículo que quieres comprar:");
-        double price = scanner.nextDouble();
+        baseImponible = scanner.nextDouble();
 
-        System.out.println("¿De cuanto es el IVA de este producto? (No escribas % solo el numero)");
-        int ivaInt = scanner.nextInt();
+        System.out.println("¿De cuánto es el IVA de este producto? (No escribas % solo el número)");
+        ivaInt = scanner.nextInt();
 
-        double iva = (ivaInt * 0.01);
+        ivaImporte = ((ivaInt * 0.01) * baseImponible);
 
-        double finalPrice = price + (iva * price);
+        double importeFinal = baseImponible + ivaImporte;
 
-        System.out.println(finalPrice);
+        System.out.println("El precio final es de " + importeFinal + " euros, siendo " + ivaImporte + " euros la cantidad de IVA que pagas" );
 
 
         scanner.close();
