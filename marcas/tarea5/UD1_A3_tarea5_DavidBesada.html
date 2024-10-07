@@ -1,0 +1,207 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Exercicio4_css.html</title>
+
+    <style type="text/css">
+        /* Todos los elementos de la pagina */
+
+        body {
+            font: 1em/1.3 Arial, Helvetica, sans-serif;
+        }
+
+        /* Todos los párrafos de la pagina */
+
+        p {
+            color: #555;
+        }
+
+        /* Todos los párrafos contenidos en #primero */
+
+        #primero p {
+            color: #336699;
+        }
+
+        /* Los elementos "em" contenidos en #primero */
+
+        #primero em {
+            background: #FFFFCC;
+            padding: .1em;
+        }
+
+        /* Todos los elementos "em" de clase "especial" en toda la pagina */
+
+        em.especial {
+            background: #FFCC99;
+            border: 1px solid #FF9900;
+            padding: .1em;
+        }
+
+        /* Elementos "span" contenidos en .normal */
+
+        .normal span {
+            font-weight: bold;
+        }
+
+        /* Todos los elementos em estarán en cursiva */
+        em {
+            font-style: italic;
+        }
+
+        /* Todos los encabezados deben tener las palabras separadas por 0.5em */
+        h1,
+        h2,
+        h3 {
+            word-spacing: 0.5em;
+        }
+
+        /* Los encabezados h1 y h2 deben tener las letras separadas 0.2em */
+        h1,
+        h2 {
+            letter-spacing: 0.2em;
+        }
+
+        /* El encabezado h1 tendrá "Arial Narrow", 3 veces su tamaño normal, en negrita y todas las letras en mayúsculas, pero las minúsculas más pequeñas */
+        h1 {
+            font-family: "Arial Narrow", sans-serif;
+            font-size: 3em;
+            font-variant: small-caps;
+            font-weight: bold;
+        }
+
+        /* La letra del encabezado h2 tendrá el doble de su tamaño y estarán escritos de derecha a izquierda */
+        h2 {
+            font-size: 2em;
+            direction: rtl;
+        }
+
+        /* El encabezado h2 que está a continuación del encabezado h1 tendrá color seagreen */
+        h1+h2 {
+            color: seagreen;
+        }
+
+        /* Los encabezados h2 que vienen después de un div tendrán color darkolivegreen */
+        div+h2 {
+            color: darkolivegreen;
+        }
+
+        /* Los encabezados h3 serán de color darkred y tendrán la primera letra de cada palabra en mayúscula */
+        h3 {
+            color: darkred;
+            text-transform: capitalize;
+        }
+
+        /* Los div que están a continuación de los encabezados h3 tendrán el texto justificado */
+        h3+div {
+            text-align: justify;
+        }
+
+        /* Ningún texto de enlace debe estar subrayado */
+        a {
+            text-decoration: none;
+        }
+
+        /* Los div que pertenecen a alguna clase deben tener color de fondo bisque */
+        div[class] {
+            background-color: bisque;
+        }
+
+        /* Todos los enlaces con Garajonay en la URL sin distinguir mayúsculas o minúsculas estarán en cursiva */
+        a[href*="Garajonay" i] {
+            font-style: italic;
+        }
+
+        /* Los párrafos de clase natural que siguen a otro párrafo serán de color coral y tendrán una sangría de 1.4em */
+        p.natural+p {
+            color: coral;
+            text-indent: 1.4em;
+        }
+
+        /* Los elementos con class que termina en "al" tendrán el texto justificado */
+        [class$="al"] {
+            text-align: justify;
+        }
+
+        /* Enlaces internos (del menú) no visitados y visitados */
+        a:link {
+            color: grey;
+        }
+
+        a:visited {
+            color: maroon;
+        }
+
+        /* Estilo del menú */
+        nav a {
+            color: chocolate;
+        }
+
+        nav a:hover {
+            background-color: blueviolet;
+            color: white;
+            text-transform: uppercase;
+            font-size: 1.2em;
+        }
+
+        nav a:active {
+            color: chocolate;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>La Gomera</h1>
+
+    <!-- Menú añadido -->
+    <nav>
+        <a href="#playas">Playas</a> |
+        <a href="#garajonay">Parque Nacional de Garajonay</a> |
+        <a href="#espacios">Espacios Naturales</a>
+    </nav>
+
+    <h2 id="playas">Playas</h2>
+    <div id="primero">
+        <p>La mayoría de las playas de <em>La Gomera</em> son de arena negra volcánica,
+            pero podremos encontrar fácilmente playas con arena blanca, </p>
+    </div>
+
+    <div class="normal">
+        <p>En <span>Valle Gran Rey</span> encontraremos algunas de las playas más bonitas de toda La Gomera,
+            por lo general suelen ser de arena negra de origen volcánico y gravilla, además, al estar todas
+            en la costa suroeste de <span>La Gomera</span> suelen tener un oleaje moderado</p>
+
+        <p class="natural">Playa de La Negra es una preciosa cala situada en el <em class="especial">municipio de
+                Alajeró</em>,
+            en la costa Sur de La Gomera. </p>
+
+        <p>Charco del Conde es una <em class="especial">piscina natural</em> en donde, gracias a los arrecifes que
+            permiten una pequeña
+            entrada del agua, se crea una preciosa laguna. Esta playa es una de las más visitadas por los turistas.</p>
+    </div>
+
+    <h2 id="garajonay">Parque nacional de Garajonay</h2>
+    <div class="normal">
+        <p>El <span>Parque Nacional de Garajonay</span> debe su nombre a la leyenda
+            de los amantes Gara y Jonay...</p>
+        <a href="http://www.gobiernodecanarias.org/parquesnacionalesdecanarias/es/Garajonay/">más info...</a>
+    </div>
+
+    <h2 id="espacios">Espacios naturales</h2>
+    <div>
+        <h3>Acantilados de Alajeró</h3>
+        <div>
+            <p>Espacio de difícil acceso desde la tierra y notable belleza desde el mar...</p>
+        </div>
+        <h3>Monumento Natural del Barranco del Cabrito</h3>
+        <div>
+            <p class="natural">El Monumento Natural del Barranco del Cabrito...</p>
+        </div>
+    </div>
+
+    <!-- Enlace para volver al principio -->
+    <a href="#top">Volver al principio</a>
+</body>
+
+</html>
