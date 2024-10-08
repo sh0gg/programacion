@@ -30,7 +30,7 @@ public class EP0123_ConversionMasa {
 
         String unidadResultado = unidad.equals("kg") ? "lb" : "kg";
 
-        System.out.printf("%.2f %s son %.2f %s%n", cantidad, unidad, resultado, unidadResultado);
+        System.out.printf("%.2f %s son %.3f %s%n", cantidad, unidad, resultado, unidadResultado);
     
         scanner.close();
     }
