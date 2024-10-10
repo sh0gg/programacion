@@ -20,10 +20,11 @@ public class HorasClaseAsistencia {
         int faltas = sc.nextInt();
         sc.close();
 
-        System.out.println("Número de sesiones de 50': " + sesiones);
-        System.out.println("Número de faltas sin justificar que implican un apercebimiento: " + ses6Perc);
-        System.out.println(
-                "Número de faltas sin justificar que implican una pérdida de la evaluación continua: " + ses10Perc);
+        System.out.printf("Número de sesiones de 50': %.0f %n ", sesiones);
+        System.out.printf("Número de faltas sin justificar que implican un apercebimiento: %.0f %n ", ses6Perc);
+        System.out.printf(
+                "Número de faltas sin justificar que implican una pérdida de la evaluación continua: %.0f %n ",
+                ses10Perc);
 
         String consecuencias = (faltas < ses6Perc) ? "Ningún problema"
                 : (faltas < ses10Perc) ? "Apercibimiento" : "Pérdida de evaluación continua";
