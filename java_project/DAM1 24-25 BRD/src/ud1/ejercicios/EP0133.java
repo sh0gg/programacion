@@ -16,6 +16,55 @@ public class EP0133 {
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Introduce la cantidad de datos:");
+        double cantidad = scanner.nextDouble();
+        
+        System.out.println("Introduce la unidad de entrada (KB, MB, GB):");
+        String unidadEntrada = scanner.next().toLowerCase();
+        
+        System.out.println("Introduce la unidad de salida (KB, MB, GB):");
+        String unidadSalida = scanner.next().toLowerCase();
+        
+        // Conversión a bytes usando operador ternario
+        double cantidadEnBytes = unidadEntrada.equals("kb") 
+            ? cantidad * 1024 
+            : unidadEntrada.equals("mb") 
+                ? cantidad * 1024 * 1024 
+                : unidadEntrada.equals("gb") 
+                    ? cantidad * 1024 * 1024 * 1024 
+                    : -1;
+                        
+        
+        double resultado = unidadSalida.equals("kb") 
+            ? cantidadEnBytes / 1024 
+            : unidadSalida.equals("mb") 
+                ? cantidadEnBytes / (1024 * 1024) 
+                : unidadSalida.equals("gb") 
+                    ? cantidadEnBytes / (1024 * 1024 * 1024) 
+                    : -1;
+        
+        // Verificar si se ha introducido una unidad no válida
+        if (cantidadEnBytes == -1 || resultado == -1) {
+            System.out.println("Unidad de entrada o salida no válida.");
+        } else {
+            // Mostrar el resultado
+            System.out.println("El resultado es: " + resultado + " " + unidadSalida);
+        }
+        
+        scanner.close();
+    }
+}
+/*
+
+MI IDEA PRINCIPAL ERA ESTA, LO CORREGÍ AYUDADO DE MIS COMPAÑEROS
+
+import java.util.Scanner;
+
+public class EP0133 {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
         
         String unidadEntrada;
         String unidadSalida;
@@ -35,3 +84,4 @@ public class EP0133 {
         scanner.close();
     }
 }
+*/
