@@ -21,9 +21,13 @@ public class EP0129 {
         int numero = scanner.nextInt();
 
         int resto = numero % 7;
-        int suma = (resto == 0) ? 0 : (7 - resto);
+        int suma = (resto == 0)
+                ? 0
+                : (7 - resto);
 
-        System.out.println("A " + numero + " hay que sumarle " + suma + " para que sea múltiplo de 7.");
+        String salida = resto == 0 ? "El número es múltiplo de siete." : "A " + numero + " hay que sumarle " + suma + " para que sea múltiplo de 7.";
+
+        System.out.println(salida);
 
         scanner.close();
     }
