@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 3</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #BBBFFF;
+        }
+
+        .hombres {
+            background-color: #FFCCCC;
+        }
+
+        .hombres-num {
+            background-color: #FFBBBB;
+        }
+
+        .mujeres {
+            background-color: #BBFFBB;
+        }
+
+        .mujeres-num {
+            background-color: #AAFFAA;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Grupos de edades</th>
+                <th scope="col" colspan="2">Hombres</th>
+                <th scope="col" colspan="2">Mujeres</th>
+            </tr>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col" class="hombres">Num</th>
+                <th scope="col" class="hombres">% </th>
+                <th scope="col" class="mujeres">Num</th>
+                <th scope="col" class="mujeres">% </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">8-16</th>
+                <td class="hombres-num">16</td>
+                <td class="hombres">14.5</td>
+                <td class="mujeres-num">16</td>
+                <td class="mujeres">14.5</td>
+            </tr>
+            <tr>
+                <th scope="row">17-23</th>
+                <td class="hombres-num">8</td>
+                <td class="hombres">7</td>
+                <td class="mujeres-num">13</td>
+                <td class="mujeres">11.5</td>
+            </tr>
+            <tr>
+                <th scope="row">24-38</th>
+                <td class="hombres-num">15</td>
+                <td class="hombres">14</td>
+                <td class="mujeres-num">14</td>
+                <td class="mujeres">13</td>
+            </tr>
+            <tr>
+                <th scope="row">39-56</th>
+                <td class="hombres-num">21</td>
+                <td class="hombres">19</td>
+                <td class="mujeres-num">19</td>
+                <td class="mujeres">17</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
