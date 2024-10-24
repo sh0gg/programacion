@@ -12,23 +12,23 @@ public class CompraConjunta {
         Scanner scanner = new Scanner(System.in);
 
         double precioPelota;
-        double pagaJaime;
-        double pagaJose;
-        double pagaJosefa;
+        double pagaAmigo1;
+        double pagaAmigo2;
+        double pagaAmigo3;
         double pagado;
 
-        System.out.println("Jaime, Jóse y Josefa quieren comprar una pelota...");
+        System.out.println("3 amigos quieren comprar una pelota...");
         System.out.println("¿Cuánto vale la pelota?");
         precioPelota = scanner.nextDouble();
 
-        System.out.println("¿Cuánto va a pagar Jaime?");
-        pagaJaime = scanner.nextDouble();
-        System.out.println("¿Cuánto va a pagar Jóse?");
-        pagaJose = scanner.nextDouble();
-        System.out.println("¿Cuánto va a pagar Josefa?");
-        pagaJosefa = scanner.nextDouble();
+        System.out.println("¿Cuánto va a pagar el primer amigo?");
+        pagaAmigo1 = scanner.nextDouble();
+        System.out.println("¿Cuánto va a pagar el segundo amigo?");
+        pagaAmigo2 = scanner.nextDouble();
+        System.out.println("¿Cuánto va a pagar el tercer amigo?");
+        pagaAmigo3 = scanner.nextDouble();
 
-        pagado = (precioPelota - (pagaJaime + pagaJose + pagaJosefa));
+        pagado = (precioPelota - (pagaAmigo1 + pagaAmigo2 + pagaAmigo3));
 
         String mensaje = (pagado > 0)
                 ? "Faltan " + pagado + " euros para poder comprar la pelota."
