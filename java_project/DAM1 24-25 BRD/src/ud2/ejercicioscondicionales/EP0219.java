@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class EP0219 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner (System.in);
+        Scanner scanner = new Scanner(System.in);
 
         double PI = Math.PI;
 
@@ -12,7 +12,7 @@ public class EP0219 {
         double grados = scanner.nextDouble();
         scanner.close();
 
-        while(grados > 360){
+        while (grados > 360) {
             grados = grados % 360;
         }
 

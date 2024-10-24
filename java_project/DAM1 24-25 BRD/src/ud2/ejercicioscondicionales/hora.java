@@ -12,19 +12,19 @@ public class hora {
 
         System.out.println("Dime que hora es:");
         hora = scanner.nextInt();
-        if ( hora > 24) {
+        if (hora > 24) {
             System.out.println("¡Esa hora no es válida!");
             scanner.close();
             return;
         }
         min = scanner.nextInt();
-        if ( min > 60) {
+        if (min > 60) {
             System.out.println("¡Eses minutos no son válidos!");
             scanner.close();
             return;
         }
         sec = scanner.nextInt();
-        if ( sec > 60) {
+        if (sec > 60) {
             System.out.println("¡Eses segundos no son válidos!");
             scanner.close();
             return;

@@ -1,6 +1,7 @@
 /*  */
 
 package ud2.ejercicioscondicionales;
+
 import java.util.Scanner;
 
 public class EP0215 {
@@ -10,14 +11,14 @@ public class EP0215 {
         double base;
         double altura;
 
-        do{
-        System.out.print("Introduzca la base del triángulo: ");
-        base = scanner.nextDouble();
-        }while(base < 0);
-        do{
-        System.out.print("\nIntroduzca la altura del triángulo: ");
-        altura = scanner.nextDouble();
-        }while(altura < 0);
+        do {
+            System.out.print("Introduzca la base del triángulo: ");
+            base = scanner.nextDouble();
+        } while (base < 0);
+        do {
+            System.out.print("\nIntroduzca la altura del triángulo: ");
+            altura = scanner.nextDouble();
+        } while (altura < 0);
 
         scanner.close();
 

@@ -14,6 +14,6 @@ public class EP0216 {
 
         int valorAbsoluto = (numero > 0) ? numero : -numero;
 
-        System.out.println("Valor absoluto: " + valorAbsoluto); 
+        System.out.println("Valor absoluto: " + valorAbsoluto);
     }
 }

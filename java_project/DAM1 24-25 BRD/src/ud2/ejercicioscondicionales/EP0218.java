@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class EP0218 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner (System.in);
+        Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
         final int MAX = 100;
@@ -22,12 +22,12 @@ public class EP0218 {
 
         int resultado = num1 + num2;
 
-        if (suma == resultado){
+        if (suma == resultado) {
             System.out.println("El número es correcto");
-        }else{
+        } else {
             System.out.println("El número introducido es incorrecta");
             System.out.println("Resultado: " + resultado);
         }
     }
-    
+
 }

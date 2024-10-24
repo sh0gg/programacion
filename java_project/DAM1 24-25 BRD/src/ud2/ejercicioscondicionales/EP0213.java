@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Programa para determinar si hay suficiente comida para los animales.
  */
 
-public class EP0213 { 
+public class EP0213 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduce la cantidad de comida diaria (en kg): ");
@@ -29,6 +29,6 @@ public class EP0213 {
         } else {
             System.out.println("El número de animales debe ser mayor que cero.");
         }
-        
+
     }
 }
