@@ -19,7 +19,7 @@ public class AreaPerimetro {
         double distancia = 21097.0;
         double area;
         double metrosSobrantes;
-        double numeroVueltas;
+        double valorVueltas;
 
         System.out.println("Vamos a calcular cuantas vueltas son necesarias para correr una media maratón...");
         System.out.println("... en una pista de las siguientes dimensiones:");
@@ -33,13 +33,15 @@ public class AreaPerimetro {
 
         perimetro = (2 * base) + (2 * pi * radio);
 
-        area = (pi * Math.pow(radio, 2)) + (base * radio);
+        area = (pi * Math.pow(radio, 2)) + (base * ancho);
 
-        numeroVueltas = distancia / perimetro;
+        valorVueltas = distancia / perimetro;
 
-        metrosSobrantes = distancia % perimetro;
+        int numeroVueltas = (int) valorVueltas;
 
-        System.out.printf("Serán un total de %.0f vueltas y sobrarán %.0f metros tras completar la media maratón %n", numeroVueltas, metrosSobrantes);
+        metrosSobrantes = distancia - ( numeroVueltas * perimetro);
+
+        System.out.printf("Serán un total de %d vueltas y sobrarán %.0f metros tras completar la media maratón %n", numeroVueltas, metrosSobrantes);
         System.out.printf("El área del terreno es de %.2f metros cuadrados %n", area);
         System.out.printf("El perímetro del terreno es de %.2f metros %n", perimetro);
 
