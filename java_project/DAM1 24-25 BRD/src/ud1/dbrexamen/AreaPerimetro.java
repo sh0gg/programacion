@@ -29,7 +29,7 @@ public class AreaPerimetro {
         ancho = scanner.nextDouble();
 
         radio = ancho / 2;
-        base = largo - radio;
+        base = largo - ancho;
 
         perimetro = (2 * base) + (2 * pi * radio);
 
