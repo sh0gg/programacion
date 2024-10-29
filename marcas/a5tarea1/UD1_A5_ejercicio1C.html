@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Más selectores</title>
+	<meta charset="utf-8" />
+	<style>
+		/* El párrafo que sigue al encabezado h1 debe estar en cursiva y color navy */
+		h1+p {
+			color: navy;
+			font-style: italic;
+		}
+
+		/* Los párrafos que son hijos únicos deben ser de color darkgreen */
+		p:only-child {
+			text-decoration: none;
+			color: darkgreen;
+		}
+
+
+		/* La primera línea de los párrafos del div debe estar un poco más grande y en negrita. */
+		div p::first-line {
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+
+		/* La primera línea del primero de los párrafos del div debe tenr color de fondo lightblue y estar en cursiva. */
+		div p:first-child::first-line {
+			background-color: lightblue;
+			font-style: italic;
+		}
+
+		/* Lo que está escrito en gallego en el documento debe estar alineado a la derecha y en color coral*/
+		*[lang|=gl] {
+			text-align: right;
+			color: coral;
+		}
+
+		/* Incluye el texto "3 refranes de " precediendo a Primavera y Otoño */
+		h2::before {
+			content: "3 refranes de ";
+		}
+
+		/* Impide que se puedan seleccionar los refranes */
+		ul li {
+			user-select: none;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 lang="gl">Máis selectores</h1>
+	<p>Vamos a trabajar un poco más con selectores.</p>
+	<div>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut lobortis ex. Aenean sem quam,
+			posuere sit amet turpis sed, rhoncus imperdiet mauris. Mauris nec velit tempor, pretium nunc id,
+			lobortis risus. Nullam tincidunt cursus elit ut ultrices.
+		</p>
+		<p>
+			Vestibulum fringilla sem nisl. <br />Sed eu nisi suscipit, imperdiet nibh a, commodo ligula.
+			Ut porta diam felis, nec elementum libero feugiat in. Interdum et malesuada fames ac ante
+			ipsum primis in faucibus. Sed pellentesque lacinia nulla vel porttitor. Orci varius natoque penatibus
+			et magnis dis parturient montes, nascetur ridiculus mus. Aliquam et lectus commodo, condimentum magna quis,
+			vestibulum magna. Pellentesque at convallis urna, et aliquet ante.
+		</p>
+		<p>
+			Phasellus libero mi, aliquet nec turpis a, laoreet eleifend lectus. Morbi vitae laoreet turpis, nec mattis
+			nulla.
+			Sed ex tortor, ultricies eleifend tempus sollicitudin, faucibus a eros. Suspendisse placerat dignissim
+			rutrum.
+			Morbi at euismod neque. Aenean tristique tristique eros. Curabitur in vulputate lacus.
+		</p>
+	</div>
+	<footer>
+		<p>Generated 3 paragraphs, 191 words, 1309 bytes of <a href="https://www.lipsum.com/" title="Lorem Ipsum">Lorem
+				Ipsum</a></p>
+		</div>
+	</footer>
+
+	<h2>Otoño</h2>
+	<ul>
+		<li>En otoño, haz la matanza y llena la panza.</li>
+		<li>Marzo trae las hojas y noviembre las despojaPor san Andrés, todo el día noche es.</li>
+		<li>Por san Andrés, todo el día noche es.</li>
+	</ul>
+	<h2>Primavera</h2>
+	<ul>
+		<li>LEn abril, aguas mil.a primavera, la sangre altera.</li>
+		<li>En abril, aguas mil.</li>
+		<li>Cuando el invierno primaverea, la primavera invernea. </li>
+	</ul>
+</body>
+
+</html>
