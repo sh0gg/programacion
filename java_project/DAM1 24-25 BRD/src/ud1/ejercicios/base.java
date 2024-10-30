@@ -9,6 +9,10 @@ public class base {
         
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("¿Cuáles son tus iniciales?");
+        String iniciales = scanner.nextLine();
+        System.out.println("¡Hola Mundo! Mi nombre es " + iniciales);
+
         scanner.close();
     }
     

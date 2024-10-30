@@ -16,35 +16,34 @@ public class MinimoComunMultiplo {
 
         System.out.printf("Usaremos los números %d y %d... %n", a, b);
         scanner.close();
+
+        if ( b < a ) {
+            int c = a;
+            a = b;
+            b = c;
+        }
  
         int aBase = a;
         int bBase = b;
 
+
         if (aBase < bBase) {
             while (a != b) {
                 a = aBase + a;
-                // System.out.printf("Agreguémos multipos a %d : %d %n", aBase, a);
+                System.out.printf("Agreguémos multipos a %d : %d %n", aBase, a);
                 if (a > b) {
-                   // System.out.printf("%d es mayor que %d, vamos a agregar múltiplos de %d %n", a, b, bBase);
-                   // System.out.printf("Agreguémos multipos a %d : %d %n", bBase, b);
+                    System.out.printf("%d es mayor que %d, vamos a agregar múltiplos de %d %n", a, b, bBase);
+                    System.out.printf("Agreguémos multipos a %d : %d %n", bBase, b);
                     b = bBase + b;
+                    
+                    System.out.printf("%d es diferente de %d, continuemos... %n", a, b);
                 }
-                // System.out.printf("%d es diferente de %d, continuemos... %n", a, b);
+                
             }
-        } else if (bBase < aBase) {
-            while (b != a) {
-                b = bBase + b;
-                // System.out.printf("Agreguémos multipos a %d : %d %n", bBase, b);
-                if (b > a) {
-                   // System.out.printf("%d es mayor que %d, vamos a agregar múltiplos de %d %n", b, a, aBase);
-                   // System.out.printf("Agreguémos multipos a %d : %d %n", aBase, a);
-                    a = aBase + a;
-                }
-                // System.out.printf("%d es diferente de %d, continuemos... %n", b, a);
-            }            
         }
+        System.out.printf("%d es igual a %d... ¡GENIAL! %n", a, b);
         int mcm = a;
-        System.out.printf("El MCM es %d %n", mcm );
+        System.out.printf("El MCM de %d y %d es %d %n", aBase, bBase, mcm );
     }
 
 }
