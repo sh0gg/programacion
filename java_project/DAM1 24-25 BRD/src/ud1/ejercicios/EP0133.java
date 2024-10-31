@@ -25,8 +25,8 @@ public class EP0133 {
         
         System.out.println("Introduce la unidad de salida (KB, MB, GB):");
         String unidadSalida = scanner.next().toLowerCase();
-        
-        // Conversión a bytes usando operador ternario
+    
+
         double cantidadEnBytes = unidadEntrada.equals("kb") 
             ? cantidad * 1024 
             : unidadEntrada.equals("mb") 
@@ -57,7 +57,6 @@ public class EP0133 {
 }
 /*
 
-MI IDEA PRINCIPAL ERA ESTA, LO CORREGÍ AYUDADO DE MIS COMPAÑEROS
 
 import java.util.Scanner;
 
