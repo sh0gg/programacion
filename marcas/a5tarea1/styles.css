@@ -1,0 +1,87 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 5px;
+    color: maroon;
+}
+
+h2 {
+    color:mediumseagreen;
+    text-indent: 15px;
+    font-variant: small-caps;
+    padding-bottom: 20px;
+}
+
+h2::after  {
+    content: " !!!";
+}
+
+p::first-line {
+    font-style: italic;
+    color: #444432;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+article:first-of-type li:nth-child(odd) {
+    background-color: papayawhip;
+    padding: 5px;
+    margin: 2px;
+    list-style: none;
+}
+
+article:first-of-type li:nth-child(even) {
+    background-color: lightcoral;
+    padding: 5px;
+    margin: 3px;
+    list-style: none;
+}
+
+a {
+    color:black;
+    font-style: normal;
+    text-decoration: none;
+
+}
+
+a:hover {
+    color:seagreen;
+    text-decoration: underline;
+}
+
+article:nth-of-type(2) li:nth-child(odd) {
+    background-color: papayawhip;
+    padding: 5px;
+    padding-left: 30px;
+    margin: 2px;
+    list-style: none;
+}
+
+article:nth-of-type(2) li:nth-child(even) {
+    padding: 5px;
+    padding-left: 30px;
+    margin: 2px;
+    list-style: none;
+    color:maroon;
+    font-size: 25pt;
+    font-weight: 550;
+}
+
+article:nth-of-type(2) li:first-of-type {
+color:blue;
+}
+
+article:nth-of-type(2) li:nth-child(3) {
+    color: #ffb226;
+    font-size: 20pt;
+
+    }
+
+article:nth-of-type(2) li:last-child {
+    color:green;
+    }

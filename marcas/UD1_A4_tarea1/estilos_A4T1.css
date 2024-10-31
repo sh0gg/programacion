@@ -1,0 +1,42 @@
+body {
+    max-width: 1500px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #3d3d3d;
+}
+
+.content {
+    background-color: #dae2fa;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+    max-width: 1000px;
+}
+
+.flex {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 15px;
+}
+
+/*a,
+b {
+    color: brown;
+    font-weight: 600;
+}*/
+
+h1,
+h2 {
+    color: grey;
+    font-family: "Lucida Sans Unicode", sans-serif;
+}
+
+.header {
+    width: 100px;
+    height: 150px;
+    padding: 5px;
+}
+
+.mini {
+    width: 40px;
+    height: 60px;
+}

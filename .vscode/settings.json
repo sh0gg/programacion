@@ -1,3 +1,4 @@
 {
-    "C_Cpp.default.compilerPath": "c:\\Users\\xarro\\compiladores\\tcc-0.9.26-win64-bin\\tcc\\tcc.exe"
+    "http.proxy": "http://192.168.0.11:3128",
+    "java.jdt.ls.java.home": "D:\\dbesarami\\Asignaturas\\Contornos\\vscode\\jdk-23.0.1",
 }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 2</title>
+    <style>
+        table,
+        thead,
+        tbody,
+        th,
+        tr,
+        td {
+            border: 3px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            text-align: center;
+            padding: 5px;
+            font-weight: 500;
+        }
+
+        .hora {
+            padding-left: 20px;
+            padding-right: 20px;
+            font-weight: 900;
+        }
+
+        .bbdd {
+            background-color: #ee82c1;
+        }
+
+        .prog {
+            background-color: aqua;
+        }
+
+        .sisinf {
+            background-color: greenyellow;
+        }
+
+        .fol {
+            background-color: rgb(255, 224, 99);
+        }
+
+        .lmar {
+            background-color: rgb(255, 123, 0);
+        }
+
+        .cd {
+            background-color: rgb(255, 64, 64);
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>Horario del ciclo superior de Desarrollo de aplicaciones multiplataforma del año 20XX</caption>
+        <thead>
+            <tr>
+                <th colspan="6">DAM 1</th>
+            </tr>
+            <tr>
+                <th class="hora"></th>
+                <th>LUNES</th>
+                <th>MARTES</th>
+                <th>MIÉRCOLES</th>
+                <th>JUEVES</th>
+                <th>VIERNES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="hora">08:10</td>
+                <td class="bbdd" rowspan="3">Base de Datos</td>
+                <td class="sisinf" rowspan="2">Sistemas Informáticos</td>
+                <td class="lmar" rowspan="3">Lenguajes de Marcas</td>
+                <td class="fol" rowspan="2">FOL</td>
+                <td class="bbdd" rowspan="2">Base de Datos</td>
+            </tr>
+            <tr>
+                <td class="hora">09:00</td>
+            </tr>
+            <tr>
+                <td class="hora">09:50</td>
+                <td class="prog" rowspan="2">Programación</td>
+                <td class="prog" rowspan="2">Programación</td>
+                <td class="sisinf" rowspan="2">Sistemas Informáticos</td>
+            </tr>
+            <tr>
+                <td class="hora">10:40</td>
+                <td class="prog">Programación</td>
+                <td class="prog">Programación</td>
+            </tr>
+            <tr>
+                <td class="hora">12:00</td>
+                <td colspan="5">Recreo</td>
+            </tr>
+            <tr>
+                <td class="hora">12:50</td>
+                <td class="sisinf" rowspan="2">Sistemas Informáticos</td>
+                <td class="bbdd" rowspan="2">Bases de Datos</td>
+                <td class="prog">Programación</td>
+                <td class="prog">Programación</td>
+                <td class="prog" rowspan="3">Programación</td>
+            </tr>
+            <tr>
+                <td class="hora">13:40</td>
+                <td class="cd" rowspan="2">CD</td>
+                <td class="lmar" rowspan="2">Lenguajes de Marcas</td>
+            </tr>
+            <tr>
+                <td class="hora">14:30</td>
+                <td class="cd" rowspan="2">CD</td>
+                <td class="fol">FOL</td>
+            </tr>
+            <tr>
+                <td class="hora">15:20</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
