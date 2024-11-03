@@ -1,4 +1,4 @@
-Algoritmo LecheEnGalones
+Algoritmo E03_LecheEnGalones
 	
 	Escribir "Ingrese la cantidad de leche producida en litros: "
     Leer producidoLitros

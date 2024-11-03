@@ -1,4 +1,4 @@
-Algoritmo DistanciaEntrePuntos
+Algoritmo E04_DistanciaEntrePuntos
 	
 	Escribir "Ingrese las coordenadas de P1 (X1, Y1): "
     Leer X1

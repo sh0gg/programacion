@@ -1,4 +1,4 @@
-Algoritmo Mientras10Numeros
+Algoritmo E11_Mientras_10_Numeros
 	
 	x<-0
 	

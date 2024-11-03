@@ -1,4 +1,4 @@
-Algoritmo SueldoSemanal
+Algoritmo E05_SueldoSemanal
 	
 	Escribir "Ingrese las horas trabajadas en la semana: "
     Leer horasTrabajadas

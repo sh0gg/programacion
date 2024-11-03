@@ -1,4 +1,4 @@
-Algoritmo CalculaAreaTerreno2
+Algoritmo E02_CalculaAreaTerreno2
 	Escribir "Dame los datos H y R"
 	Leer h
 	Leer r

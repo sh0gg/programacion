@@ -1,4 +1,4 @@
-Algoritmo CalculoAreaTerreno
+Algoritmo E01CalculoAreaTerreno
 	Escribir "Dame los datos A, B y C"
 	Leer a
 	Leer b

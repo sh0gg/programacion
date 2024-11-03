@@ -1,4 +1,4 @@
-Algoritmo Para10Numeros
+Algoritmo E13_Para_10_Numeros
 	
 	x<-1
 	

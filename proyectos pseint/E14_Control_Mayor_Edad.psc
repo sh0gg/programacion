@@ -1,4 +1,4 @@
-Algoritmo EresMayorDeEdad
+Algoritmo E14_Control_Mayor_Edad
 	
 	Escribir "¿Cuántos años tienes?"
 	Leer x
