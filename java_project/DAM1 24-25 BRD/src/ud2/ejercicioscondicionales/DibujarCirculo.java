@@ -13,13 +13,13 @@ public class DibujarCirculo {
         int radio = scanner.nextInt();
         int diametro = radio * 2;
 
-        for (int y = 0; y <= diametro; y++) {
+        for (int y = 0; y <= diametro; y+=2) {
             for (int x = 0; x <= diametro; x++) {
 
                 double distancia = Math.sqrt(Math.pow(x - radio, 2) + Math.pow(y - radio, 2));
 
                 if (distancia <= radio) {
-                    System.out.print("0");
+                    System.out.print("#");
                 } else {
                     System.out.print(" ");
                 }
