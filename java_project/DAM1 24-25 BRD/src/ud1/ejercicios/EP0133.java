@@ -55,35 +55,3 @@ public class EP0133 {
         scanner.close();
     }
 }
-<<<<<<< HEAD
-/*
-
-
-import java.util.Scanner;
-
-public class EP0133 {
-    public static void main(String[] args) {
-        
-        Scanner scanner = new Scanner(System.in);
-        
-        String unidadEntrada;
-        String unidadSalida;
-        double cantidad;
-    
-        double operacion = unidadEntrada.equals("kb") 
-        ? (double) operacion = unidadSalida.equals("kb") 
-            ? cantidad * 1
-            : (double) operacion = unidadSalida.equals("mb")
-                ? cantidad * 1000
-                : (double) operacion = unidadSalida.equals("gb")
-                    ? cantidad * 1000 * 1000
-                    : cantidad * 0 
-        : cantidad * 0;
-
-
-        scanner.close();
-    }
-}
-*/
-=======
->>>>>>> e0de91d44252789d7b06f6ad47ba676ad71f0090
