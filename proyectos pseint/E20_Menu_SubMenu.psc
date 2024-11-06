@@ -23,14 +23,16 @@ Fin Funcion
 Funcion opcionUsuarioSub <- subMenu
 	nombreUsuario <- "admin"
 	contraseña <- "abc123.,"
+	fallos <- 0
 	Repetir
 		Escribir "Nombre de usuario: "
 		Leer userName
 		Escribir "Contraseña: "
 		Leer passWord
 		Escribir "Nombre de usuario o contraseña erróneos"
-	Hasta Que userName = nombreUsuario y passWord = contraseña
-	
+		fallos <- fallos + 1
+	Hasta Que userName = nombreUsuario y passWord = contraseña o fallos > 3
+	 
 	Escribir "¡Has hecho login correctamente!"
 	
 	Repetir
