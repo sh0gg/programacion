@@ -1,4 +1,4 @@
-package ud2.ejercicioscondicionales;
+package ud2.ejerciciosbucles;
 
 
 import java.util.*;

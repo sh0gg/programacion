@@ -19,7 +19,7 @@ public class DibujarCirculo {
                 double distancia = Math.sqrt(Math.pow(x - radio, 2) + Math.pow(y - radio, 2));
 
                 if (distancia <= radio) {
-                    System.out.print("#");
+                    System.out.print("=60");
                 } else {
                     System.out.print(" ");
                 }
