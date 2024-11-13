@@ -1,6 +1,5 @@
 package ud2.ejercicioscondicionales;
 
-
 public class EP0411 {
     public static int mcd(int a, int b) {
 
