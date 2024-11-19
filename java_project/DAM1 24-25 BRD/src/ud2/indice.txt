@@ -1,0 +1,67 @@
+Condicionales (UD2.1.Apuntes.Condicion…)​(UD02.Ejercicios Propues…)
+
+EP0211: Determina si un número es capicúa.
+EP0212: Calcula la letra del DNI a partir de un número.
+EP0213: Verifica si hay suficiente comida para animales o calcula la ración.
+EP0214: Convierte un número entre 1 y 99 en su representación textual.
+EP0215: Calcula el área de un triángulo validando valores positivos.
+EP0216: Obtiene el valor absoluto de un número usando operador ternario.
+EP0217: Juego para sumar números aleatorios.
+EP0218: Extiende el juego para incluir suma, resta y multiplicación.
+EP0219: Convierte un ángulo en grados a radianes.
+EP0220_Login: Verifica un usuario y contraseña correctos.
+EP0221_JuegoCuantoTiempo: Juego de estimación de tiempo transcurrido.
+EP0222_Ahorcado: Dibuja un ahorcado según el número de fallos.
+
+
+Bucles (UD2.2.Apuntes.Bucles (1))​(UD02.Ejercicios Propues…)
+
+E0301: Identifica si un número es par, positivo y su cuadrado.
+E0302: Estadísticas de edades de alumnos.
+E0303: Juego del número secreto.
+E0304: Determina el árbol más alto.
+E0305: Juego de cálculo mental para sumar números.
+E0306: Muestra números del 1 al n.
+E0307: Imprime múltiplos de 7 menores a 100.
+E0308: Calcula la media de 10 números.
+E0309: Tabla de multiplicar de un número entre 1 y 10.
+E0310: Suma de los primeros 10 números impares.
+E0311_Factorial: Calcula el factorial de un número.
+E0312: Verifica si hay suspensos en 5 calificaciones.
+E0313: Clasifica 6 notas en aprobados, condicionados y suspensos.
+E0314: Muestra las tablas de multiplicar del 1 al 10.
+E0315: Dibuja un triángulo rectángulo con n elementos.
+
+
+Funciones (UD2.3.Apuntes.Funciones…)​(UD02.Ejercicios Propues…)
+
+EP0411: Calcula la superficie y volumen de una esfera.
+EP0412: Calcula la distancia entre dos puntos.
+EP0413: Muestra los primeros n números pares.
+EP0414: Convierte días, horas y minutos a segundos.
+EP0415: Calcula la diferencia en minutos entre dos horarios.
+EP0416: Muestra los divisores primos de un número.
+EP0417: Verifica si dos números son amigos.
+EP0418: Genera una serie de números aleatorios.
+E0401: Imprime n veces un mensaje.
+E0402: Muestra números entre dos valores.
+E0403: Calcula área o volumen de un cilindro según una opción.
+E0404: Devuelve el máximo de dos números.
+E0405_EsVocal: Verifica si un carácter es una vocal.
+E0406_Primo: Determina si un número es primo.
+E0407: Devuelve la cantidad de divisores primos de un número.
+E0408: Calculadora con las operaciones básicas.
+
+
+Recursividad (UD2.3.Apuntes.Funciones…)​(UD02.Ejercicios Propues…)
+
+E0410: Calcula potencias de forma recursiva e iterativa.
+E0411_MCD: Calcula el máximo común divisor recursivamente.
+E0412_Fibonacci: Calcula el término enésimo de la serie de Fibonacci.
+
+
+Excepciones (UD02.4.Apuntes.Excepcio…)
+
+ExcepcionTiposEntrada: Captura excepciones por entrada inválida.
+LeerHastaCorrecto: Repite la solicitud de datos hasta que sean correctos.
+FuncionLeerEntero: Devuelve un entero validando excepciones.
