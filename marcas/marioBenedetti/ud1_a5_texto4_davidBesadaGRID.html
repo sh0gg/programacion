@@ -24,7 +24,8 @@
 
         header {
             background-color: #FAEBD7;
-            display: flex;
+            display: grid;
+            grid-template-columns:50% 75px;
             justify-content: space-between;
             align-items: center;
             padding: 10px;
@@ -41,8 +42,8 @@
         }
 
         nav {
-            display: flex;
-            justify-content: flex-start;
+            display: grid;
+            grid-template-columns: 150px 150px 150px;
             background-color: #323232;
         }
 
@@ -62,14 +63,12 @@
         }
 
         #libros {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: 24% 24% 24% 24%;
             justify-content: space-around;
         }
 
         #libros>.libro {
-            flex: 1 1 220px;
             border: 1px solid #d9d9d9;
             padding-left: 15px;
             padding-right: 15px;
@@ -85,8 +84,9 @@
                 font-size: 90%;
             }
 
-            #libros>.libro {
-                flex: 1 1 calc(50% - 20px);
+            #libros {
+                grid-template-columns: 2fr 2fr;
+                grid-template-rows: 1fr 1fr;
             }
         }
 
@@ -101,8 +101,9 @@
                 padding: 10px;
             }
 
-            #libros>.libro {
-                flex: 1 1 100%;
+            #libros {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
             }
         }
 
