@@ -1,8 +1,12 @@
 package ud2.DBRexamen;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 // Ejercicio hecho por David Besada
 
 import java.util.Scanner;
+
+import org.junit.jupiter.api.Test;
 
 public class ChiclesRegalo {
 
@@ -72,5 +76,15 @@ public class ChiclesRegalo {
             }
         }
         return resultado;
+    }
+
+    @Test
+    public void Testing() {
+        assertEquals(31, totalChicles(25, 5, 1));
+        assertEquals(6, totalChicles(5, 5, 1));
+        assertEquals(111, totalChicles(100, 10, 1));
+        assertEquals(100, totalChicles(100, 0, 0));
+        assertEquals(-1, totalChicles(20, 2, 5));
+        assertEquals(-1, totalChicles(10, -1, 0));
     }
 }

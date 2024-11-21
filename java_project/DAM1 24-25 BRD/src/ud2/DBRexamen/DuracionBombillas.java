@@ -3,13 +3,15 @@ package ud2.DBRexamen;
 // Ejercicio hecho por David Besada
 
 import java.util.Scanner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.Test;
 
 public class DuracionBombillas {
 
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        
+
         System.out.println("¿Porqué se ha roto esta bombilla?");
         System.out.println("=================================");
         System.out.println("¿Cuántas horas puede alcanzar encendida?");
@@ -81,4 +83,21 @@ public class DuracionBombillas {
         }
         return resultado;
     }
+
+    @Test
+    public void causaFinBombillaTest() {
+        assertEquals("ERROR", causaFinBombilla(100, 100, 100));
+        assertEquals("ERROR", causaFinBombilla(1000, -10, 10));
+        assertEquals("ERROR", causaFinBombilla(0, 10, 10));
+        assertEquals("ERROR", causaFinBombilla(1000, 10, 0));
+        assertEquals("ENCENDIDOS", causaFinBombilla(500, 400, 1));
+        assertEquals("HORAS", causaFinBombilla(1000, 10000, 1));
+        assertEquals("HORAS", causaFinBombilla(1000, 200, 10));
+        assertEquals("HORAS", causaFinBombilla(2000, 700, 3));
+        assertEquals("ENCENDIDOS", causaFinBombilla(2000, 600, 3));
+        assertEquals("ENCENDIDOS", causaFinBombilla(1000, 100, 1));
+        assertEquals("ENCENDIDOS", causaFinBombilla(1000, 100, 9));
+        assertEquals("ENCENDIDOS + HORAS", causaFinBombilla(1000, 100, 10));
+    }
+
 }
