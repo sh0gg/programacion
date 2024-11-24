@@ -1,0 +1,48 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.biblioteca {
+    text-align: center;
+    padding: 0;
+    background-image: 
+        url('decoration.png'),
+        url('old_paper.jpg');
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+    background-position: center, center;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.biblioteca h1 {
+    font-size: 6rem;
+    color: red;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.libros {
+    width: 100%;
+    height: 145px;
+    background-image: url('libros.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
