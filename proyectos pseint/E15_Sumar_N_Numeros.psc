@@ -1,4 +1,4 @@
-Algoritmo Sumar_N_Numeros
+Algoritmo E15_Sumar_N_Numeros
 	Escribir "¡Tus amigos y tu queréis comprar algo!"
 	Leer objeto
 	Escribir "¿Cuánto vale un/una " objeto "?"
