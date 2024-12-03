@@ -28,7 +28,22 @@ public class MinimoComunMultiplo {
         int multiplosA = 1;
         int multiplosB = 1;
 
-        
+        if (aBase < bBase) {
+            while (a != b) {
+                a = aBase + a;
+              //  System.out.printf("Agreguémos multipos a %d : %d %n", aBase, a);
+                if (a > b) {
+                   // System.out.printf("%d es mayor que %d, vamos a agregar múltiplos de %d %n", a, b, bBase);
+                   // System.out.printf("Agreguémos multipos a %d : %d %n", bBase, b);
+                    b = bBase + b;
+                    
+                   // System.out.printf("%d es diferente de %d, continuemos... %n", a, b);
+                }
+                
+            }
+        }
+        System.out.printf("%d es igual a %d... ¡GENIAL! %n", a, b);
+
         // System.out.printf("%d es igual a %d... ¡GENIAL! %n", a, b);
         int mcm = a;
         System.out.printf("El MCM de %d y %d es %d %n", aBase, bBase, mcm );
