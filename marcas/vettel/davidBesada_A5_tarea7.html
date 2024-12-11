@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vettel compara su carrera con la de Senna</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #353535;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+            box-sizing: border-box;
+            transition-property: background-color;
+            transition-duration: 2s;
+            transition-timing-function: ease-in;
+        }
+
+        body:hover {
+            background-color: #8A0808;
+        }
+
+        .article-container {
+            background-color: #d3d3d3;
+            box-shadow: 0 4px 8px #505050;
+            width: 95%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+            box-shadow: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+
+        .article-container:hover {
+            box-shadow: 30px 30px 40px #F5A9BC;
+            transition: box-shadow 1.8s ease-in-out;
+        }
+
+        .article-container h1 {
+            color: #151515;
+            text-shadow: 2px 2px 5px #505050;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .article-container h3 {
+            text-transform: uppercase;
+            font-size: 20px;
+            margin: 20px 0;
+            padding: 20px 7px 250px 7px;
+            letter-spacing: 1.125pt;
+        }
+
+        .vettel {
+            color: white;
+            background-image: url(vettel.jpg);
+            background-repeat: no-repeat;
+            background-size: 680px;
+            transition-property: background-position;
+            transition-duration: 2s;
+            transition-timing-function: ease-in;
+        }
+
+        .vettel:hover {
+            background-position: right;
+        }
+
+        .text-columns {
+            column-count: 3;
+            column-gap: 20px;
+            text-align: justify;
+            font-size: 14px;
+            line-height: 1.5;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="article-container">
+        <h1>Vettel compara su carrera con la de Senna en 1991</h1>
+        <div class="vettel">
+            <h3>POR SU PROBLEMA CON LA CAJA DE CAMBIOS</h3>
+            <div class="text-columns">
+                Sebastian Vettel comparó su resultado en el Gran Premio de Brasil, donde fue segundo, con el triunfo del
+                legendario Ayrton Senna en esta misma carrera en 1991, también con problemas en el cambio de su bólido
+                durante casi toda la prueba. "Cuando me avisaron por radio del problema tuve que bajar la potencia del
+                motor
+                y limitar el uso del cambio.
+                Tuve que usar marchas largas en todas partes y ahí es cuando me vino a la mente la comparación (con
+                Senna)",
+                dijo el germano. Vettel, ganador de once carreras y quince 'poles' tras ganar su segundo título
+                consecutivo,
+                dijo que lo de
+                hoy "no puede llamarse mala suerte". "Si algo así pasa, no está en tus manos", dijo.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
