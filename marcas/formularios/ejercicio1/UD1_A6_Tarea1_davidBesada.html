@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -16,8 +16,8 @@
         }
 
         header {
-            max-width: 800px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
         }
 
         header h1 {
@@ -29,11 +29,12 @@
         main {
             font-size: 10pt;
             color: white;
+            display: flex;
+            justify-content: center;
         }
 
         #contenido {
-            max-width: 700px;
-            margin: 0 auto;
+            width: 800px;
             background-color: SteelBlue;
             padding: 20px;
         }
@@ -58,9 +59,11 @@
             margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
+            gap: 40px;
         }
 
         .textos input {
+            flex-grow: 1;
             width: 200px;
         }
 
@@ -92,6 +95,14 @@
                     <label for="edad">Edad: </label>
                     <input type="text" id="edad" name="edad" /> <br />
                 </div>
+                <div class="textos">
+                    <label for="tlf">Teléfono: </label>
+                    <input type="number" id="tlf" name="tlf" /> <br />
+                </div>
+                <div class="textos">
+                    <label for="mail">Email: </label>
+                    <input type="email" id="mail" name="mail" /> <br />
+                </div>
             </fieldset>
             <fieldset>
                 <p>Productos que te interesan: </p>
@@ -116,10 +127,10 @@
             </fieldset>
             <fieldset>
                 <p>¿Quieres que contactemos contigo?</p>
-                <input type="radio" name="contacto" id="tlf" value="tlf">
-                <label for="tlf">Sí, por teléfono</label>
-                <input type="radio" name="contacto" id="mail" value="mail">
-                <label for="mail">Sí, por email</label>
+                <input type="radio" name="contacto" id="por_tlf" value="por_tlf">
+                <label for="por_tlf">Sí, por teléfono</label>
+                <input type="radio" name="contacto" id="por_mail" value="por_mail">
+                <label for="por_mail">Sí, por email</label>
                 <input type="radio" name="contacto" id="no" value="no">
                 <label for="no">No</label>
             </fieldset>
