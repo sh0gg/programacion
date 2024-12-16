@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de contacto</title>
+    <style>
+
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: #cedfef;
+        }
+
+        header {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-variant: small-caps;
+            color: darkslateblue;
+
+        }
+
+        main {
+            font-size: 10pt;
+            color: white;
+        }
+
+        #contenido {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: SteelBlue;
+            padding: 20px;
+        }
+
+        #contenido fieldset {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        input {
+            border-radius: 5px;
+            border-color: lightsteelblue;
+            border-width: 3px;
+        }
+
+        input:required {
+            border-color: red;
+        }
+
+        .textos {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .textos input {
+            width: 200px;
+        }
+
+        select {
+            margin-bottom: 10px;
+            width: 95%;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Formulario de contacto</h1>
+    </header>
+    <main>
+        <form id="contenido">
+            <fieldset>
+                <legend>Datos personales</legend>
+                <div class="textos">
+                    <label for="apellidos">Apellidos: </label>
+                    <input type="text" id="apellidos" name="apellidos" required /> <br />
+                </div>
+                <div class="textos">
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" id="nombre" name="nombre" required /> <br />
+                </div>
+                <div class="textos">
+                    <label for="edad">Edad: </label>
+                    <input type="text" id="edad" name="edad" /> <br />
+                </div>
+            </fieldset>
+            <fieldset>
+                <p>Productos que te interesan: </p>
+                <select name="productos" size="9" multiple>
+                    <optgroup label="Raquetas">
+                        <option value="padel">Padel</option>
+                        <option value="tenis">Tenis</option>
+                        <option value="badminton">Badminton</option>
+                        <option value="tenisMesa">Tenis de mesa</option>
+                    </optgroup>
+                    <optgroup label="Raquetero">
+                        <option value="padel">Padel</option>
+                        <option value="tenis">Tenis</option>
+                        <option value="badminton">Badminton</option>
+                    </optgroup>
+                </select>
+                <br />
+                <input type="checkbox" name="deportista" id="deportista">
+                <label for="deportista">Practico deporte habitualmente</label> <br />
+                <input type="checkbox" name="fumador" id="fumador">
+                <label for="fumador">Fumo</label>
+            </fieldset>
+            <fieldset>
+                <p>¿Quieres que contactemos contigo?</p>
+                <input type="radio" name="contacto" id="tlf" value="tlf">
+                <label for="tlf">Sí, por teléfono</label>
+                <input type="radio" name="contacto" id="mail" value="mail">
+                <label for="mail">Sí, por email</label>
+                <input type="radio" name="contacto" id="no" value="no">
+                <label for="no">No</label>
+            </fieldset>
+            <fieldset>
+                <input type="reset" value="Limpiar" id="limpiar" />
+                <input type="submit" value="Enviar" id="enviar" /> 
+            </fieldset>
+        </form>
+    </main>
+
+</body>
+
+</html>
