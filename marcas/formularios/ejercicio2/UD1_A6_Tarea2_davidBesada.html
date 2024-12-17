@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de contacto</title>
+    <style>
+        header {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #AD6FA0;
+        }
+
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        main {
+            margin: 0 auto;
+        }
+
+        #contenido {
+            width: 60%;
+        }
+
+        #botones {
+            display: flex;
+            gap: 20px;
+            justify-content: right;
+        }
+
+        .button {
+            color: #AD6FA0;
+            background-color: lightgray;
+            border-radius: 2px;
+            padding: 10px;
+        }
+
+        li,
+        .pregunta {
+            color: #9D9FF9;
+        }
+
+        .campo {
+            color: #444444;
+            font-weight: bold;
+        }
+
+        fieldset {
+            margin: 5px;
+            padding-top: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Cuestionario de HTML</h1>
+    </header>
+    <main>
+        <form id="contenido">
+            <ol>
+                <li>
+                    <fieldset>
+                        <p class="pregunta">
+                            Las etiquetas &lt;ol&gt; y &lt;li&gt; se emplean para crear:
+                        </p>
+                        <div class="campo">
+                            <label for="a1">a.</label>
+                            <input type="radio" name="q1" id="a1" value="a1">
+                            <label for="a1">Una tabla</label>
+                        </div>
+                        <div class="campo">
+                            <label for="b1">b.</label>
+                            <input type="radio" name="q1" id="b1" value="b1">
+                            <label for="b1">Una lista ordenada</label>
+                        </div>
+                        <div class="campo">
+                            <label for="c1">a.</label>
+                            <input type="radio" name="q1" id="c1" value="c1">
+                            <label for="c1">Una lista desordenada</label>
+                        </div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset>
+                        <p class="preguntas">
+                            El HTML, para definir que el idioma principal de una página es el español se emplea:
+                        </p>
+                        <div class="campo">
+                            <label for="a2">a.</label>
+                            <input type="radio" name="q2" id="a2" value="a2">
+                            <label for="a2">&lt;html lang="es"&gt;</label>
+                        </div>
+                        <div class="campo">
+                            <label for="b2">b.</label>
+                            <input type="radio" name="q2" id="b2" value="b2">
+                            <label for="b2">&lt;head id="es"&gt;</label>
+                        </div>
+                        <div class="campo">
+                            <label for="c2">a.</label>
+                            <input type="radio" name="q2" id="c2" value="c2">
+                            <label for="c2">&lt;head lang="es"&gt;</label>
+                        </div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset>
+                        <label for="q3" class="preguntas">Indica que etiqueta se usa en el HTML para definir el título
+                            de una tabla:</label>
+                        <input type="text" name="q3" id="q3">
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset>
+                        <p class="preguntas">
+                            El HTML, para definir que el idioma principal de una página es el español se emplea:
+                        </p>
+                        <div class="campo">
+                            <label for="a4">a.</label>
+                            <input type="radio" name="q4" id="a4" value="a4">
+                            <label for="a4">Una fila en una tabla</label>
+                        </div>
+                        <div class="campo">
+                            <label for="b4">b.</label>
+                            <input type="radio" name="q4" id="b4" value="b4">
+                            <label for="b4">Un elemento en una lista de definición</label>
+                        </div>
+                        <div class="campo">
+                            <label for="c4">a.</label>
+                            <input type="radio" name="q4" id="c4" value="c4">
+                            <label for="c4">Una celda en una tabla</label>
+                        </div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset>
+                        <label for="q5" class="preguntas">
+                            Describe cómo se puede incluir el estilo CSS en un página HTML:
+                        </label> <br />
+                        <textarea name="q5" id="q5"></textarea>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset>
+                        <p class="preguntas">
+                            Selecciona las afirmaciones que son verdaderas:
+                        </p>
+                        <div class="campo">
+                            <input type="checkbox" id="aQ6" name="aQ6">
+                            <label for="aQ6">En HTML, para crear un hipervinculo se usa la etiqueta
+                                &lt;href&gt;.</label>
+                        </div>
+                        <div class="campo">
+                            <input type="checkbox" id="bQ6" name="bQ6">
+                            <label for="bQ6">Los elementos de una lista desplegable se definen con li.</label>
+                        </div>
+                        <div class="campo">
+                            <input type="checkbox" id="cQ6" name="cQ6">
+                            <label for="cQ6">Los atributos &lt;rowspan&gt; y &lt;colspan&gt; son atributos de la
+                                etiqueta div,</label>
+                        </div>
+                        <div class="campo">
+                            <input type="checkbox" id="dQ6" name="dQ6">
+                            <label for="dQ6">Las etiquetas &lt;h1&gt; y &lt;h2&gt; se usan para definir
+                                encabezados.</label>
+                        </div>
+                        <div class="campo">
+                            <input type="checkbox" id="eQ6" name="eQ6">
+                            <label for="eQ6">La etiqueta &lt;ol&gt; debe ir definida dentro de la etiqueta
+                                &lt;li&gt;.</label>
+                        </div>
+                        <div class="campo">
+                            <input type="checkbox" id="fQ6" name="fQ6">
+                            <label for="fQ6">La etiqueta &lt;li&gt; debe ir definida dentro de la etiqueta
+                                &lt;ul&gt;.</label>
+                        </div>
+                    </fieldset>
+                </li>
+            </ol>
+            <div id="botones">
+                <input class="button" type="reset" value="Limpiar" id="limpiar" />
+                <input class="button" type="submit" value="Comprobar" id="comprobar" />
+            </div>
+        </form>
+    </main>
+
+</body>
+
+</html>
