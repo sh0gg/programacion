@@ -40,7 +40,6 @@ public class EP0514_Sueldos {
             return;
         }
 
-        // Ordenar sueldos de forma decreciente
         Collections.sort(sueldos, Collections.reverseOrder());
 
         double max = sueldos.get(0);
@@ -55,7 +54,6 @@ public class EP0514_Sueldos {
                 porDebajoMedia++;
         }
 
-        // Mostrar resultados
         System.out.println("Sueldos ordenados de forma decreciente:");
         for (double sueldo : sueldos) {
             System.out.print(sueldo + " ");
@@ -65,7 +63,6 @@ public class EP0514_Sueldos {
         System.out.println("Media de sueldos: " + media);
         System.out.println("Sueldos por encima de la media: " + porEncimaMedia);
         System.out.println("Sueldos por debajo de la media: " + porDebajoMedia);
-    
 
         scanner.close();
     }
