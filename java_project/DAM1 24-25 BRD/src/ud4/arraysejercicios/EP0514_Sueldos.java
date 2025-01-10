@@ -2,6 +2,7 @@ package ud4.arraysejercicios;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collections;
 
 /**
  * Autor: David Besada Ramilo
@@ -12,6 +13,7 @@ public class EP0514_Sueldos {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Double> sueldos = new ArrayList<>();
+        double suma = 0;
 
         System.out.println("Encuesta de nivel adquisitivo:");
         System.out.println("Introduce los sueldos de los habitantes (introduce -1 para finalizar):");
@@ -33,30 +35,38 @@ public class EP0514_Sueldos {
         }
 
         if (sueldos.isEmpty()) {
-            System.out.println("No se han registrado sueldos.");
-        } else {
-            double suma = 0;
-            double max = (double) sueldos.get(0);
-            double min = (double) sueldos.get(0);
-
-            for (double sueldo : sueldos) {
-                suma += sueldo;
-                if (sueldo > max)
-                    max = sueldo;
-                if (sueldo < min)
-                    min = sueldo;
-            }
-
-            double promedio = suma / sueldos.size();
-
-            System.out.println("\nResultados de la encuesta:");
-            System.out.println("Número de encuestados: " + sueldos.size());
-            System.out.println("Sueldo promedio: " + promedio);
-            System.out.println("Sueldo máximo: " + max);
-            System.out.println("Sueldo mínimo: " + min);
+            scanner.close();
+            System.out.println("No se introdujeron sueldos.");
+            return;
         }
+
+        // Ordenar sueldos de forma decreciente
+        Collections.sort(sueldos, Collections.reverseOrder());
+
+        double max = sueldos.get(0);
+        double min = sueldos.get(sueldos.size() - 1);
+        double media = suma / sueldos.size();
+
+        int porEncimaMedia = 0, porDebajoMedia = 0;
+        for (double sueldo : sueldos) {
+            if (sueldo > media)
+                porEncimaMedia++;
+            else if (sueldo < media)
+                porDebajoMedia++;
+        }
+
+        // Mostrar resultados
+        System.out.println("Sueldos ordenados de forma decreciente:");
+        for (double sueldo : sueldos) {
+            System.out.print(sueldo + " ");
+        }
+        System.out.println("\nSueldo máximo: " + max);
+        System.out.println("Sueldo mínimo: " + min);
+        System.out.println("Media de sueldos: " + media);
+        System.out.println("Sueldos por encima de la media: " + porEncimaMedia);
+        System.out.println("Sueldos por debajo de la media: " + porDebajoMedia);
+    
 
         scanner.close();
     }
 }
-
