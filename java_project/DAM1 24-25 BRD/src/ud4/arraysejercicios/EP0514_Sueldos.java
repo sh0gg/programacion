@@ -1,7 +1,6 @@
 package ud4.arraysejercicios;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -12,7 +11,7 @@ import java.util.Scanner;
 public class EP0514_Sueldos {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList sueldos = new ArrayList<>();
+        ArrayList<Double> sueldos = new ArrayList<>();
 
         System.out.println("Encuesta de nivel adquisitivo:");
         System.out.println("Introduce los sueldos de los habitantes (introduce -1 para finalizar):");
