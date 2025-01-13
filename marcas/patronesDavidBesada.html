@@ -1,0 +1,38 @@
+<!--
+
+Diseña un formulario con cuadros de texto que validen los siguientes patrones:
+
+Nombres de personas con la primera letra en mayúsculas y las siguientes en minúsculas. Debe permitir nombres compuestos como María Antonia.
+
+Una contraseña que debe tener como mínimo 6 caracteres (que podrán ser letra minúscula, números o un guión).
+
+Un código de ciclo, teniendo en cuenta que, tiene 7 caracteres, de los cuales, el primero siempre es C, el segundo puede ser S ó M los tres siguientes son letras y los dos últimos números.
+
+Matrículas actuales españolas.
+
+El valor introducido está formado por un mínimo de 5 letras (mayúsculas o minúsculas) y un máximo de 10.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrones</title>
+</head>
+
+<body>
+    <form>
+        <label>Nombre que empiece por mayúsculas, seguidas de minúsculas.</label>
+        <input type="text" id="empiezaPorMayus" name="empiezaPorMayus" required pattern="^[A-Z][a-z]{*}"
+            oninvalid="setCustomValidity('El nombre debe empezar por mayúsculas y continuar con minúsculas.')">
+        <label>Nombre que empiece por A</label>
+        <input type="text" id="empiezaPorA" name="empiezaPorA" required pattern="^A*|^a*"
+            oninvalid="setCustomValidity('El nombre debe empezar por A.')">
+            <button
+    </form>
+
+</body>
+
+</html>
