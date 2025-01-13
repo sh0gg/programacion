@@ -25,14 +25,14 @@ El valor introducido está formado por un mínimo de 5 letras (mayúsculas o min
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #b0f9fc;
+            background-color: #deb0fc;
         }
 
         .contenedor {
             max-width: 700px;
             margin: 30px auto;
             padding: 20px;
-            background-color: #f0f0f08f;
+            background-color: #ffffff2a;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
@@ -119,12 +119,12 @@ El valor introducido está formado por un mínimo de 5 letras (mayúsculas o min
                     oninvalid="setCustomValidity('El código sigue la siguente estructura: CSXXX00 o CMXXX00.')">
 
                 <label>Una matrícula de coche</label>
-                <input type="text" id="codigoCiclo" name="codigoCiclo" required
+                <input type="text" id="matriculaCoche" name="matriculaCoche" required
                     pattern="(([A-Z]|[A-Z]{2})[0-9]{4}[A-Z]{2})|([0-9]{4}[A-Z]{3})"
                     oninvalid="setCustomValidity('Matrículas como XX0000XX, X0000XX o 0000XXX.')">
 
                 <label>El valor introducido está formado por un mínimo de 5 letras (mayúsculas o minúsculas) y un máximo de 10</label>
-                <input type="text" id="codigoCiclo" name="codigoCiclo" required
+                <input type="text" id="cadenaCaracteres" name="cadenaCaracteres" required
                     pattern="[A-Za-z]{5,10}"
                     oninvalid="setCustomValidity('Lo que pone en la etiqueta del campo.')">
 
