@@ -106,12 +106,12 @@ El valor introducido está formado por un mínimo de 5 letras (mayúsculas o min
         <form>
             <div class="formulario">
                 <label>Nombre que empiece por mayúsculas, seguidas de minúsculas.</label>
-                <input type="text" id="empiezaPorMayus" name="empiezaPorMayus" required pattern="^[A-Z][a-z]+"
+                <input type="text" id="empiezaPorMayus" name="empiezaPorMayus" required pattern="^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)(\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)|(\sdel?|\sla)*"
                     oninvalid="setCustomValidity('El nombre debe empezar por mayúsculas y continuar con minúsculas.')">
 
                 <label>Contraseña con mínimo 6 caracteres</label>
                 <input type="password" id="contraseña6caracteres" name="contraseña6caracteres" required
-                    pattern="^[a-z0-9_]+"
+                    pattern="^[a-z0-9_$*\-] {6,}"
                     oninvalid="setCustomValidity('Puedes usar letras minúsculas, números o guiones.')">
 
                 <label>Un código de ciclo</label>
@@ -120,8 +120,8 @@ El valor introducido está formado por un mínimo de 5 letras (mayúsculas o min
 
                 <label>Una matrícula de coche</label>
                 <input type="text" id="matriculaCoche" name="matriculaCoche" required
-                    pattern="(([A-Z]|[A-Z]{2})[0-9]{4}[A-Z]{2})|([0-9]{4}[A-Z]{3})"
-                    oninvalid="setCustomValidity('Matrículas como XX0000XX, X0000XX o 0000XXX.')">
+                    pattern="(([A-Z]|[A-Z]{2})-[0-9]{4}-([A-Z]|[A-Z]{2})) | ([0-9]{4}[A-Z]{3})"
+                    oninvalid="setCustomValidity('Matrículas como XX-0000-XX, X-0000-XX, X-0000-X o 0000XXX.')">
 
                 <label>El valor introducido está formado por un mínimo de 5 letras (mayúsculas o minúsculas) y un máximo de 10</label>
                 <input type="text" id="cadenaCaracteres" name="cadenaCaracteres" required

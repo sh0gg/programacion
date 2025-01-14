@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .formulario {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .formulario label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        form {
+            width: 350px;
+            background-color: SlateGray;
+            border: 2px solid LightSteelBlue;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: white;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input,
+        form select,
+        form button {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        form input:required:invalid,
+        form select:required:invalid {
+            border-color: red;
+        }
+
+        form button {
+            background-color: LightSteelBlue;
+            color: SlateGray;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        form button:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="formulario">
+        <form novalidate>
+            <h3>Datos personales</h3>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="correo@dominio.com" required>
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="P.e. +444323244" required pattern="\+?[0-9\s]+">
+            <label for="pais">País</label>
+            <select id="pais" name="pais" required>
+                <option value="" disabled selected>Selecciona un país</option>
+                <option value="Argentina">Argentina</option>
+                <option value="España">España</option>
+                <option value="México">México</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" name="edad" min="18" max="100" value="18" required>
+            <h3>Datos de tarjeta de crédito</h3>
+            <label for="numero-tarjeta">Número</label>
+            <input type="text" id="numero-tarjeta" name="numero-tarjeta" placeholder="Número de tarjeta" required pattern="\d{16}">
+            <label for="nombre-tarjeta">Nombre</label>
+            <input type="text" id="nombre-tarjeta" name="nombre-tarjeta" placeholder="Nombre del propietario" required>
+            <button type="submit">Realizar compra</button>
+        </form>
+    </div>
+</body>
+
+</html>
