@@ -12,8 +12,7 @@ public class EjArrays10 {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                System.out.print("Introduce el valor para [" + i + "][" + j +
-                        "]: ");
+                System.out.print("Introduce el valor para [" + i + "][" + j + "]: ");
                 matriz[i][j] = sc.nextInt();
                 suma += matriz[i][j];
             }
