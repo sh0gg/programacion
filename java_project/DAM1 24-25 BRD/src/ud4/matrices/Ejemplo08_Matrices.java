@@ -39,9 +39,12 @@ public class Ejemplo08_Matrices {
 
         System.out.println("");
         System.out.println("");
+
         System.out.println(Arrays.deepToString(matriz));
+
         System.out.println("");
         System.out.println("");
+        
         System.out.println(Arrays.deepToString(matriz2));
     }
 
@@ -63,8 +66,8 @@ public class Ejemplo08_Matrices {
             for (int j = 0; j < m[i].length; j++) {
                 m[i][j] = (int) (Math.random() * 10);
             }
-
-            return m;
         }
+        return m;
+
     }
 }
