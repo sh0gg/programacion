@@ -15,30 +15,33 @@
             flex-direction: column;
             align-items: center;
         }
+        
+        h1 {
+            font-size: 1.2em;
+            font-weight: 800;
+        }
 
         header {
-            background-color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-image: url(cabecera.jpeg);
+            background-size: cover;
+            padding-left: 20px;
+            padding-bottom: 25px;
         }
-
-        header h1 {
-            font-size: 36px;
-            color: #800000;
-            margin: 0;
+        header div {
+            display: flex;
+            align-items: center;
         }
-
-        header h2 {
-            font-size: 18px;
+        header div h2 {
+            font-size: 3.8em;
+            color: #80295f;
+        }
+        header div h3 {
+            margin-left: 40px;
+            background-color: #00a985;
+            padding: 10px;
             color: white;
-            background-color: #008000;
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 5px;
-            margin-top: 10px;
         }
-
+        
         .contenedor {
             max-width: 900px;
             width: 100%;
@@ -50,9 +53,9 @@
         }
 
         .contenedor h3 {
-            color: #0046aa;
-            font-size: 24px;
-            text-align: center;
+            color: #00acf0;
+            font-size: 30pt;
+            text-align:left ;     
             margin-bottom: 20px;
         }
 
@@ -144,7 +147,10 @@
 <body>
     <header>
         <h1>ESCUELA DE NEGOCIOS</h1>
-        <h2>PARA LOS QUE BUSCAN ACTUALIZAR SUS CONOCIMIENTOS</h2>
+        <div>
+            <h2>CURSOS</h2>
+            <h3>PARA LOS QUE BUSCAN<br>ACTUALIZAR SUS CONOCIMIENTOS</h3>
+        </div>
     </header>
     <div class="contenedor">
         <h3>ANÁLISIS DE ESTADOS FINANCIEROS</h3>
