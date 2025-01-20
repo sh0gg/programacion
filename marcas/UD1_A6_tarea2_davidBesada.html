@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Examen HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #AD6FA0;
+            font-family: Verdana, sans-serif;
+            text-align: center;
+        }
+
+        p,
+        label {
+            color: #444444;
+        }
+
+        fieldset {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #9D9FF9;
+            border-radius: 5px;
+        }
+
+        legend {
+            color: #9D9FF9;
+            font-weight: bold;
+        }
+
+        /* Ordered List Styles */
+        ol {
+            padding-left: 20px;
+        }
+
+        ol li {
+            color: #444444;
+        }
+
+        .question-text {
+            color: #9D9FF9;
+            margin-bottom: 10px;
+        }
+
+        /* Input Styles */
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        /* Button Styles */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            color: #AD6FA0;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: lightgray;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c5a6c2;
+            color: #6c3c65;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Examen de HTML</h1>
+
+    <form id="html-quiz-form" method="post">
+        <ol>
+            <li>
+                <fieldset>
+                    <legend class="question-text">Las etiquetas &lt;ol&gt; y &lt;li&gt; se emplean para crear:</legend>
+                    <label><input type="radio" name="q1" value="tabla"> Una tabla</label><br>
+                    <label><input type="radio" name="q1" value="lista_ordenada"> Una lista ordenada</label><br>
+                    <label><input type="radio" name="q1" value="lista_desordenada"> Una lista desordenada</label>
+                </fieldset>
+            </li>
+
+            <li>
+                <fieldset>
+                    <legend class="question-text">En HTML, para definir que el idioma principal de una página es el español, se emplea:</legend>
+                    <label><input type="radio" name="q2" value="html_lang"> &lt;html lang="es"&gt;</label><br>
+                    <label><input type="radio" name="q2" value="head_id"> &lt;head id="es"&gt;</label><br>
+                    <label><input type="radio" name="q2" value="head_lang"> &lt;head lang="es"&gt;</label>
+                </fieldset>
+            </li>
+
+            <li>
+                <fieldset>
+                    <legend class="question-text">Indica qué etiqueta se usa en HTML para definir el título de una tabla:</legend>
+                    <input type="text" id="table-title" name="q3" placeholder="Escribe aquí tu respuesta">
+                </fieldset>
+            </li>
+
+            <li>
+                <fieldset>
+                    <legend class="question-text">¿Qué define la etiqueta &lt;td&gt; en HTML?</legend>
+                    <label><input type="radio" name="q4" value="fila"> Una fila en una tabla</label><br>
+                    <label><input type="radio" name="q4" value="lista_definicion"> Un elemento de una lista de definición</label><br>
+                    <label><input type="radio" name="q4" value="celda"> Una celda en una tabla</label>
+                </fieldset>
+            </li>
+
+            <li>
+                <fieldset>
+                    <legend class="question-text">Describe cómo se puede incluir el estilo CSS en una página HTML:</legend>
+                    <textarea id="css-styles" name="q5" rows="4" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </fieldset>
+            </li>
+
+            <li>
+                <fieldset>
+                    <legend class="question-text">Selecciona las afirmaciones que son verdaderas:</legend>
+                    <label><input type="checkbox" name="q6" value="hipervinculo"> En HTML, para crear un hipervínculo se usa la etiqueta &lt;a&gt;.</label><br>
+                    <label><input type="checkbox" name="q6" value="lista_li"> Los elementos de una lista desplegable se definen con &lt;li&gt;.</label><br>
+                    <label><input type="checkbox" name="q6" value="div_rowspan"> Los atributos &lt;rowspan&gt; y &lt;colspan&gt; son atributos de la etiqueta &lt;div&gt;.</label><br>
+                    <label><input type="checkbox" name="q6" value="encabezados"> Las etiquetas &lt;h1&gt; y &lt;h2&gt; se usan para definir encabezados.</label><br>
+                    <label><input type="checkbox" name="q6" value="ol_li"> La etiqueta &lt;ol&gt; debe ir definida dentro de la etiqueta &lt;li&gt;.</label><br>
+                    <label><input type="checkbox" name="q6" value="li_ul"> La etiqueta &lt;li&gt; debe ir definida dentro de la etiqueta &lt;ul&gt;.</label>
+                </fieldset>
+            </li>
+        </ol>
+
+        <div class="buttons">
+            <button type="reset" class="btn">Limpiar</button>
+            <button type="submit" class="btn">Comprobar</button>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Curso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 1.2em;
+            font-weight: 800;
+        }
+
+        header {
+            background-image: url(cabecera.jpeg);
+            background-size: cover;
+            padding-left: 20px;
+            padding-bottom: 25px;
+            max-width: 900px;
+            width: 100%;
+        }
+        header div {
+            display: flex;
+            align-items: center;
+        }
+        header div h2 {
+            font-size: 3.8em;
+            color: #80295f;
+        }
+        header div h3 {
+            margin-left: 40px;
+            background-color: #00a985;
+            padding: 10px;
+            color: white;
+        }
+        
+        .contenedor {
+            max-width: 900px;
+            width: 100%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contenedor h3 {
+            color: #00acf0;
+            font-size: 30pt;
+            text-align:left ;     
+            margin-bottom: 20px;
+        }
+
+        .descripcion-formulario {
+            font-size: 16px;
+            color: #333333;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .iconos {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .icono {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: #555555;
+        }
+
+        .icono img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            border-radius: 55px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .grupo-campo {
+            width: 48%;
+            margin-bottom: 15px;
+        }
+
+        .grupo-campo label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .grupo-campo input {
+            width: 100%;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+            height: 30px;
+            padding-block: 0px;
+            padding-inline: 0px;
+            
+        }
+
+        .grupo-casilla {
+            display: flex;
+            align-items: center;
+            width: 48%;
+        }
+
+        .grupo-casilla input {
+            margin-right: 10px;
+        }
+
+        .boton-enviar {
+            background-color: #008080;
+            color: #ffffff;
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .boton-enviar:hover {
+            background-color: #006666;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ESCUELA DE NEGOCIOS</h1>
+        <div>
+            <h2>CURSOS</h2>
+            <h3>PARA LOS QUE BUSCAN<br>ACTUALIZAR SUS CONOCIMIENTOS</h3>
+        </div>
+    </header>
+    <div class="contenedor">
+        <h3>ANÁLISIS DE ESTADOS FINANCIEROS</h3>
+        <div class="iconos">
+            <div class="icono">
+                <img src="imagen1_tarea4.png" alt="Indicadores Financieros">
+                <p>Conocer y aplicar indicadores financieros para la toma de decisiones estratégicas.</p>
+            </div>
+            <div class="icono">
+                <img src="imagen2_tarea4.png" alt="Puntos Fuertes y Débiles">
+                <p>Detectar cuáles son los puntos fuertes y débiles de una compañía.</p>
+            </div>
+            <div class="icono">
+                <img src="imagen3_tarea4.png" alt="Herramientas de Proyección">
+                <p>Obtener herramientas para proyectar el comportamiento futuro de la empresa.</p>
+            </div>
+        </div>
+        <p class="descripcion-formulario">Ingresa tus datos y te contactaremos a la brevedad.</p>
+        <form>
+            <div class="grupo-campo">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="grupo-campo">
+                <label for="apellido">Apellido *</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div class="grupo-campo">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="grupo-campo">
+                <label for="telefono">Teléfono *</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="grupo-campo">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa">
+            </div>
+            <div class="grupo-campo">
+                <label for="cargo">Cargo</label>
+                <input type="text" id="cargo" name="cargo">
+            </div>
+            <div class="grupo-casilla">
+                <input type="checkbox" id="informacion" name="informacion">
+                <label for="informacion">Quiero recibir información sobre otros programas</label>
+            </div>
+            <div class="grupo-campo">
+                <button type="submit" class="boton-enviar">Quiero más información</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
