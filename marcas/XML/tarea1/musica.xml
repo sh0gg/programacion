@@ -1,0 +1,14 @@
+<colección_musical>
+    <artista nome="Queen">
+        <album nome="A Night at the Opera">
+            <canción nome="Bohemian Rhapsody"/>
+            <canción nome="'39"/>
+        </album>
+    </artista>
+    <artista nome="R.E.M.">
+        <album nome="Life's Rich Pageant">
+            <canción nome="Superman"/>
+            <canción nome="These days"/>
+        </album>
+    </artista>
+</colección_musical>

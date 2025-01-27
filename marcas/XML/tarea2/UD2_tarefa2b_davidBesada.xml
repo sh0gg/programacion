@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<programas>
+    <desde2008a2013 nome="Programas con data &gt; 2008 e &lt; 2013">
+        <programa nome="Notepad++">
+            <licenza tipo="GPL"/>
+            <licenza tipo="LGPL"/>
+            <plataforma nombre="Windows"/>
+        </programa>
+        <programa nome="XML Copy Editor">
+            <licenza tipo="GPL"/>
+            <plataforma nombre="Windows"/>
+            <plataforma nombre="Linux"/>
+        </programa>
+    </desde2008a2013>
+</programas>

@@ -6,9 +6,5 @@ public class ValidarDNI {
         char[] letrasArray = letras.toCharArray();
         return letrasArray[numero % 23] == letra;
     }
-
-    public static void main(String[] args) {
-        System.out.println(esValidoDNI(,));
-    }
     
 }
