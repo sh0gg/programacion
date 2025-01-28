@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta type="copyright" content="Copyright (C) 1996-2021 The Squid Software Foundation and contributors">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ERRO: Este sitio web está prohibido</title>
+<style type="text/css"><!--
+ /* Fondo e tipografía */
+body {
+    background-color: #FFFAE6;
+    font-family: Arial, sans-serif;
+    color: #002379;
+}
+
+/* Títulos */
+h1, h2 {
+    color: #FF5F00;
+    text-align: center;
+}
+
+/* Contido principal */
+#content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ligazóns */
+a {
+    color: #FF9F66;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Bloque de erro */
+#error {
+    background-color: #FF5F00;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Pé de páxina */
+#footer {
+    text-align: center;
+    color: #666666;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+/* Elementos adicionais */
+hr {
+    border: none;
+    border-top: 1px solid #FF9F66;
+    margin: 20px 0;
+}
+
+blockquote {
+    border-left: 5px solid #FF9F66;
+    padding-left: 10px;
+    margin: 0;
+}
+
+
+body
+:lang(fa) { direction: rtl; font-size: 100%; font-family: Tahoma, Roya, sans-serif; float: right; }
+:lang(he) { direction: rtl; }
+ --></style>
+</head><body id="ERR_ACCESS_DENIED">
+<div id="titles">
+<h1>ERRO</h1>
+<h2>Este sitio web está PROHIBIDO no IES Chan do Monte</h2>
+</div>
+<hr>
+
+<div id="content">
+<p>URL: <a href="https://repo1.maven.org/*">https://repo1.maven.org/*</a></p>
+
+<blockquote id="error">
+<p><b>Acceso Denegado</b></p>
+</blockquote>
+
+<p>Lembra: As conexións realizadas dende a rede corporativa son monitorizadas. Asegúrate de facer un uso responsable.</p>
+<p>Se queres comentar algo usa o sistema de <a href="https://ieschandomonte.edu.es/apps/incidencias/">incidencias</a></p>
+<hr>
+<div id="footer">
+<!-- ERR_ACCESS_DENIED -->
+</div>
+</body></html>
