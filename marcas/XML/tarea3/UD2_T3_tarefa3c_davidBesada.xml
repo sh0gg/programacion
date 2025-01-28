@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    - inmobiliaria
+        - vivienda
+            - dueño
+                - nombre
+                - apellidos
+                - teléfono
+                - correo
+            - precioVenta
+            - precioAlquiler
+            - dirección
+                - calle
+                - numero
+                (- portal y letra)
+                - localidad
+                - cp
+            - tamaño
+            - añoConstrucción
+            - distribución
+                - sala
+                - cocina
+                - baño
+                - dormitorios
+            - extras
+                - extra
+                    - garaje, trastero, amueblado... etc.
+-->
+
+<inmobiliaria nombre="Santos Inocentes S.A.">
+    <vivienda tipo="piso">
+        <dueño nombre="Marcos" apellidos="Silva Martínez" teléfono="666444555" email="msilmar@gmail.com"/>
+        <precioVenta cantidad="250000"/>
+        <precioAlquiler cantidad="430"/>
+        <dirección calle="Rúa Bermúdez" numero="114B" portal="4" letra="C" localidad="Carballo" codPostal="750012"/>
+        <tamaño m2="45"/>
+        <añoConstrucción año="2005"/>
+        <distribución huecos="6">
+            <salas cantidad="1">
+                <sala m2="10"/>
+            </salas>
+            <cocinas cantidad="1">
+                <cocina m2="10"/>
+            </cocinas>
+            <baños cantidad="2">
+                <baño1 m2="5"/>
+                <baño2 m2="5"/>
+            </baños>
+            <dormitorios cantidad="2">
+                <dormitorio1 m2="7.5"/>
+                <dormitorio2 m2="7.5"/>
+            </dormitorios>
+        </distribución>
+        <extras>
+            <extra tipo="garaje"/>
+            <extra tipo="amueblado"/>
+            <extra tipo="comentario">No tiene ascensor</extra>
+        </extras>
+    </vivienda>
+    <vivienda tipo="casa">
+        <dueño nombre="José" apellidos="Castellano Pérez" teléfono="666444555" email="jcasper@gmail.com"/>
+        <precioVenta cantidad="500000"/>
+        <precioAlquiler cantidad="950"/>
+        <dirección calle="Lugar dos Aires" numero="72A" portal="" letra="" localidad="Cuntis" codPostal="848452"/>
+        <tamaño m2="95"/>
+        <añoConstrucción año="2001"/>
+        <distribución huecos="10">
+            <salas cantidad="1">
+                <sala m2="15"/>
+            </salas>
+            <cocinas cantidad="1">
+                <cocina m2="15"/>
+            </cocinas>
+            <baños cantidad="4">
+                <baño1 m2="5"/>
+                <baño2 m2="10"/>
+                <baño3 m2="5"/>
+                <baño4 m2="5"/>
+            </baños>
+            <dormitorios cantidad="4">
+                <dormitorio1 m2="10"/>
+                <dormitorio2 m2="10"/>
+                <dormitorio3 m2="10"/>
+                <dormitorio4 m2="10"/>
+            </dormitorios>
+        </distribución>
+        <extras>
+            <extra tipo="garaje"/>
+            <extra tipo="trastero"/>
+            <extra tipo="comentario">No está amueblado</extra>
+        </extras>
+    </vivienda>
+    <vivienda tipo="piso">
+        <dueño nombre="Manuela" apellidos="Orégano Alcázar" teléfono="666444555" email="morealc@gmail.com"/>
+        <precioVenta cantidad="320000"/>
+        <precioAlquiler cantidad="680"/>
+        <dirección calle="Travesía de Cuernas" numero="12B" portal="1" letra="A" localidad="Ribadumia" codPostal="151515"/>
+        <tamaño m2="55"/>
+        <añoConstrucción año="2008"/>
+        <distribución huecos="7">
+            <salas cantidad="2">
+                <sala1 m2="10"/>
+                <sala2 m2="7.5"/>
+            </salas>
+            <cocinas cantidad="1">
+                <cocina m2="7.5"/>
+            </cocinas>
+            <baños cantidad="2">
+                <baño1 m2="5"/>
+                <baño2 m2="5"/>
+            </baños>
+            <dormitorios cantidad="2">
+                <dormitorio1 m2="10"/>
+                <dormitorio2 m2="10"/>
+            </dormitorios>
+        </distribución>
+        <extras>
+            <extra tipo="amueblado"/>
+            <extra tipo="ascensor"/>
+            <extra tipo="trastero"/>
+            <extra tipo="comentario">No hay garaje</extra>
+        </extras>
+    </vivienda>
+    <vivienda tipo="piso">
+        <dueño nombre="Sofía" apellidos="Ortiz de la Torre" teléfono="640202020" email="soforttor@gmail.com"/>
+        <precioVenta cantidad="750000"/>
+        <precioAlquiler cantidad="750"/>
+        <dirección calle="Carrera de las Venturas" numero="55" portal="9" letra="" localidad="A Coruña" codPostal="000000"/>
+        <tamaño m2="65"/>
+        <añoConstrucción año="2021"/>
+        <distribución huecos="8">
+            <salas cantidad="2">
+                <sala1 m2="10"/>
+                <sala2 m2="10"/>
+            </salas>
+            <cocinas cantidad="1">
+                <cocina m2="10"/>
+            </cocinas>
+            <baños cantidad="2">
+                <baño1 m2="5"/>
+                <baño2 m2="5"/>
+                <baño3 m2="5"/>
+            </baños>
+            <dormitorios cantidad="2">
+                <dormitorio1 m2="10"/>
+                <dormitorio2 m2="10"/>
+            </dormitorios>
+        </distribución>
+        <extras>
+            <extra tipo="amueblado"/>
+            <extra tipo="ascensor"/>
+            <extra tipo="trastero"/>
+            <extra tipo="garaje"/>
+            <extra tipo="terraza"/>
+            <extra tipo="comentario">Ático de alta gama</extra>
+        </extras>
+    </vivienda>
+    <vivienda tipo="casa">
+        <dueño nombre="Jaime" apellidos="Barreal Moreno" teléfono="666444555" email="jbarmor@gmail.com"/>
+        <precioVenta cantidad="1300000"/>
+        <precioAlquiler cantidad="1150"/>
+        <dirección calle="Lugar de los Santos" numero="1A" portal="" letra="" localidad="Porriño" codPostal="454554"/>
+        <tamaño m2="200"/>
+        <añoConstrucción año="2015"/>
+        <distribución huecos="12">
+            <salas cantidad="4">
+                <sala1 m2="30"/>
+                <sala2 m2="15"/>
+                <sala3 m2="10"/>
+                <sala4 m2="10"/>
+            </salas>
+            <cocinas cantidad="2">
+                <cocina1 m2="15"/>
+                <cocina2 m2="15"/>
+            </cocinas>
+            <baños cantidad="4">
+                <baño1 m2="10"/>
+                <baño2 m2="10"/>
+                <baño3 m2="10"/>
+                <baño4 m2="10"/>
+            </baños>
+            <dormitorios cantidad="5">
+                <dormitorio1 m2="20"/>
+                <dormitorio1 m2="15"/>
+                <dormitorio1 m2="10"/>
+                <dormitorio1 m2="10"/>
+                <dormitorio2 m2="10"/>
+            </dormitorios>
+        </distribución>
+        <extras>
+            <extra tipo="amueblado"/>
+            <extra tipo="ascensor"/>
+            <extra tipo="trastero"/>
+            <extra tipo="garaje"/>
+            <extra tipo="piscina"/>
+            <extra tipo="jardín de plantas exóticas"/>
+            <extra tipo="comentario">Mansión</extra>
+        </extras>
+    </vivienda>
+</inmobiliaria>

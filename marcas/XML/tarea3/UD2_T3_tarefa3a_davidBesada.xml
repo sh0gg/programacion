@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ciclos_formativos>
+    <familia nome="IFC">
+        <grado tipo="superior">
+            <ciclo nome="DAM">
+                <asignaturas>
+                    <asignatura horasSem="6">SINF</asignatura>
+                    <asignatura horasSem="4">LMAR</asignatura>
+                    <asignatura horasSem="4">IPE</asignatura>
+                    <asignatura horasSem="7">XBD</asignatura>
+                    <asignatura horasSem="3">CD</asignatura>
+                    <asignatura horasSem="8">PROG</asignatura>
+                    <asignatura horasSem="2">ING</asignatura>
+                    <asignatura horasSem="1">SOST</asignatura>
+                </asignaturas>
+            </ciclo>
+            <ciclo nome="DAW">
+                <asignaturas>
+                    <asignatura/>
+                    <asignatura/>
+                    <asignatura/>
+                    <asignatura/>
+                </asignaturas>
+            </ciclo>
+            <ciclo nome="ASIR">
+                <asignaturas>
+                    <asignatura/>
+                    <asignatura/>
+                    <asignatura/>
+                    <asignatura/>
+                </asignaturas>
+            </ciclo>
+        </grado>
+        <grado tipo="medio">
+            <ciclo nome="SMR">
+                <asignaturas>
+                    <asignatura/>
+                    <asignatura/>
+                    <asignatura/>
+                    <asignatura/>
+                </asignaturas>
+            </ciclo>
+        </grado>
+    </familia>
+</ciclos_formativos>

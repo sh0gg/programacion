@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<biblioteca>
+    <libro id="0001">
+        <titulo>Harry Potter y la piedra filosofal</titulo>
+        <autor1>J.K. Rowling</autor1>
+        <autor2/>
+        <añoPub>199X</añoPub>
+        <ISBN>8797521356468SDKSAH</ISBN>
+        <descripción1 xml:lang="es">A Harry Potter le llega una carta comunicándole su inscripción en el colegio Hogwarts... ¿qué misterios le esperarán allí?</descripción1>
+        <descripción2 xml:lang="gl">A Harry Potter chégalle unha carta comunicándolle a súa inscrición no colexio Hogwarts... ¿qué misterios agardarán alí por él?</descripción2>
+    </libro>
+    <libro id="0002">
+        <titulo>Harry Potter y la cámara secreta</titulo>
+        <autor1>J.K. Rowling</autor1>
+        <autor2/>
+        <añoPub>199X</añoPub>
+        <ISBN>873498SD64AS7411233</ISBN>
+        <descripción1 xml:lang="es">Continúa las aventuras del joven mago elegido para vencer al malvado Voldemort en su segundo año de instituto en Hogwarts.</descripción1>
+        <descripción2 xml:lang="gl">Continúa as aventuras do xoven mago elexido para vencer ó malvado Voldemort no seu segundo ano de instituto en Hogwarts.</descripción2>
+    </libro>
+</biblioteca>
