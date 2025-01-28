@@ -36,20 +36,20 @@
         <dirección calle="Rúa Bermúdez" numero="114B" portal="4" letra="C" localidad="Carballo" codPostal="750012"/>
         <tamaño m2="45"/>
         <añoConstrucción año="2005"/>
-        <distribución huecos="6">
-            <salas cantidad="1">
+        <distribución>
+            <salas>
                 <sala m2="10"/>
             </salas>
-            <cocinas cantidad="1">
+            <cocinas>
                 <cocina m2="10"/>
             </cocinas>
-            <baños cantidad="2">
-                <baño1 m2="5"/>
-                <baño2 m2="5"/>
+            <baños>
+                <baño m2="5"/>
+                <baño m2="5"/>
             </baños>
-            <dormitorios cantidad="2">
-                <dormitorio1 m2="7.5"/>
-                <dormitorio2 m2="7.5"/>
+            <dormitorios>
+                <dormitorio m2="7.5"/>
+                <dormitorio m2="7.5"/>
             </dormitorios>
         </distribución>
         <extras>
@@ -65,24 +65,24 @@
         <dirección calle="Lugar dos Aires" numero="72A" portal="" letra="" localidad="Cuntis" codPostal="848452"/>
         <tamaño m2="95"/>
         <añoConstrucción año="2001"/>
-        <distribución huecos="10">
-            <salas cantidad="1">
+        <distribución>
+            <salas>
                 <sala m2="15"/>
             </salas>
-            <cocinas cantidad="1">
+            <cocinas>
                 <cocina m2="15"/>
             </cocinas>
-            <baños cantidad="4">
-                <baño1 m2="5"/>
-                <baño2 m2="10"/>
-                <baño3 m2="5"/>
-                <baño4 m2="5"/>
+            <baños>
+                <baño m2="5"/>
+                <baño m2="10"/>
+                <baño m2="5"/>
+                <baño m2="5"/>
             </baños>
-            <dormitorios cantidad="4">
-                <dormitorio1 m2="10"/>
-                <dormitorio2 m2="10"/>
-                <dormitorio3 m2="10"/>
-                <dormitorio4 m2="10"/>
+            <dormitorios>
+                <dormitorio m2="10"/>
+                <dormitorio m2="10"/>
+                <dormitorio m2="10"/>
+                <dormitorio m2="10"/>
             </dormitorios>
         </distribución>
         <extras>
@@ -98,21 +98,21 @@
         <dirección calle="Travesía de Cuernas" numero="12B" portal="1" letra="A" localidad="Ribadumia" codPostal="151515"/>
         <tamaño m2="55"/>
         <añoConstrucción año="2008"/>
-        <distribución huecos="7">
-            <salas cantidad="2">
-                <sala1 m2="10"/>
-                <sala2 m2="7.5"/>
+        <distribución>
+            <salas>
+                <sala m2="10"/>
+                <sala m2="7.5"/>
             </salas>
-            <cocinas cantidad="1">
+            <cocinas>
                 <cocina m2="7.5"/>
             </cocinas>
-            <baños cantidad="2">
-                <baño1 m2="5"/>
-                <baño2 m2="5"/>
+            <baños>
+                <baño m2="5"/>
+                <baño m2="5"/>
             </baños>
-            <dormitorios cantidad="2">
-                <dormitorio1 m2="10"/>
-                <dormitorio2 m2="10"/>
+            <dormitorios>
+                <dormitorio m2="10"/>
+                <dormitorio m2="10"/>
             </dormitorios>
         </distribución>
         <extras>
@@ -129,22 +129,22 @@
         <dirección calle="Carrera de las Venturas" numero="55" portal="9" letra="" localidad="A Coruña" codPostal="000000"/>
         <tamaño m2="65"/>
         <añoConstrucción año="2021"/>
-        <distribución huecos="8">
-            <salas cantidad="2">
-                <sala1 m2="10"/>
-                <sala2 m2="10"/>
+        <distribución>
+            <salas>
+                <sala m2="10"/>
+                <sala m2="10"/>
             </salas>
-            <cocinas cantidad="1">
+            <cocinas>
                 <cocina m2="10"/>
             </cocinas>
-            <baños cantidad="2">
-                <baño1 m2="5"/>
-                <baño2 m2="5"/>
-                <baño3 m2="5"/>
+            <baños>
+                <baño m2="5"/>
+                <baño m2="5"/>
+                <baño m2="5"/>
             </baños>
-            <dormitorios cantidad="2">
-                <dormitorio1 m2="10"/>
-                <dormitorio2 m2="10"/>
+            <dormitorios>
+                <dormitorio m2="10"/>
+                <dormitorio m2="10"/>
             </dormitorios>
         </distribución>
         <extras>
@@ -163,29 +163,29 @@
         <dirección calle="Lugar de los Santos" numero="1A" portal="" letra="" localidad="Porriño" codPostal="454554"/>
         <tamaño m2="200"/>
         <añoConstrucción año="2015"/>
-        <distribución huecos="12">
-            <salas cantidad="4">
-                <sala1 m2="30"/>
-                <sala2 m2="15"/>
-                <sala3 m2="10"/>
-                <sala4 m2="10"/>
+        <distribución>
+            <salas>
+                <sala m2="30"/>
+                <sala m2="15"/>
+                <sala m2="10"/>
+                <sala m2="10"/>
             </salas>
-            <cocinas cantidad="2">
-                <cocina1 m2="15"/>
-                <cocina2 m2="15"/>
+            <cocinas>
+                <cocina m2="15"/>
+                <cocina m2="15"/>
             </cocinas>
-            <baños cantidad="4">
-                <baño1 m2="10"/>
-                <baño2 m2="10"/>
-                <baño3 m2="10"/>
-                <baño4 m2="10"/>
+            <baños>
+                <baño m2="10"/>
+                <baño m2="10"/>
+                <baño m2="10"/>
+                <baño m2="10"/>
             </baños>
-            <dormitorios cantidad="5">
-                <dormitorio1 m2="20"/>
-                <dormitorio1 m2="15"/>
-                <dormitorio1 m2="10"/>
-                <dormitorio1 m2="10"/>
-                <dormitorio2 m2="10"/>
+            <dormitorios>
+                <dormitorio m2="20"/>
+                <dormitorio m2="15"/>
+                <dormitorio m2="10"/>
+                <dormitorio m2="10"/>
+                <dormitorio m2="10"/>
             </dormitorios>
         </distribución>
         <extras>
