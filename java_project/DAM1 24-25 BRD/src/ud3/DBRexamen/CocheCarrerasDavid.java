@@ -1,4 +1,4 @@
-package ud3.DBRexamen;
+/* package ud3.DBRexamen;
 
 // Ejercicio realizado por David Besada Ramilo
 
@@ -66,7 +66,7 @@ public class CocheCarreras {
         this.autonomia = autonomia;
     }
 
-    public static usarTurbo() {
+        public static usarTurbo() {
             turbosRestantes = turbosRestantes - 1; 
             return distanciaRecorrida = velocidadMaxima 
     }
