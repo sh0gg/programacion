@@ -1,5 +1,6 @@
 package ud4.stringsapuntes;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class E0610 {
@@ -11,7 +12,24 @@ public class E0610 {
         String frase = sc.nextLine();
         sc.close();
 
-        System.out.println(sinEspacios(frase) + " y " + invertirSinEspacios(frase));
+        // frase de ejemplo: "Dábale arroz a la zorra el abad"
+
+        String[] palabras = frase.split(" ");
+        System.out.println(Arrays.toString(palabras));
+
+        palabras = invertir(frase).split(" ");
+        System.out.println(Arrays.toString(palabras));
+
+        char[] letras = sinEspacios(frase).toCharArray();
+        System.out.println(Arrays.toString(letras));
+        System.out.println(String.valueOf(letras));
+
+        letras = sinEspacios(invertir(frase)).toCharArray();
+        System.out.println(Arrays.toString(letras));
+        System.out.println(String.valueOf(letras));
+
+
+        System.out.println(sinEspacios(frase) + " y " + sinEspacios(invertir(frase)));
 
         if (esPalindromo(frase)) {
             System.out.println("¡¡WOW!! ¡¡ESTA CADENA ES UN PALÍNDROMO!!");
@@ -23,23 +41,31 @@ public class E0610 {
 
     private static boolean esPalindromo(String frase) {
         String fraseSinEspacios = sinEspacios(frase);
-        String fraseInvertidaSinEspacios = invertirSinEspacios(frase);
-        return fraseSinEspacios.equals(fraseInvertidaSinEspacios);
+        String fraseInvertidaSinEspacios = sinEspacios(invertir(frase));
+        return fraseSinEspacios.equalsIgnoreCase(fraseInvertidaSinEspacios);
     }
 
-    static String invertirSinEspacios(String frase) {
+    static String invertir(String frase) {
         String fraseInvertida = "";
-        for (int i = frase.length() - 1; i >= 0; i++) {
-            char letra = frase.charAt(i);
-            if (letra != ' ') {
-                quitarTildes(letra);
+        for (int i = frase.length() - 1; i >= 0; i--) {
+            char letra = quitarTildes(frase.charAt(i));
                 fraseInvertida += letra;
-            }
         }
         return fraseInvertida;
     }
 
-    private static void quitarTildes(char letra) {
+    static String sinEspacios(String frase) {
+        String fraseSinEspacios = "";
+        for (int i = 0; i < frase.length(); i++) {
+            char letra = quitarTildes(frase.charAt(i));
+            if (letra != ' ') {
+                fraseSinEspacios += letra;
+            }
+        }
+        return fraseSinEspacios;
+    }
+
+    private static char quitarTildes(char letra) {
         switch (letra) {
             case 'á':
                 letra = 'a';
@@ -73,18 +99,8 @@ public class E0610 {
                 break;
 
         }
+        return letra;
     }
 
-    static String sinEspacios(String frase) {
-        String fraseSinEspacios = "";
-        for (int i = 0; i == frase.length(); i++) {
-            char letra = frase.charAt(i);
-            if (letra != ' ') {
-                quitarTildes(letra);
-                fraseSinEspacios += letra;
-            }
-        }
-        return fraseSinEspacios;
-    }
 
 }
