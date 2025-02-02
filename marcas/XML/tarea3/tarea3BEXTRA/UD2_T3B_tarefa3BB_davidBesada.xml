@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido>
+    <cliente>
+        <nombre>Roberto Movilla</nombre>
+        <direccion_pago>
+            <calle>General Ricardos</calle>
+            <numero>56</numero>
+            <ciudad>Madrid</ciudad>
+            <codigo_postal>28055</codigo_postal>
+        </direccion_pago>
+    </cliente>
+    
+    <envio>
+        <destinatario>Alicia Abad</destinatario>
+        <direccion_envio>
+            <calle>Plaza de la Duquesa</calle>
+            <numero>12</numero>
+            <ciudad>Albacete</ciudad>
+            <codigo_postal>05020</codigo_postal>
+        </direccion_envio>
+    </envio>
+
+    <productos>
+        <producto>
+            <nombre>Cortadora de césped</nombre>
+            <codigo>872-AA</codigo>
+            <precio>148.95</precio>
+            <cantidad>1</cantidad>
+        </producto>
+        <producto>
+            <nombre>Podadora de setos</nombre>
+            <codigo>926-FH</codigo>
+            <precio>7.98</precio>
+            <cantidad>3</cantidad>
+        </producto>
+    </productos>
+
+    <fecha_pedido>1999-10-20</fecha_pedido>
+    <urgente>sí</urgente>
+</pedido>
