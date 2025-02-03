@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<centro>
+    <ciclos xmlns="http://www.ieschandomonte.com/ciclos/">
+        <ciclo id="ASIR" grao="CS">
+            <módulos>
+                <módulo id="MP0370">
+                    <nome>Planificación e administración de redes</nome>
+                    <horas>213</horas>
+                </módulo>
+                <módulo id="MP0371">
+                    <nome>Fundamentos hardware</nome>
+                    <horas>107</horas>
+                </módulo>
+            </módulos>
+            <alumnos xmlns="http://www.ieschandomonte.com/alumnos/">
+                <alumno>
+                    <nome>Xoan</nome>
+                    <apelidos>Cancedo da Foz</apelidos>
+                    <curso>1º</curso>
+                    <datanacemento>06/11/1991</datanacemento>
+                    <nota>Xa fixo outro ciclo</nota>
+                    <módulos>
+                        <módulo id="MP0370" />
+                        <módulo id="MP0370" />
+                    </módulo>
+                </alumno>
+            </alumnos>
+        </ciclo>
+        <ciclo id="DAM" grao="CS" xmlns="http://www.ieschandomonte.com/ciclos/">
+            <módulos>
+                <módulo id="MP0372">
+                    <nome>Programación</nome>
+                    <horas>200</horas>
+                </módulo>
+                <módulo id="MP0373">
+                    <nome>Contornos de desenvolvemento</nome>
+                    <horas>105</horas>
+                </módulo>
+            </módulos>
+            <alumnos xmlns="http://www.ieschandomonte.com/alumnos/">
+                <alumno>
+                    <nome>Juan</nome>
+                    <apelidos>Martinez Martinez</apelidos>
+                    <curso>1º</curso>
+                    <datanacemento>06/11/1995</datanacemento>
+                    <nota>Perdeu a man nun accidente laboral</nota>
+                    <módulos>
+                        <módulo id="MP0372" />
+                        <módulo id="MP0373" />
+                    </módulos>
+                </alumno>
+            </alumnos>
+        </ciclo >
+</ciclos>
+</centro>
