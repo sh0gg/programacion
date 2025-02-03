@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hoteles>
+    <hotel>
+        <nombre>Hotel Gran Vista</nombre>
+        <telefono>+34 987 654 321</telefono>
+        <direccion>
+            <calle>Avenida del Sol</calle>
+            <numero>45</numero>
+        </direccion>
+        <ciudad>Barcelona</ciudad>
+        <pais>España</pais>
+        <estrellas>5</estrellas>
+        <descripcion>Un hotel de lujo con vistas panorámicas y spa.</descripcion>
+        <habitaciones>
+            <individuales>20</individuales>
+            <dobles>50</dobles>
+        </habitaciones>
+    </hotel>
+
+    <hotel>
+        <nombre>Hostal Rincón Serrano</nombre>
+        <telefono>+34 923 456 789</telefono>
+        <direccion>
+            <calle>Calle Mayor</calle>
+            <numero>12</numero>
+        </direccion>
+        <ciudad>Salamanca</ciudad>
+        <pais>España</pais>
+        <estrellas>3</estrellas>
+        <descripcion>Un hostal acogedor en el centro histórico.</descripcion>
+        <habitaciones>
+            <individuales>10</individuales>
+            <dobles>25</dobles>
+        </habitaciones>
+    </hotel>
+</hoteles>
