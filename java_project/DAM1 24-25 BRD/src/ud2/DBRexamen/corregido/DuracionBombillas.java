@@ -1,4 +1,4 @@
-package DBRexamen;
+/*package DBRexamen;
 
 // Ejercicio hecho por David Besada
 
@@ -97,3 +97,4 @@ public class DuracionBombillas {
     }
 
 }
+*/

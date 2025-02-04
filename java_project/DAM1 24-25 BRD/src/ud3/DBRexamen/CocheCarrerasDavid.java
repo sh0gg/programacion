@@ -21,7 +21,7 @@ trueno.mostrar();
 trueno.repostar();
 trueno.mostrar();
 
- */
+
 
 public class CocheCarreras {
 
@@ -71,3 +71,4 @@ public class CocheCarreras {
             return distanciaRecorrida = velocidadMaxima 
     }
 }
+*/

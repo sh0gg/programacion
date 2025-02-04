@@ -1,4 +1,4 @@
-package ud2.DBRexamen;
+/*package ud2.DBRexamen;
 
 // Ejercicio hecho por David Besada
 
@@ -101,3 +101,4 @@ public class MenuFiguras {
     }
 
 }
+*/

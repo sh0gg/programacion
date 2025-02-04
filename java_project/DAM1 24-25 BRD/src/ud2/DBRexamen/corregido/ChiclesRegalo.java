@@ -1,4 +1,4 @@
-package DBRexamen;
+/*package DBRexamen;
 
 // Ejercicio hecho por David Besada
 
@@ -113,3 +113,4 @@ public class ChiclesRegalo {
         // assertEquals(0, totalChicles(0, 2, 1));
     }
 }
+*/

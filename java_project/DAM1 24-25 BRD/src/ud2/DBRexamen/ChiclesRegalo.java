@@ -1,4 +1,4 @@
-package ud2.DBRexamen;
+/*package ud2.DBRexamen;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -88,3 +88,4 @@ public class ChiclesRegalo {
         assertEquals(-1, totalChicles(10, -1, 0));
     }
 }
+*/
