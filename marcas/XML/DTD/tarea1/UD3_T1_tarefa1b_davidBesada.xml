@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE mensaxe SYSTEM "email.dtd">
+<mensaxe>
+   <de>luis@exemplo.com</de>
+   <para>ana@exemplo.com</para>
+   <para>carlos@universidade.es</para>
+   <asunto>Reunión de proxecto</asunto>
+   <corpo>Confirmo a reunión para mañá ás 10:00 AM.</corpo>
+   <adxunto>D:\documentos\axenda.pdf</adxunto>
+</mensaxe>
