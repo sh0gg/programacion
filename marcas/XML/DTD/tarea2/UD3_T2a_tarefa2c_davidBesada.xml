@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ciclo [
+  <!ELEMENT ciclo (codigo*)>
+  <!ELEMENT codigo (#PCDATA)>
+]>
+
+<ciclo>
+  <codigo>Administración de sistemas informáticos</codigo>
+  <codigo>Desenvolvemento de aplicacións multiplataforma</codigo>
+  <codigo>Desenvolvemento de aplicacións web</codigo>
+</ciclo>
