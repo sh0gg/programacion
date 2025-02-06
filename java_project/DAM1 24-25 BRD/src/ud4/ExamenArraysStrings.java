@@ -1,9 +1,16 @@
 package ud4;
 
+import java.util.ArrayList;
+
 // Examen de Arrays y Strings en Java
 // Autor: David Besada
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ExamenArraysStrings {
@@ -13,6 +20,8 @@ public class ExamenArraysStrings {
         trabajarConArrays();
         trabajarConMatrices();
         trabajarConStrings();
+        trabajarConCollections();
+        trabajarConCharacter();
     }
 
     // ================== 1. ARRAYS ==================
@@ -148,5 +157,78 @@ public class ExamenArraysStrings {
         String palindromo = "anilina";
         boolean esPalindromo = new StringBuilder(palindromo).reverse().toString().equalsIgnoreCase(palindromo);
         System.out.println("¿'anilina' es un palíndromo?: " + esPalindromo);
+    }
+
+    // ================== 4. COLLECTIONS ==================
+    public static void trabajarConCollections() {
+        System.out.println("\n===== 4. COLLECTIONS =====");
+
+        // Uso de ArrayList (Lista dinámica)
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("Java");
+        lista.add("Python");
+        lista.add("C++");
+        System.out.println("ArrayList inicial: " + lista);
+
+        // Ordenar la lista
+        Collections.sort(lista);
+        System.out.println("ArrayList ordenado: " + lista);
+
+        // Buscar un elemento
+        int indice = Collections.binarySearch(lista, "Python");
+        System.out.println("Índice de 'Python': " + indice);
+
+        // LinkedList (Lista doblemente enlazada)
+        LinkedList<Integer> numeros = new LinkedList<>();
+        numeros.add(10);
+        numeros.addFirst(5);
+        numeros.addLast(20);
+        System.out.println("LinkedList: " + numeros);
+
+        // Uso de HashSet (Conjunto, no permite duplicados)
+        HashSet<Integer> conjunto = new HashSet<>();
+        conjunto.add(1);
+        conjunto.add(2);
+        conjunto.add(2); // No se añade porque ya existe
+        System.out.println("HashSet (sin duplicados): " + conjunto);
+
+        // Uso de HashMap (Clave-Valor)
+        Map<String, Integer> mapa = new HashMap<>();
+        mapa.put("Alice", 25);
+        mapa.put("Bob", 30);
+        mapa.put("Charlie", 22);
+        System.out.println("HashMap (pares clave-valor): " + mapa);
+
+        // Acceder a un valor por su clave
+        System.out.println("Edad de Alice: " + mapa.get("Alice"));
+
+        // Eliminar un elemento
+        mapa.remove("Bob");
+        System.out.println("HashMap tras eliminar a Bob: " + mapa);
+    }
+
+    // ================== 5. CHARACTER ==================
+    public static void trabajarConCharacter() {
+        System.out.println("\n===== 5. CHARACTER =====");
+
+        char letra = 'A';
+
+        // Verificar si es letra
+        System.out.println("¿'A' es letra?: " + Character.isLetter(letra));
+
+        // Verificar si es dígito
+        System.out.println("¿'7' es un dígito?: " + Character.isDigit('7'));
+
+        // Convertir a minúscula
+        System.out.println("Minúscula de 'A': " + Character.toLowerCase(letra));
+
+        // Convertir a mayúscula
+        System.out.println("Mayúscula de 'b': " + Character.toUpperCase('b'));
+
+        // Verificar si es espacio en blanco
+        System.out.println("¿' ' es espacio?: " + Character.isWhitespace(' '));
+
+        // Verificar si es letra o dígito
+        System.out.println("¿'#' es letra o dígito?: " + Character.isLetterOrDigit('#'));
     }
 }
