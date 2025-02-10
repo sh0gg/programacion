@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE reservas SYSTEM "UD3_T5_tarefa5b_davidBesada.dtd">
+
+<reservas ano="2012">
+  <reserva local="Local Social" bonificacion="10%">
+    <data mes="febreiro" dia="14" horario="dia" />
+    <evento>Quedada moteros</evento>
+    <clienteEmpresa>Los amantes del asfalto</clienteEmpresa>
+  </reserva>
+</reservas>

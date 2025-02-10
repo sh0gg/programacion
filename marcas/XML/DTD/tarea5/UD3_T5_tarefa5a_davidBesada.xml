@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE edificio SYSTEM "UD3_T5_tarefa5a_davidBesada.dtd">
+
+<edificio alquiler="verdadeiro">
+  <enderezo>
+    <rua>Rúa Ponzano</rua>
+    <numero>60</numero>
+    <poboacion>Madrid</poboacion>
+    <provincia>Madrid</provincia>
+    <codigoPostal>28003</codigoPostal>
+  </enderezo>
+  <dataConstrucion ano="1989" mes="febreiro" />
+  <material>Formigón</material>
+</edificio>
