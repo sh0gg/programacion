@@ -7,4 +7,9 @@
     <evento>Quedada moteros</evento>
     <clienteEmpresa>Los amantes del asfalto</clienteEmpresa>
   </reserva>
+    <reserva local="Polideportivo">
+    <data mes="marzo" dia="5"/>
+    <evento>Campeonato mundial de petanca extrema</evento>
+    <clientePersoal>Don Gregorio "El imbatible"</clientePersoal>
+  </reserva>
 </reservas>
