@@ -15,7 +15,9 @@ public class MontanaRusa {
         for (int i = 0; i < alturas.length; i++) {
             if (alturas[i] == alturas[0] && alturas[i] > alturas[alturas.length] && alturas[i] > alturas[i + 1]) {
                 contadorPicos++;
-            } else if (alturas[i] > alturas[i-1] && alturas[i] > alturas[i+1]) {
+            } else if  
+
+                if (alturas[i] > alturas[i-1] && alturas[i] > alturas[i+1]) {
                 contadorPicos++;
             }
         }
