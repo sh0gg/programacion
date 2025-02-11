@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Hardware SYSTEM "UD3_T6_tarefa6B_davidBesada.dtd">
+<Hardware>
+    <Fabricante id="FAB1">
+        <nome>Lenovo</nome>
+        <Web>www.lenovo.com</Web>
+        <correo>contact@lenovo.com</correo>
+    </Fabricante>
+
+    <Espazo>
+        <nome>Aula Informática</nome>
+        <tipo>aula</tipo>
+        <ubicación>Edificio A, Planta 1</ubicación>
+        <ordenador ref="PC1"/>
+        <ordenador ref="PC2"/>
+    </Espazo>
+
+    <Maquina Nome="PC1" fabricante="FAB1">
+        <Info>
+            <Tipo>Portátil</Tipo>
+            <Procesador>Intel Core i5</Procesador>
+            <Memoria>8GB</Memoria>
+            <Disco Capacidade="512GB" Tecnoloxía="SSD"/>
+        </Info>
+        <Config>
+            <OS>Windows 10</OS>
+            <IP>192.168.1.10</IP>
+        </Config>
+    </Maquina>
+
+    <Maquina Nome="PC2" fabricante="FAB1">
+        <Info>
+            <Tipo>Sobremesa</Tipo>
+            <Procesador>AMD Ryzen 7</Procesador>
+            <Memoria>16GB</Memoria>
+            <Disco Capacidade="1TB" Tecnoloxía="SATA"/>
+        </Info>
+        <Config>
+            <OS>Linux</OS>
+            <IP>192.168.1.11</IP>
+        </Config>
+    </Maquina>
+</Hardware>

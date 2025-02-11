@@ -1,0 +1,31 @@
+<!DOCTYPE reservas [
+    <!ELEMENT reservas (reserva*, cliente*)>
+    
+    <!ELEMENT reserva (data_inicio, data_fin)>
+    <!ATTLIST reserva 
+        cliente IDREF #REQUIRED
+        tipo (SA | AD | MP | TI | PC) #REQUIRED>
+    
+    <!ELEMENT data_inicio (observacións?)>
+    <!ATTLIST data_inicio 
+        ano CDATA #REQUIRED
+        mes (xaneiro | febreiro | marzo | abril | maio | xuño | xullo | agosto | setembro | outubro | novembro | decembro) #REQUIRED
+        día CDATA #REQUIRED>
+    
+    <!ELEMENT data_fin (observacións?)>
+    <!ATTLIST data_fin 
+        ano CDATA #REQUIRED
+        mes (xaneiro | febreiro | marzo | abril | maio | xuño | xullo | agosto | setembro | outubro | novembro | decembro) #REQUIRED
+        día CDATA #REQUIRED>
+    
+    <!ELEMENT observacións (#PCDATA)>
+
+    <!ELEMENT cliente (nome, apelidos, mobil, correo?)>
+    <!ATTLIST cliente 
+        id ID #REQUIRED>
+    
+    <!ELEMENT nome (#PCDATA)>
+    <!ELEMENT apelidos (#PCDATA)>
+    <!ELEMENT mobil (#PCDATA)>
+    <!ELEMENT correo (#PCDATA)>
+]>

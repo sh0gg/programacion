@@ -1,0 +1,36 @@
+<!DOCTYPE Hardware [
+    <!ELEMENT Hardware (Fabricante*, Espazo*, Maquina*)>
+
+    <!ELEMENT Fabricante (nome, Web, correo)>
+    <!ELEMENT nome (#PCDATA)>
+    <!ELEMENT Web (#PCDATA)>
+    <!ELEMENT correo (#PCDATA)>
+    <!ATTLIST Fabricante id ID #REQUIRED>
+
+    <!ELEMENT Espazo (nome, tipo, ubicación, ordenador*)>
+    <!ELEMENT tipo (#PCDATA)>
+    <!ELEMENT ubicación (#PCDATA)>
+    <!ELEMENT ordenador EMPTY>
+    <!ATTLIST ordenador ref IDREF #REQUIRED>
+
+    <!ELEMENT Maquina (Info, Config, Notas?)>
+    <!ATTLIST Maquina 
+        Nome ID #REQUIRED
+        fabricante IDREF #REQUIRED>
+
+    <!ELEMENT Info (Tipo, Procesador?, Memoria?, Disco*, (Lectora | Gravadora)?)>
+    <!ELEMENT Tipo (#PCDATA)>
+    <!ELEMENT Procesador (#PCDATA)>
+    <!ELEMENT Memoria (#PCDATA)>
+    <!ELEMENT Disco EMPTY>
+    <!ELEMENT Lectora (#PCDATA)>
+    <!ELEMENT Gravadora (#PCDATA)>
+
+    <!ELEMENT Config (Role*, OS?, IP*, Gateway?)>
+    <!ELEMENT Role (#PCDATA)>
+    <!ELEMENT OS (#PCDATA)>
+    <!ELEMENT IP (#PCDATA)>
+    <!ELEMENT Gateway (#PCDATA)>
+    
+    <!ELEMENT Notas (#PCDATA)>
+]>
