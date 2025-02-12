@@ -1,7 +1,6 @@
 package ud2.elReto;
 
 import java.util.Scanner;
-/* 
 public class SumaDeDigitos {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -38,7 +37,7 @@ public class SumaDeDigitos {
 
             // Imprimir el resultado
             System.out.println(resultado.toString());
+            scanner.close();
         }
     }
 }
-*/
