@@ -9,10 +9,11 @@ public class ConjugarVerbos {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Conjugar Verbos");
-        System.out.println("Dime que verso quieres conjugar: ");
-        String verbo = entrada.nextLine();
-        if (verbo == null || verbo.length() <= 2 || CONJUGACIONES.contains(verbo.substring(verbo.length() - 2))) {
-            System.out.println("No se puede conjugar");
+        System.out.print("Dime qué verbo quieres conjugar: ");
+        String verbo = entrada.nextLine().trim().toLowerCase();
+
+        if (verbo == null || verbo.length() <= 2 || !CONJUGACIONES.contains(verbo.substring(verbo.length() - 2))) {
+            System.out.println("No se puede conjugar.");
             return;
         }
         System.out.println("Presente simple de " + verbo);
