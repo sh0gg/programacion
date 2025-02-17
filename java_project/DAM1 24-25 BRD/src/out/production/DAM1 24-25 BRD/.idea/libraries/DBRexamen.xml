@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="DBRexamen">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ud2/DBRexamen.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

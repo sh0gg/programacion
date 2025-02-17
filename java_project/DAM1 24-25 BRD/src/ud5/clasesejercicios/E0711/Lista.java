@@ -2,8 +2,8 @@ package ud5.clasesejercicios.E0711;
 
 import java.util.ArrayList;
 
-public class E0711 {
-    private ArrayList<Integer> lista;
+public class Lista {
+    private final ArrayList<Integer> lista;
 
     // 1. Constructor que inicializa la tabla con tamaño 0
     public Lista() {
@@ -22,7 +22,7 @@ public class E0711 {
 
     // 4. Insertar un número al principio de la lista
     public void insertarInicio(int numero) {
-        lista.add(0, numero);
+        lista.addFirst(numero);
     }
 
     // 5. Insertar un número en un lugar específico de la lista
@@ -69,7 +69,9 @@ public class E0711 {
 
     public static void main(String[] args) {
         Lista miLista = new Lista();
+        Lista miLista2 = new Lista();
 
+        // Agregamos elementos a miLista
         miLista.insertarFinal(5);
         miLista.insertarFinal(10);
         miLista.insertarInicio(3);
@@ -83,6 +85,27 @@ public class E0711 {
 
         miLista.eliminarPorIndice(2);
         miLista.mostrarLista(); // [3, 7, 10]
+
+        // Agregamos elementos a miLista2
+        miLista2.insertarFinal(20);
+        miLista2.insertarFinal(30);
+        miLista2.insertarFinal(40);
+
+        System.out.println("Lista 2 antes de añadir a la lista 1:");
+        miLista2.mostrarLista(); // [20, 30, 40]
+
+        // Añadir miLista2 a miLista
+        miLista.añadirLista(miLista2);
+
+        System.out.println("Lista 1 después de añadir Lista 2:");
+        miLista.mostrarLista(); // [3, 7, 10, 20, 30, 40]
+
+        // Obtener un elemento por su índice
+        int indiceBuscado = 2;
+        Integer elemento = miLista.obtenerPorIndice(indiceBuscado);
+        if (elemento != null) {
+            System.out.println("Elemento en el índice " + indiceBuscado + ": " + elemento);
+        }
     }
 
 

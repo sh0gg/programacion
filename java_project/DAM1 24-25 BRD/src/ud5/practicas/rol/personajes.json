@@ -1,0 +1,41 @@
+[
+  {
+    "nombre": "Carlitos",
+    "raza": "ELFO",
+    "fuerza": 42,
+    "agilidad": 33,
+    "constitucion": 61,
+    "inteligencia": 77,
+    "intuicion": 23,
+    "presencia": 23,
+    "nivel": 1,
+    "experiencia": 0,
+    "puntosVida": 111
+  },
+  {
+    "nombre": "Harry",
+    "raza": "ENANO",
+    "fuerza": 48,
+    "agilidad": 20,
+    "constitucion": 60,
+    "inteligencia": 22,
+    "intuicion": 79,
+    "presencia": 82,
+    "nivel": 1,
+    "experiencia": 0,
+    "puntosVida": 110
+  },
+  {
+    "nombre": "Padineitor",
+    "raza": "TROLL",
+    "fuerza": 56,
+    "agilidad": 62,
+    "constitucion": 54,
+    "inteligencia": 1,
+    "intuicion": 76,
+    "presencia": 6,
+    "nivel": 1,
+    "experiencia": 0,
+    "puntosVida": 104
+  }
+]
