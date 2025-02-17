@@ -1,0 +1,22 @@
+<!-- 
+  Definición del elemento 'curriculumVitae' que debe contener:
+  - Un subelemento 'presentación'.
+  - Uno o más subelementos 'estudios' o 'experienciaLaboral'.
+  - Cero o más subelementos 'idiomas', 'deportes' o 'otros'.
+  - Cero o más subelementos 'referencias'.
+  - Cero o un subelemento 'observaciones'.
+-->
+
+<!ELEMENT curriculumVitae (presentación, (estudios | experienciaLaboral)+, (idiomas | deportes | otros)*, referencias*, observaciones?)>
+<!ELEMENT presentación (#PCDATA)>
+<!ELEMENT estudios (practicas*)>
+<!ATTLIST estudios notamedia CDATA #IMPLIED>
+<!ELEMENT practicas EMPTY>
+<!ATTLIST practicas empresa CDATA #REQUIRED horas CDATA #REQUIRED>
+<!ELEMENT experienciaLaboral (#PCDATA)>
+<!ELEMENT idiomas EMPTY>
+<!ATTLIST idiomas nombre CDATA "galego" nivel (bajo | medio | alto) "medio">
+<!ELEMENT deportes (#PCDATA)>
+<!ELEMENT otros (#PCDATA)>
+<!ELEMENT referencias (#PCDATA)>
+<!ELEMENT observaciones (#PCDATA)>

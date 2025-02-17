@@ -4,7 +4,7 @@
     <!ELEMENT libro (titulo, editorial, autor+, ano)>
     <!ATTLIST libro 
         ISBN CDATA #REQUIRED>
-
+    
     <!ELEMENT titulo (#PCDATA)>
     <!ELEMENT editorial (#PCDATA)>
     <!ELEMENT autor (#PCDATA)>
@@ -13,9 +13,7 @@
     <!ELEMENT artigo (titulo, revista)>
     
     <!ELEMENT revista (nome, numero, paxina)>
-    <!ATTLIST revista 
-        numero CDATA #REQUIRED>
-
     <!ELEMENT nome (#PCDATA)>
+    <!ELEMENT numero (#PCDATA)>
     <!ELEMENT paxina (#PCDATA)>
 ]>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Informe SYSTEM "UD3_T7_tarefa7b_davidBesada.dtd">
+<Informe>
+    <Descripcion>Informe sobre seguros de clientes.</Descripcion>
+    
+    <Seguro tipo="Edificio">
+        <Numero>123456</Numero>
+        <Cliente-Personal>Juan Pérez</Cliente-Personal>
+    </Seguro>
+
+    <Seguro tipo="Contenido">
+        <Numero>789012</Numero>
+        <Cliente-Empresa>Empresa XYZ S.A.</Cliente-Empresa>
+    </Seguro>
+
+    <FechaInforme FechaInicio="2025-02-17" FechaFin="2025-12-31"/>
+</Informe>

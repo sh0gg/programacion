@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE curriculum SYSTEM "UD3_T8_davidBesada.dtd">
+<curriculum>
+    <personalInfo>
+        <name>David Besada</name>
+        <address>Calle Marcelo Criminal, Carballo, España</address>
+        <phone>+34 123 456 789</phone>
+        <email>davidbesada@gmail.com</email>
+    </personalInfo>
+    <education>
+        <degree>
+            <title>Ingeniería Informática</title>
+            <institution>Universidad Oberta de Catalunya</institution>
+            <year>2023</year>
+        </degree>
+    </education>
+    <experience>
+        <job>
+            <title>Desarrollador de Software</title>
+            <company>Galicloud S. Coop. Galega</company>
+            <years>2023-Actualidad</years>
+            <description>Desarrollo de aplicaciones web y mantenimiento de sistemas.</description>
+        </job>
+    </experience>
+    <skills>
+        <skill>Programación en Java</skill>
+        <skill>Desarrollo web con HTML, CSS y JavaScript</skill>
+        <skill>Base de datos SQL</skill>
+    </skills>
+    <languages>
+        <language>
+            <name>Español</name>
+            <level>Nativo</level>
+        </language>
+        <language>
+            <name>Inglés</name>
+            <level>C1</level>
+        </language>
+    </languages>
+</curriculum>
