@@ -1,18 +1,20 @@
-package ud5.ejemplo.main;
+package ud5.ejemplo;
 
 import ud5.ejemplo.models.Estudiante;
 import ud5.ejemplo.models.Profesor;
 
 public class Main {
     public static void main(String[] args) {
-        // Creando un Estudiante
-        Estudiante estudiante = new Estudiante("Juan Pérez", 20, "A12345");
+        // Crear instancias de Estudiante y Profesor
+        Estudiante estudiante = new Estudiante("Juan Pérez", 20, "2025A123");
+        Profesor profesor = new Profesor("María García", 45, "Matemáticas");
+
+        // Mostrar información del estudiante
+        System.out.println("Información del Estudiante:");
         estudiante.mostrarInfo();
 
-        System.out.println("----------------");
-
-        // Creando un Profesor
-        Profesor profesor = new Profesor("Dra. María López", 45, "Matemáticas");
+        // Mostrar información del profesor
+        System.out.println("\nInformación del Profesor:");
         profesor.mostrarInfo();
     }
 }
