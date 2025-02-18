@@ -1,3 +1,4 @@
+package ud4.arraysestadisticas;
 import java.util.Arrays;
 
 public class ArraysEstadisticas {
