@@ -9,7 +9,7 @@ public class MegaRol {
         while (true) {
             System.out.println("\n🌌 MEGAROL: FOR THE PAX OF THE UNIVERSE 🌌");
             System.out.println("1️⃣ Crear un personaje");
-            System.out.println("2️⃣ Ver personajes disponibles");
+            System.out.println("2️⃣ Ver personajes");
             System.out.println("3️⃣ Iniciar un combate");
             System.out.println("4️⃣ Explorar la mazmorra");
             System.out.println("5️⃣ Salir");

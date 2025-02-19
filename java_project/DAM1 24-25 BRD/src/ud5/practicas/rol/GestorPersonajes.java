@@ -3,6 +3,10 @@ package ud5.practicas.rol;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,12 +21,15 @@ public class GestorPersonajes {
     private static final Random rand = new Random();
     private static final Scanner scanner = new Scanner(System.in);
 
-    /** Cargar personajes desde el archivo JSON */
+    /**
+     * Cargar personajes desde el archivo JSON
+     */
     public static List<Personaje> cargarPersonajes() {
         List<Personaje> personajes = new ArrayList<>();
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(FILE_PATH)) {
-            Type personajeListType = new TypeToken<ArrayList<Personaje>>() {}.getType();
+            Type personajeListType = new TypeToken<ArrayList<Personaje>>() {
+            }.getType();
             personajes = gson.fromJson(reader, personajeListType);
         } catch (IOException e) {
             System.out.println("📂 Archivo no encontrado. Se creará uno nuevo.");
@@ -32,7 +39,9 @@ public class GestorPersonajes {
         return personajes != null ? personajes : new ArrayList<>();
     }
 
-    /** Guardar la lista de personajes en JSON */
+    /**
+     * Guardar la lista de personajes en JSON
+     */
     public static void guardarPersonajes(List<Personaje> personajes) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileWriter file = new FileWriter(FILE_PATH)) {
@@ -42,7 +51,9 @@ public class GestorPersonajes {
         }
     }
 
-    /** Crear un nuevo personaje */
+    /**
+     * Crear un nuevo personaje
+     */
     public static void crearPersonaje() {
         List<Personaje> personajes = cargarPersonajes();
         System.out.print("📝 Introduce el nombre del personaje: ");
@@ -61,7 +72,9 @@ public class GestorPersonajes {
         }
     }
 
-    /** Iniciar un combate entre dos personajes */
+    /**
+     * Iniciar un combate entre dos personajes
+     */
     public static void combate() {
         List<Personaje> personajes = cargarPersonajes();
         if (personajes.isEmpty()) {
@@ -107,7 +120,6 @@ public class GestorPersonajes {
         guardarPersonajes(personajes);
     }
 
-    /** Explorar la mazmorra */
     public static void mazmorra() {
         List<Personaje> personajes = cargarPersonajes();
         if (personajes.isEmpty()) {
@@ -115,6 +127,7 @@ public class GestorPersonajes {
             return;
         }
 
+        // Seleccionar personaje para explorar la mazmorra
         Personaje jugador = seleccionarPersonaje(personajes, "🏰 Elige un personaje para explorar la mazmorra: ");
         if (jugador == null) return;
 
@@ -146,57 +159,62 @@ public class GestorPersonajes {
         guardarPersonajes(personajes);
     }
 
-    /** Generar un evento en la mazmorra */
-private static void eventoMazmorra(Personaje jugador) {
-    int evento = rand.nextInt(3);
 
-    if (evento == 0) {
-        // Encuentro con un monstruo
-        Personaje monstruo = generarMonstruo();
-        System.out.println("\n👹 Un " + monstruo + " aparece!");
-        combate(jugador, monstruo);
-    } else if (evento == 1) {
-        // Acertijo/Puzzle
-        acertijo(jugador);
-    } else {
-        // Recompensa aleatoria
-        int cura = rand.nextInt(20) + 10;
-        jugador.curar();
-        System.out.println("\n🧪 ¡Has encontrado una poción! Recuperas " + cura + " puntos de vida.");
-    }
-}
+    /**
+     * Generar un evento en la mazmorra
+     */
+    private static void eventoMazmorra(Personaje jugador) {
+        int evento = rand.nextInt(100); // Probabilidades basadas en 100
 
-/** Simulación de combate entre el jugador y un enemigo */
-private static void combate(Personaje jugador, Personaje enemigo) {
-    System.out.println("\n⚔️ ¡Empieza el combate entre " + jugador + " y " + enemigo + "!");
-
-    while (jugador.estaVivo() && enemigo.estaVivo()) {
-        // Turno del jugador
-        System.out.println("\n⚔️ " + jugador + " ataca a " + enemigo);
-        int dano = jugador.atacar(enemigo);
-        System.out.println("💥 Daño infligido: " + dano);
-
-        if (!enemigo.estaVivo()) {
-            System.out.println("\n🎉 ¡Has derrotado al " + enemigo + " y ganado experiencia!");
-            jugador.sumarExperiencia(500);
-            return;
-        }
-
-        // Turno del enemigo
-        System.out.println("\n☠️ " + enemigo + " ataca a " + jugador);
-        dano = enemigo.atacar(jugador);
-        System.out.println("💀 Daño recibido: " + dano);
-
-        if (!jugador.estaVivo()) {
-            System.out.println("\n💀 El monstruo te ha derrotado...");
+        if (evento < 40) {  // 40% de probabilidad de combate
+            Personaje monstruo = generarMonstruo();
+            System.out.println("\n👹 Un " + monstruo + " aparece!");
+            combate(jugador, monstruo);
+        } else if (evento < 70) {  // 30% de probabilidad de acertijo
+            acertijo(jugador);
+        } else {  // 30% de probabilidad de encontrar una poción
+            int cura = rand.nextInt(20) + 10;
+            jugador.curar();
+            System.out.println("\n🧪 ¡Has encontrado una poción! Recuperas " + cura + " puntos de vida.");
         }
     }
 
-    guardarPersonajes(cargarPersonajes()); // Guardar
-}
+
+    /**
+     * Simulación de combate entre el jugador y un enemigo
+     */
+    private static void combate(Personaje jugador, Personaje enemigo) {
+        System.out.println("\n⚔️ ¡Empieza el combate entre " + jugador + " y " + enemigo + "!");
+
+        while (jugador.estaVivo() && enemigo.estaVivo()) {
+            // Turno del jugador
+            System.out.println("\n⚔️ " + jugador + " ataca a " + enemigo);
+            int dano = jugador.atacar(enemigo);
+            System.out.println("💥 Daño infligido: " + dano);
+
+            if (!enemigo.estaVivo()) {
+                System.out.println("\n🎉 ¡Has derrotado al " + enemigo + " y ganado experiencia!");
+                jugador.sumarExperiencia(500);
+                return;
+            }
+
+            // Turno del enemigo
+            System.out.println("\n☠️ " + enemigo + " ataca a " + jugador);
+            dano = enemigo.atacar(jugador);
+            System.out.println("💀 Daño recibido: " + dano);
+
+            if (!jugador.estaVivo()) {
+                System.out.println("\n💀 El monstruo te ha derrotado...");
+            }
+        }
+
+        guardarPersonajes(cargarPersonajes()); // Guardar
+    }
 
 
-    /** Generar un monstruo en la mazmorra */
+    /**
+     * Generar un monstruo en la mazmorra
+     */
     private static Personaje generarMonstruo() {
         String[] monstruos = {"Goblin", "Esqueleto", "Orco", "Troll", "Demonio"};
         String[] jefes = {"Lich", "Dragón", "Señor de la Oscuridad"};
@@ -206,25 +224,40 @@ private static void combate(Personaje jugador, Personaje enemigo) {
         int multiplicador = esJefe ? 3 : 1;
 
         try {
-            return new Personaje(
-                nombre, "MONSTRUO",
-                (rand.nextInt(50) + 10) * multiplicador,
-                (rand.nextInt(50) + 10) * multiplicador,
-                (rand.nextInt(50) + 10) * multiplicador,
-                (rand.nextInt(50) + 10) * multiplicador,
-                (rand.nextInt(50) + 10) * multiplicador,
-                (rand.nextInt(50) + 10) * multiplicador
-            );
+            return new Personaje(nombre, "MONSTRUO", (rand.nextInt(50) + 10) * multiplicador, (rand.nextInt(50) + 10) * multiplicador, (rand.nextInt(50) + 10) * multiplicador, (rand.nextInt(50) + 10) * multiplicador, (rand.nextInt(50) + 10) * multiplicador, (rand.nextInt(50) + 10) * multiplicador);
         } catch (Exception e) {
             System.out.println("❌ Error al generar el monstruo.");
             return null;
         }
     }
 
-    /** Seleccionar un personaje con validación */
+    /**
+     * Seleccionar un personaje con validación (solo personajes vivos)
+     */
     private static Personaje seleccionarPersonaje(List<Personaje> personajes, String mensaje) {
+        // Filtrar solo personajes vivos
+        List<Personaje> personajesVivos = new ArrayList<>();
+        for (Personaje p : personajes) {
+            if (p.estaVivo()) {
+                personajesVivos.add(p);
+            }
+        }
+
+        // Si no hay personajes vivos, avisar y salir
+        if (personajesVivos.isEmpty()) {
+            System.out.println("⚠️ No hay personajes vivos disponibles.");
+            return null;
+        }
+
+        // Mostrar personajes vivos
+        System.out.println("\n📜 Personajes vivos disponibles:");
+        for (int i = 0; i < personajesVivos.size(); i++) {
+            System.out.println((i + 1) + ". " + personajesVivos.get(i));
+        }
+
+        // Selección con validación
         int index = -1;
-        while (index < 0 || index >= personajes.size()) {
+        while (index < 0 || index >= personajesVivos.size()) {
             System.out.print(mensaje);
             if (scanner.hasNextInt()) {
                 index = scanner.nextInt() - 1;
@@ -234,51 +267,118 @@ private static void combate(Personaje jugador, Personaje enemigo) {
                 scanner.next();
             }
         }
-        return personajes.get(index);
-    }
-    /** Evento de acertijo en la mazmorra */
-private static void acertijo(Personaje jugador) {
-    System.out.println("\n🧩 ¡Has encontrado un acertijo mágico!");
 
-    // Lista de acertijos posibles
-    String[][] acertijos = {
-        {"¿Cuál es el pilar de la POO que permite reutilizar código?", "herencia"},
-        {"Si en Java una clase implementa una interfaz, ¿qué palabra clave se usa?", "implements"},
-        {"¿Cómo se llama el proceso de ocultar detalles internos de un objeto y exponer solo lo necesario?", "encapsulamiento"},
-        {"¿Qué palabra clave en Java se usa para crear un objeto?", "new"}
-    };
-
-    // Decidir si hacer una pregunta de programación o un cálculo matemático
-    boolean esPreguntaMatematica = rand.nextBoolean();
-
-    String pregunta;
-    String respuestaCorrecta;
-
-    if (esPreguntaMatematica) {
-        // Generar números aleatorios para una suma
-        int num1 = rand.nextInt(20) + 1; // Números entre 1 y 20
-        int num2 = rand.nextInt(20) + 1;
-        pregunta = "¿Cuánto es " + num1 + " + " + num2 + "?";
-        respuestaCorrecta = String.valueOf(num1 + num2);
-    } else {
-        // Seleccionar una pregunta de POO al azar
-        int index = rand.nextInt(acertijos.length);
-        pregunta = acertijos[index][0];
-        respuestaCorrecta = acertijos[index][1];
+        return personajesVivos.get(index);
     }
 
-    // Pedir respuesta al usuario
-    System.out.print("❓ " + pregunta + " ");
-    String respuestaUsuario = scanner.nextLine().trim().toLowerCase();
+    /**
+     * Evento de acertijo en la mazmorra
+     */
+    private static void acertijo(Personaje jugador) {
+        System.out.println("\n🧩 ¡Has encontrado un acertijo mágico!");
 
-    if (respuestaUsuario.equals(respuestaCorrecta)) {
-        System.out.println("\n✨ ¡Correcto! Ganas 300 puntos de experiencia.");
-        jugador.sumarExperiencia(300);
-    } else {
-        System.out.println("\n❌ Respuesta incorrecta. No ganas nada.");
+        // Lista de acertijos posibles
+        String[][] acertijos = {{"¿Cuál es el pilar de la POO que permite reutilizar código?", "herencia"}, {"Si en Java una clase implementa una interfaz, ¿qué palabra clave se usa?", "implements"}, {"¿Cómo se llama el proceso de ocultar detalles internos de un objeto y exponer solo lo necesario?", "encapsulamiento"}, {"¿Qué palabra clave en Java se usa para crear un objeto?", "new"}};
+
+        // Decidir entre pregunta matemática o de programación (50% cada una)
+        boolean esPreguntaMatematica = rand.nextBoolean();
+
+        String pregunta;
+        String respuestaCorrecta;
+
+        if (esPreguntaMatematica) {
+            // Generar números aleatorios para una suma
+            int num1 = rand.nextInt(20) + 1;
+            int num2 = rand.nextInt(20) + 1;
+            pregunta = "¿Cuánto es " + num1 + " + " + num2 + "?";
+            respuestaCorrecta = String.valueOf(num1 + num2);
+        } else {
+            // Seleccionar una pregunta de POO al azar y evitar repeticiones inmediatas
+            int index;
+            do {
+                index = rand.nextInt(acertijos.length);
+            } while (ultimaPregunta == index);  // Asegurar que no se repita la última pregunta
+
+            ultimaPregunta = index;
+            pregunta = acertijos[index][0];
+            respuestaCorrecta = acertijos[index][1];
+        }
+
+        // Pedir respuesta al usuario
+        System.out.print("❓ " + pregunta + " ");
+        String respuestaUsuario = scanner.nextLine().trim().toLowerCase();
+
+        if (respuestaUsuario.equals(respuestaCorrecta)) {
+            System.out.println("\n✨ ¡Correcto! Ganas 300 puntos de experiencia.");
+            jugador.sumarExperiencia(300);
+        } else {
+            System.out.println("\n❌ Respuesta incorrecta. No ganas nada.");
+        }
+
+        guardarPersonajes(cargarPersonajes());
     }
 
-    guardarPersonajes(cargarPersonajes()); // Guardar cambios después del acertijo
+    // Variable estática para evitar repetir la última pregunta de POO
+    private static int ultimaPregunta = -1;
+
+    /** Restaurar vida de los personajes basada en el tiempo real transcurrido */
+    public static void restaurarPersonajes() {
+        List<Personaje> personajes = cargarPersonajes();
+        if (personajes.isEmpty()) return;
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        LocalDateTime ultimaEjecucion = null;
+
+        // Leer última ejecución desde JSON
+        try (FileReader reader = new FileReader(FILE_PATH)) {
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            if (jsonElement != null && jsonElement.isJsonObject()) {
+                JsonObject json = jsonElement.getAsJsonObject();
+                if (json.has("ultimaEjecucion")) {
+                    ultimaEjecucion = LocalDateTime.parse(json.get("ultimaEjecucion").getAsString());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("⚠️ No se encontró información de la última ejecución.");
+        }
+
+        // Obtener tiempo actual
+        LocalDateTime ahora = LocalDateTime.now();
+        if (ultimaEjecucion == null) {
+            ultimaEjecucion = ahora;
+        }
+
+        // Calcular minutos transcurridos
+        long minutosPasados = ChronoUnit.MINUTES.between(ultimaEjecucion, ahora);
+
+        if (minutosPasados > 0) {
+            System.out.println("⏳ Han pasado " + minutosPasados + " minutos desde la última sesión.");
+            for (Personaje p : personajes) {
+                if (p.estaVivo()) {
+                    int nuevaVida = Math.min(p.getPuntosVida() + ((int) minutosPasados) * 10, p.getMaxPuntosVida());
+                    p.setPuntosVida(nuevaVida);
+                } else {
+                    // Revivir personajes muertos si ha pasado suficiente tiempo (igual a su vida máxima)
+                    if (minutosPasados >= p.getMaxPuntosVida()) {
+                        p.curar(); // Revive al personaje completamente
+                        System.out.println("✨ " + p.getNombre() + " ha revivido tras descansar.");
+                    }
+                }
+            }
+            guardarPersonajes(personajes);
+        }
+
+        // Guardar la nueva última ejecución en `personajes.json`
+        try (FileWriter writer = new FileWriter(FILE_PATH)) {
+            JsonObject json = new JsonObject();
+            json.add("personajes", gson.toJsonTree(personajes));
+            json.addProperty("ultimaEjecucion", ahora.toString());
+            gson.toJson(json, writer);
+        } catch (IOException e) {
+            System.out.println("❌ Error al guardar la última ejecución.");
+        }
+    }
+
+
 }
 
-}

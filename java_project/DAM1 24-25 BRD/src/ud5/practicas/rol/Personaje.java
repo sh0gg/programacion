@@ -15,6 +15,7 @@ public class Personaje {
     private int nivel = 1;
     private int experiencia = 0;
     private int puntosVida;
+    private int maxPuntosVida;
 
     private static final String[] RAZAS_VALIDAS = {"HUMANO", "ELFO", "ENANO", "HOBBIT", "ORCO", "TROLL", "MONSTRUO"};
     private static final Random rand = new Random();
@@ -32,7 +33,8 @@ public class Personaje {
         this.inteligencia = inteligencia;
         this.intuicion = intuicion;
         this.presencia = presencia;
-        this.puntosVida = 50 + constitucion;
+        this.puntosVida = maxPuntosVida;
+        this.maxPuntosVida = 50 + constitucion;
     }
 
     // Constructor con nombre y raza, atributos aleatorios
@@ -117,5 +119,21 @@ public class Personaje {
 
     public int getAgilidad() {
         return agilidad;
+    }
+
+    public int getPuntosVida() {
+        return puntosVida;
+    }
+
+    public int getMaxPuntosVida() {
+        return maxPuntosVida;
+    }
+
+    public void setPuntosVida(int puntosVida) {
+        this.puntosVida = puntosVida;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }

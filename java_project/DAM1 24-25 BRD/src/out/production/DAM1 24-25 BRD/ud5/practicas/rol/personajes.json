@@ -22,20 +22,20 @@
     "intuicion": 79,
     "presencia": 82,
     "nivel": 1,
-    "experiencia": 0,
-    "puntosVida": 110
+    "experiencia": 428,
+    "puntosVida": -16
   },
   {
     "nombre": "Padineitor",
     "raza": "TROLL",
-    "fuerza": 56,
-    "agilidad": 62,
-    "constitucion": 54,
+    "fuerza": 60,
+    "agilidad": 68,
+    "constitucion": 58,
     "inteligencia": 1,
     "intuicion": 76,
     "presencia": 6,
-    "nivel": 1,
-    "experiencia": 0,
-    "puntosVida": 104
+    "nivel": 3,
+    "experiencia": 118,
+    "puntosVida": 60
   }
 ]
