@@ -1,40 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE curriculum SYSTEM "UD3_T8_davidBesada.dtd">
-<curriculum>
-    <personalInfo>
-        <name>David Besada</name>
-        <address>Calle Marcelo Criminal, Carballo, España</address>
-        <phone>+34 123 456 789</phone>
-        <email>davidbesada@gmail.com</email>
-    </personalInfo>
-    <education>
-        <degree>
-            <title>Ingeniería Informática</title>
-            <institution>Universidad Oberta de Catalunya</institution>
-            <year>2023</year>
-        </degree>
-    </education>
-    <experience>
-        <job>
-            <title>Desarrollador de Software</title>
-            <company>Galicloud S. Coop. Galega</company>
-            <years>2023-Actualidad</years>
-            <description>Desarrollo de aplicaciones web y mantenimiento de sistemas.</description>
-        </job>
-    </experience>
-    <skills>
-        <skill>Programación en Java</skill>
-        <skill>Desarrollo web con HTML, CSS y JavaScript</skill>
-        <skill>Base de datos SQL</skill>
-    </skills>
-    <languages>
-        <language>
-            <name>Español</name>
-            <level>Nativo</level>
-        </language>
-        <language>
-            <name>Inglés</name>
-            <level>C1</level>
-        </language>
-    </languages>
-</curriculum>
+<!DOCTYPE curriculumVitae SYSTEM "UD3_T8_davidBesada.dtd">
+<curriculumVitae>
+    <presentación>Mi nombre es David Besada. Soy ingeniero informático con experiencia en desarrollo de software.</presentación>
+
+    <estudios notamedia="8.7">
+        <practicas empresa="Galicloud S. Coop. Galega" horas="200"/>
+    </estudios>
+
+    <experienciaLaboral>Desarrollador de Software en Galicloud S. Coop. Galega desde 2023. Desarrollo de aplicaciones web y mantenimiento de sistemas.</experienciaLaboral>
+
+    <idiomas nombre="Español" nivel="alto"/>
+    <idiomas nombre="Inglés" nivel="alto"/>
+
+    <deportes>Natación y senderismo.</deportes>
+
+    <otros>Programación en Java, desarrollo web con HTML, CSS y JavaScript, bases de datos SQL.</otros>
+
+    <referencias>Profesor Juan Pérez - Universidad Oberta de Catalunya</referencias>
+    <referencias>Director de Galicloud S. Coop. Galega</referencias>
+
+    <observaciones>Interesado en oportunidades internacionales y formación continua.</observaciones>
+</curriculumVitae>
