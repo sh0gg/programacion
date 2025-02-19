@@ -10,7 +10,8 @@
     "presencia": 23,
     "nivel": 1,
     "experiencia": 0,
-    "puntosVida": 111
+    "puntosVida": 111,
+    "maxPuntosVida": 111
   },
   {
     "nombre": "Harry",
@@ -23,7 +24,8 @@
     "presencia": 82,
     "nivel": 1,
     "experiencia": 428,
-    "puntosVida": -16
+    "puntosVida": 100,
+    "maxPuntosVida": 100
   },
   {
     "nombre": "Padineitor",
@@ -36,6 +38,21 @@
     "presencia": 6,
     "nivel": 3,
     "experiencia": 118,
-    "puntosVida": 60
+    "puntosVida": 90,
+    "maxPuntosVida": 90
+  },
+  {
+    "nombre": "Aroonivs III",
+    "raza": "ENANO",
+    "fuerza": 72,
+    "agilidad": 23,
+    "constitucion": 48,
+    "inteligencia": 52,
+    "intuicion": 83,
+    "presencia": 54,
+    "nivel": 1,
+    "experiencia": 0,
+    "puntosVida": 98,
+    "maxPuntosVida": 98
   }
 ]

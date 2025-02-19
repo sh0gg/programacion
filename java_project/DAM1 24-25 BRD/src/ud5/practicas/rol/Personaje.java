@@ -33,8 +33,8 @@ public class Personaje {
         this.inteligencia = inteligencia;
         this.intuicion = intuicion;
         this.presencia = presencia;
-        this.puntosVida = maxPuntosVida;
-        this.maxPuntosVida = 50 + constitucion;
+        this.puntosVida = 50 + constitucion;
+
     }
 
     // Constructor con nombre y raza, atributos aleatorios
