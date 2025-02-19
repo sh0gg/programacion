@@ -1,4 +1,4 @@
-package ud5.practicas.rol;
+package ud5.practicas.rol.oldApp;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import ud5.practicas.rol.Personaje;
+
 import java.lang.reflect.Type;
 
 public class AppCombateSingular {

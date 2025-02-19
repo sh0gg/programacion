@@ -1,7 +1,10 @@
-package ud5.practicas.rol;
+package ud5.practicas.rol.oldApp;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import ud5.practicas.rol.Personaje;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
