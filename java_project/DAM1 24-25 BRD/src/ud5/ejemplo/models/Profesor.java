@@ -1,6 +1,6 @@
 package ud5.ejemplo.models;
 
-tras/**
+/**
  * Clase que representa a un profesor.
  */
 public class Profesor extends Persona {

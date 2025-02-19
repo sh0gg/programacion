@@ -1,5 +1,12 @@
 package ud5.practicas.rol;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,49 +15,73 @@ public class AppMazmorra {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.print("Introduce el nombre de tu personaje: ");
-        String nombre = scanner.nextLine();
+        List<Personaje> personajes = cargarPersonajes();  // Cargar personajes desde JSON
 
-        System.out.print("Introduce la raza (HUMANO, ELFO, ENANO, HOBBIT, ORCO, TROLL): ");
-        String raza = scanner.nextLine().toUpperCase();
-
-        try {
-            Personaje jugador = new Personaje(nombre, raza);
-            System.out.println("\n🏰 ¡Bienvenido a la Mazmorra, " + jugador.toString() + "! 🏰\n");
-
-            boolean explorando = true;
-            while (explorando && jugador.estaVivo()) {
-                System.out.println("\n📜 ¿Qué quieres hacer?");
-                System.out.println("1. Avanzar en la mazmorra");
-                System.out.println("2. Revisar tu estado");
-                System.out.println("3. Salir de la mazmorra");
-
-                int opcion = scanner.nextInt();
-                scanner.nextLine(); // Consumir el salto de línea
-
-                switch (opcion) {
-                    case 1:
-                        eventoMazmorra(jugador);
-                        break;
-                    case 2:
-                        jugador.mostrar();
-                        break;
-                    case 3:
-                        explorando = false;
-                        System.out.println("\n🏆 ¡Has escapado de la mazmorra con vida! 🏆");
-                        break;
-                    default:
-                        System.out.println("❌ Opción inválida.");
-                }
-            }
-
-            if (!jugador.estaVivo()) {
-                System.out.println("\n💀 Has muerto en la mazmorra... 💀");
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+        if (personajes.isEmpty()) {
+            System.out.println("No hay personajes disponibles. Crea algunos primero.");
+            return;
         }
+
+        System.out.println("📜 Personajes disponibles:");
+        for (int i = 0; i < personajes.size(); i++) {
+            System.out.println((i + 1) + ". " + personajes.get(i).toString());
+        }
+
+        System.out.print("\nElige un personaje (1-" + personajes.size() + "): ");
+        int opcion = scanner.nextInt();
+        scanner.nextLine(); // Consumir salto de línea
+
+        if (opcion < 1 || opcion > personajes.size()) {
+            System.out.println("❌ Opción no válida.");
+            return;
+        }
+
+        Personaje jugador = personajes.get(opcion - 1);
+        System.out.println("\n🏰 ¡Bienvenido a la Mazmorra, " + jugador.toString() + "! 🏰\n");
+
+        boolean explorando = true;
+        while (explorando && jugador.estaVivo()) {
+            System.out.println("\n📜 ¿Qué quieres hacer?");
+            System.out.println("1. Avanzar en la mazmorra");
+            System.out.println("2. Revisar tu estado");
+            System.out.println("3. Salir de la mazmorra");
+
+            int eleccion = scanner.nextInt();
+            scanner.nextLine(); // Consumir el salto de línea
+
+            switch (eleccion) {
+                case 1:
+                    eventoMazmorra(jugador);
+                    break;
+                case 2:
+                    jugador.mostrar();
+                    break;
+                case 3:
+                    explorando = false;
+                    System.out.println("\n🏆 ¡Has escapado de la mazmorra con vida! 🏆");
+                    break;
+                default:
+                    System.out.println("❌ Opción inválida.");
+            }
+        }
+
+        if (!jugador.estaVivo()) {
+            System.out.println("\n💀 Has muerto en la mazmorra... 💀");
+        }
+    }
+
+    private static List<Personaje> cargarPersonajes() {
+        List<Personaje> personajes = new ArrayList<>();
+        Gson gson = new Gson();
+        try {
+            FileReader reader = new FileReader("ud5/practicas/rol/personajes.json");
+            Type personajeListType = new TypeToken<ArrayList<Personaje>>() {}.getType();
+            personajes = gson.fromJson(reader, personajeListType);
+            reader.close();
+        } catch (Exception e) {
+            System.out.println("No se pudo cargar el archivo de personajes.");
+        }
+        return personajes;
     }
 
     private static void eventoMazmorra(Personaje jugador) {
@@ -73,14 +104,28 @@ public class AppMazmorra {
     }
 
     private static Personaje generarMonstruo() {
-        String[] nombres = {"Goblin", "Esqueleto", "Orco", "Troll", "Demonio"};
-        String nombre = nombres[rand.nextInt(nombres.length)];
+        String[] monstruos = {"Goblin", "Esqueleto", "Orco", "Troll", "Demonio"};
+        String[] jefes = {"Lich", "Demogorgon", "Dragón", "Titán", "Señor de la Oscuridad"};
+
+        boolean esJefe = rand.nextInt(100) < 20; // 20% de probabilidad de generar un jefe
+        String nombre = esJefe ? jefes[rand.nextInt(jefes.length)] : monstruos[rand.nextInt(monstruos.length)];
+
+        int multiplicador = esJefe ? 3 : 1; // Los jefes son 3 veces más fuertes
 
         try {
-            return new Personaje(nombre, "MONSTRUO", rand.nextInt(80) + 20, rand.nextInt(80) + 20, rand.nextInt(80) + 20, 10, 10, 10);
+            return new Personaje(
+                    nombre,
+                    "MONSTRUO",
+                    (rand.nextInt(50) + 10) * multiplicador, // Fuerza
+                    (rand.nextInt(50) + 10) * multiplicador, // Agilidad
+                    (rand.nextInt(50) + 10) * multiplicador, // Constitución
+                    (rand.nextInt(50) + 10) * multiplicador, // Inteligencia
+                    (rand.nextInt(50) + 10) * multiplicador, // Intuición
+                    (rand.nextInt(50) + 10) * multiplicador  // Presencia
+            );
         } catch (Exception e) {
             System.out.println("Error al generar el monstruo: " + e.getMessage());
-            return null; // En caso de error, devolvemos null
+            return null;
         }
     }
 
@@ -123,4 +168,3 @@ public class AppMazmorra {
         }
     }
 }
-

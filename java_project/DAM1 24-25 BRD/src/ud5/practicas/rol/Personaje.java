@@ -16,7 +16,7 @@ public class Personaje {
     private int experiencia = 0;
     private int puntosVida;
 
-    private static final String[] RAZAS_VALIDAS = {"HUMANO", "ELFO", "ENANO", "HOBBIT", "ORCO", "TROLL"};
+    private static final String[] RAZAS_VALIDAS = {"HUMANO", "ELFO", "ENANO", "HOBBIT", "ORCO", "TROLL", "MONSTRUO"};
     private static final Random rand = new Random();
 
     // Constructor con todos los atributos
