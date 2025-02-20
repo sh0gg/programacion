@@ -1,4 +1,5 @@
-package ud5.practicas.rol;
+import ud5.practicas.rol.GestorPersonajes;
+import ud5.practicas.rol.Personaje;
 
 import java.util.Scanner;
 
@@ -6,22 +7,26 @@ public class MegaRol {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // 🔥 Restaurar la vida de los personajes antes de comenzar el juego
+        GestorPersonajes.restaurarPersonajes();
+
         while (true) {
-            System.out.println("\n🌌 MEGAROL: FOR THE PAX OF THE UNIVERSE 🌌");
+            System.out.println("\n🌌 MEGAROL 🌌");
             System.out.println("1️⃣ Crear un personaje");
-            System.out.println("2️⃣ Ver personajes1");
+            System.out.println("2️⃣ Ver personajes");
             System.out.println("3️⃣ Iniciar un combate");
             System.out.println("4️⃣ Explorar la mazmorra");
-            System.out.println("5️⃣ Salir");
+            System.out.println("5️⃣ Administrar inventario");
+            System.out.println("6️⃣ Salir");
             System.out.print("🔹 Elige una opción: ");
 
             int opcion;
             try {
                 opcion = scanner.nextInt();
-                scanner.nextLine(); // Consumir el salto de línea
+                scanner.nextLine();
             } catch (Exception e) {
-                System.out.println("❌ Entrada no válida. Ingresa un número.");
-                scanner.next(); // Limpiar entrada inválida
+                System.out.println("❌ Entrada no válida.");
+                scanner.next();
                 continue;
             }
 
@@ -30,11 +35,12 @@ public class MegaRol {
                 case 2 -> mostrarPersonajes();
                 case 3 -> GestorPersonajes.combate();
                 case 4 -> GestorPersonajes.mazmorra();
-                case 5 -> {
+                case 5 -> GestorPersonajes.administrarInventario();
+                case 6 -> {
                     System.out.println("👋 ¡Gracias por jugar MegaRol! 🌟");
                     return;
                 }
-                default -> System.out.println("❌ Opción inválida, intenta de nuevo.");
+                default -> System.out.println("❌ Opción inválida.");
             }
         }
     }

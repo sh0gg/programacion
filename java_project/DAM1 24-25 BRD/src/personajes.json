@@ -82,7 +82,22 @@
           "bonoConstitucion": 1000
         }
       ]
+    },
+    {
+      "nombre": "Manolo",
+      "raza": "ENANO",
+      "fuerza": 71,
+      "agilidad": 46,
+      "constitucion": 34,
+      "inteligencia": 99,
+      "intuicion": 80,
+      "presencia": 96,
+      "nivel": 1,
+      "experiencia": 0,
+      "puntosVida": 74,
+      "maxPuntosVida": 74,
+      "inventario": []
     }
   ],
-  "ultimaEjecucion": "2025-02-20T13:46:31.190367100"
+  "ultimaEjecucion": "2025-02-20T13:46:46.412321500"
 }

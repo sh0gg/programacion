@@ -1,0 +1,275 @@
+[
+    {
+        "nombre": "Espada de Fuego",
+        "tipo": "Arma",
+        "bonoFuerza": 15,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Escudo de Hierro",
+        "tipo": "Armadura",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 10
+    },
+    {
+        "nombre": "Poción de Vida",
+        "tipo": "Poción",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 20
+    },
+    {
+        "nombre": "Anillo de Agilidad",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Amuleto de Poder",
+        "tipo": "Accesorio",
+        "bonoFuerza": 10,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Casco de Dragón",
+        "tipo": "Armadura",
+        "bonoFuerza": 5,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 15
+    },
+    {
+        "nombre": "Botas de Velocidad",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 15,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Guantes de Titanio",
+        "tipo": "Accesorio",
+        "bonoFuerza": 12,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Lanza de los Dioses",
+        "tipo": "Arma",
+        "bonoFuerza": 20,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Capa de Sombra",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 12,
+        "bonoConstitucion": 5
+    },
+    {
+        "nombre": "Martillo del Trueno",
+        "tipo": "Arma",
+        "bonoFuerza": 25,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 10
+    },
+    {
+        "nombre": "Chaleco de Espinas",
+        "tipo": "Armadura",
+        "bonoFuerza": 0,
+        "bonoAgilidad": -5,
+        "bonoConstitucion": 25
+    },
+    {
+        "nombre": "Gorro de Mago Psicodélico",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Zapatillas del Infinito",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 30,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Báculo de Gatos Mágicos",
+        "tipo": "Arma",
+        "bonoFuerza": 5,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 5
+    },
+    {
+        "nombre": "Espada de Espaguetis",
+        "tipo": "Arma",
+        "bonoFuerza": 12,
+        "bonoAgilidad": 8,
+        "bonoConstitucion": -5
+    },
+    {
+        "nombre": "Cinturón de Bananas",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 15,
+        "bonoConstitucion": 5
+    },
+    {
+        "nombre": "Escudo de Gelatina",
+        "tipo": "Armadura",
+        "bonoFuerza": 0,
+        "bonoAgilidad": -5,
+        "bonoConstitucion": 30
+    },
+    {
+        "nombre": "Ladrillo Supremo",
+        "tipo": "Arma",
+        "bonoFuerza": 50,
+        "bonoAgilidad": -10,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Sombrero de Payaso",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": -10
+    },
+    {
+        "nombre": "Gafas de Visión Cósmica",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Guantes de Llamas",
+        "tipo": "Accesorio",
+        "bonoFuerza": 10,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 5
+    },
+    {
+        "nombre": "Cubo de Rubik Maldito",
+        "tipo": "Accesorio",
+        "bonoFuerza": -5,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 5
+    },
+    {
+        "nombre": "Arco de Algodón de Azúcar",
+        "tipo": "Arma",
+        "bonoFuerza": 15,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": -10
+    },
+    {
+        "nombre": "Mochila de Pociones Infinitas",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 20
+    },
+    {
+        "nombre": "Capa de Invisibilidad de Media Jornada",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 25,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Hueso de Tiranosaurio",
+        "tipo": "Arma",
+        "bonoFuerza": 40,
+        "bonoAgilidad": -5,
+        "bonoConstitucion": 10
+    },
+    {
+        "nombre": "Pantalones de Gravedad Invertida",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": -10,
+        "bonoConstitucion": 30
+    },
+    {
+        "nombre": "Reloj de Arena del Tiempo Inestable",
+        "tipo": "Accesorio",
+        "bonoFuerza": 5,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 5
+    },
+    {
+        "nombre": "Guantelete del Meme Supremo",
+        "tipo": "Accesorio",
+        "bonoFuerza": 50,
+        "bonoAgilidad": 50,
+        "bonoConstitucion": 50
+    },
+    {
+        "nombre": "Toga del Sabio Despistado",
+        "tipo": "Armadura",
+        "bonoFuerza": -5,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 10
+    },
+    {
+        "nombre": "Espada Laser de Doble Mango",
+        "tipo": "Arma",
+        "bonoFuerza": 30,
+        "bonoAgilidad": 20,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Cerveza de los Dioses",
+        "tipo": "Poción",
+        "bonoFuerza": 10,
+        "bonoAgilidad": -10,
+        "bonoConstitucion": 50
+    },
+    {
+        "nombre": "Libro de Hechizos Aleatorios",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Cinturón de la Realidad Alternativa",
+        "tipo": "Accesorio",
+        "bonoFuerza": 5,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": -5
+    },
+    {
+        "nombre": "Dado de la Suerte Extrema",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Anillo de Control Mental",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Guantes del Hacker Élfico",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 20,
+        "bonoConstitucion": 0
+    },
+    {
+        "nombre": "Piedra Filosofal Pirata",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 50
+    }
+]

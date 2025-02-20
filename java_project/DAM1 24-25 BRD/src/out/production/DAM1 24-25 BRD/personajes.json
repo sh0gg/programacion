@@ -11,7 +11,7 @@
       "presencia": 67,
       "nivel": 7,
       "experiencia": 682,
-      "puntosVida": 52,
+      "puntosVida": 12,
       "maxPuntosVida": 122,
       "inventario": []
     },
@@ -26,7 +26,7 @@
       "presencia": 40,
       "nivel": 1,
       "experiencia": 292,
-      "puntosVida": 32,
+      "puntosVida": -8,
       "maxPuntosVida": 143,
       "inventario": []
     },
@@ -41,7 +41,7 @@
       "presencia": 69,
       "nivel": 1,
       "experiencia": 135,
-      "puntosVida": 68,
+      "puntosVida": 28,
       "maxPuntosVida": 93,
       "inventario": []
     },
@@ -56,7 +56,7 @@
       "presencia": 85,
       "nivel": 2,
       "experiencia": 407,
-      "puntosVida": 107,
+      "puntosVida": 67,
       "maxPuntosVida": 137,
       "inventario": []
     },
@@ -71,7 +71,7 @@
       "presencia": 69,
       "nivel": 1,
       "experiencia": 760,
-      "puntosVida": 82,
+      "puntosVida": 47,
       "maxPuntosVida": 82,
       "inventario": [
         {
@@ -84,5 +84,5 @@
       ]
     }
   ],
-  "ultimaEjecucion": "2025-02-20T13:46:31.190367100"
+  "ultimaEjecucion": "2025-02-20T13:43:00.895230800"
 }
