@@ -1,4 +1,5 @@
-package ud5.practicas.rol;
+import ud5.practicas.rol.GestorPersonajes;
+import ud5.practicas.rol.Personaje;
 
 import java.util.Scanner;
 
@@ -6,6 +7,9 @@ public class MegaRol {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // 🔥 Restaurar la vida de los personajes antes de comenzar el juego
+        GestorPersonajes.restaurarPersonajes();
+
         while (true) {
             System.out.println("\n🌌 MEGAROL 🌌");
             System.out.println("1️⃣ Crear un personaje");
@@ -15,7 +19,7 @@ public class MegaRol {
             System.out.println("5️⃣ Administrar inventario");
             System.out.println("6️⃣ Salir");
             System.out.print("🔹 Elige una opción: ");
-    
+
             int opcion;
             try {
                 opcion = scanner.nextInt();
@@ -25,7 +29,7 @@ public class MegaRol {
                 scanner.next();
                 continue;
             }
-    
+
             switch (opcion) {
                 case 1 -> GestorPersonajes.crearPersonaje();
                 case 2 -> mostrarPersonajes();
@@ -40,7 +44,6 @@ public class MegaRol {
             }
         }
     }
-    
 
     private static void mostrarPersonajes() {
         var personajes = GestorPersonajes.cargarPersonajes();

@@ -255,6 +255,26 @@ public class Personaje {
         }
     }
 
+    public int getFuerza() {
+        return fuerza;
+    }
+
+    public int getConstitucion() {
+        return constitucion;
+    }
+
+    public int getInteligencia() {
+        return inteligencia;
+    }
+
+    public int getIntuicion() {
+        return intuicion;
+    }
+
+    public int getPresencia() {
+        return presencia;
+    }
+
     public void setNombresItems(List<String> nombresItems) {
         this.nombresItems = nombresItems;
     }

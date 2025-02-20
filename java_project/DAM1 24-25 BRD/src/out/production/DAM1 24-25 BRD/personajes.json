@@ -1,0 +1,88 @@
+{
+  "personajes": [
+    {
+      "nombre": "Carlitos",
+      "raza": "ELFO",
+      "fuerza": 66,
+      "agilidad": 140,
+      "constitucion": 72,
+      "inteligencia": 52,
+      "intuicion": 35,
+      "presencia": 67,
+      "nivel": 7,
+      "experiencia": 682,
+      "puntosVida": 12,
+      "maxPuntosVida": 122,
+      "inventario": []
+    },
+    {
+      "nombre": "Xarro",
+      "raza": "ENANO",
+      "fuerza": 105,
+      "agilidad": 52,
+      "constitucion": 103,
+      "inteligencia": 69,
+      "intuicion": 42,
+      "presencia": 40,
+      "nivel": 1,
+      "experiencia": 292,
+      "puntosVida": -8,
+      "maxPuntosVida": 143,
+      "inventario": []
+    },
+    {
+      "nombre": "Padineitor",
+      "raza": "TROLL",
+      "fuerza": 82,
+      "agilidad": 37,
+      "constitucion": 58,
+      "inteligencia": 24,
+      "intuicion": 84,
+      "presencia": 69,
+      "nivel": 1,
+      "experiencia": 135,
+      "puntosVida": 28,
+      "maxPuntosVida": 93,
+      "inventario": []
+    },
+    {
+      "nombre": "Aronius III",
+      "raza": "HUMANO",
+      "fuerza": 28,
+      "agilidad": 108,
+      "constitucion": 87,
+      "inteligencia": 68,
+      "intuicion": 36,
+      "presencia": 85,
+      "nivel": 2,
+      "experiencia": 407,
+      "puntosVida": 67,
+      "maxPuntosVida": 137,
+      "inventario": []
+    },
+    {
+      "nombre": "Mip \"el Valiente\"",
+      "raza": "HOBBIT",
+      "fuerza": 64,
+      "agilidad": 48,
+      "constitucion": 32,
+      "inteligencia": 94,
+      "intuicion": 65,
+      "presencia": 69,
+      "nivel": 1,
+      "experiencia": 760,
+      "puntosVida": 47,
+      "maxPuntosVida": 82,
+      "inventario": [
+        {
+          "nombre": "Escudo de Hierro",
+          "tipo": "Armadura",
+          "bonoFuerza": 100,
+          "bonoAgilidad": 1000,
+          "bonoConstitucion": 1000
+        }
+      ]
+    }
+  ],
+  "ultimaEjecucion": "2025-02-20T13:43:00.895230800"
+}
