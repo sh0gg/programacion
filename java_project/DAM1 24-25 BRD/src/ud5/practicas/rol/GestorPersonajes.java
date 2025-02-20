@@ -39,17 +39,22 @@ public class GestorPersonajes {
         return personajes != null ? personajes : new ArrayList<>();
     }
 
-    /**
-     * Guardar la lista de personajes en JSON
-     */
     public static void guardarPersonajes(List<Personaje> personajes) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (FileWriter file = new FileWriter(FILE_PATH)) {
+        try (FileWriter file = new FileWriter("personajes.json")) {
+            for (Personaje p : personajes) {
+                List<String> nombresItems = new ArrayList<>();
+                for (Item i : p.getInventario()) {
+                    nombresItems.add(i.getNombre());
+                }
+                p.setNombresItems(nombresItems); // Nueva variable en Personaje
+            }
             gson.toJson(personajes, file);
         } catch (IOException e) {
             System.out.println("❌ Error al guardar los personajes.");
         }
     }
+    
 
     /**
      * Crear un nuevo personaje
@@ -184,32 +189,36 @@ public class GestorPersonajes {
      * Simulación de combate entre el jugador y un enemigo
      */
     private static void combate(Personaje jugador, Personaje enemigo) {
-        System.out.println("\n⚔️ ¡Empieza el combate entre " + jugador + " y " + enemigo + "!");
-
+        System.out.println("\n⚔️ ¡Empieza el combate entre " + jugador.getNombre() + " y " + enemigo.getNombre() + "!");
+    
         while (jugador.estaVivo() && enemigo.estaVivo()) {
             // Turno del jugador
-            System.out.println("\n⚔️ " + jugador + " ataca a " + enemigo);
+            System.out.println("\n⚔️ " + jugador.getNombre() + " ataca a " + enemigo.getNombre());
             int dano = jugador.atacar(enemigo);
             System.out.println("💥 Daño infligido: " + dano);
-
+    
             if (!enemigo.estaVivo()) {
-                System.out.println("\n🎉 ¡Has derrotado al " + enemigo + " y ganado experiencia!");
+                System.out.println("\n🎉 ¡Has derrotado al " + enemigo.getNombre() + " y ganado experiencia!");
                 jugador.sumarExperiencia(500);
+    
+                // Posibilidad de encontrar un objeto tras la victoria
+                encontrarObjeto(jugador);
                 return;
             }
-
+    
             // Turno del enemigo
-            System.out.println("\n☠️ " + enemigo + " ataca a " + jugador);
+            System.out.println("\n☠️ " + enemigo.getNombre() + " ataca a " + jugador.getNombre());
             dano = enemigo.atacar(jugador);
             System.out.println("💀 Daño recibido: " + dano);
-
+    
             if (!jugador.estaVivo()) {
                 System.out.println("\n💀 El monstruo te ha derrotado...");
             }
         }
-
-        guardarPersonajes(cargarPersonajes()); // Guardar
+    
+        guardarPersonajes(cargarPersonajes()); // Guardar los cambios
     }
+    
 
 
     /**
@@ -276,47 +285,49 @@ public class GestorPersonajes {
      */
     private static void acertijo(Personaje jugador) {
         System.out.println("\n🧩 ¡Has encontrado un acertijo mágico!");
-
-        // Lista de acertijos posibles
-        String[][] acertijos = {{"¿Cuál es el pilar de la POO que permite reutilizar código?", "herencia"}, {"Si en Java una clase implementa una interfaz, ¿qué palabra clave se usa?", "implements"}, {"¿Cómo se llama el proceso de ocultar detalles internos de un objeto y exponer solo lo necesario?", "encapsulamiento"}, {"¿Qué palabra clave en Java se usa para crear un objeto?", "new"}};
-
-        // Decidir entre pregunta matemática o de programación (50% cada una)
+    
+        String[][] acertijos = {
+            {"¿Cuál es el pilar de la POO que permite reutilizar código?", "herencia"},
+            {"Si en Java una clase implementa una interfaz, ¿qué palabra clave se usa?", "implements"},
+            {"¿Cómo se llama el proceso de ocultar detalles internos de un objeto y exponer solo lo necesario?", "encapsulamiento"},
+            {"¿Qué palabra clave en Java se usa para crear un objeto?", "new"}
+        };
+    
         boolean esPreguntaMatematica = rand.nextBoolean();
-
-        String pregunta;
-        String respuestaCorrecta;
-
+        String pregunta, respuestaCorrecta;
+    
         if (esPreguntaMatematica) {
-            // Generar números aleatorios para una suma
             int num1 = rand.nextInt(20) + 1;
             int num2 = rand.nextInt(20) + 1;
             pregunta = "¿Cuánto es " + num1 + " + " + num2 + "?";
             respuestaCorrecta = String.valueOf(num1 + num2);
         } else {
-            // Seleccionar una pregunta de POO al azar y evitar repeticiones inmediatas
             int index;
             do {
                 index = rand.nextInt(acertijos.length);
-            } while (ultimaPregunta == index);  // Asegurar que no se repita la última pregunta
-
+            } while (ultimaPregunta == index);
+    
             ultimaPregunta = index;
             pregunta = acertijos[index][0];
             respuestaCorrecta = acertijos[index][1];
         }
-
-        // Pedir respuesta al usuario
+    
         System.out.print("❓ " + pregunta + " ");
         String respuestaUsuario = scanner.nextLine().trim().toLowerCase();
-
+    
         if (respuestaUsuario.equals(respuestaCorrecta)) {
             System.out.println("\n✨ ¡Correcto! Ganas 300 puntos de experiencia.");
             jugador.sumarExperiencia(300);
+    
+            // Posibilidad de encontrar un objeto tras acertar
+            encontrarObjeto(jugador);
         } else {
             System.out.println("\n❌ Respuesta incorrecta. No ganas nada.");
         }
-
+    
         guardarPersonajes(cargarPersonajes());
     }
+    
 
     // Variable estática para evitar repetir la última pregunta de POO
     private static int ultimaPregunta = -1;
@@ -378,6 +389,95 @@ public class GestorPersonajes {
             System.out.println("❌ Error al guardar la última ejecución.");
         }
     }
+
+    public static void administrarInventario() {
+        List<Personaje> personajes = cargarPersonajes();
+        if (personajes.isEmpty()) {
+            System.out.println("⚠️ No hay personajes disponibles.");
+            return;
+        }
+    
+        Personaje jugador = seleccionarPersonaje(personajes, "🎒 Elige un personaje para administrar su inventario: ");
+        if (jugador == null) return;
+    
+        boolean gestionando = true;
+        while (gestionando) {
+            System.out.println("\n📜 Inventario de " + jugador.getNombre());
+            jugador.mostrarInventario();
+            System.out.println("1️⃣ Añadir objeto");
+            System.out.println("2️⃣ Eliminar objeto");
+            System.out.println("3️⃣ Salir");
+            System.out.print("🔹 Elige una opción: ");
+    
+            int opcion = scanner.nextInt();
+            scanner.nextLine();
+    
+            switch (opcion) {
+                case 1:
+                    System.out.print("📝 Nombre del objeto: ");
+                    String nombreItem = scanner.nextLine();
+                    System.out.print("⚔️ Tipo (Arma, Armadura, Poción): ");
+                    String tipo = scanner.nextLine();
+                    System.out.print("💪 Bono de fuerza: ");
+                    int bonoFuerza = scanner.nextInt();
+                    System.out.print("🏃 Bono de agilidad: ");
+                    int bonoAgilidad = scanner.nextInt();
+                    System.out.print("❤️ Bono de constitución: ");
+                    int bonoConstitucion = scanner.nextInt();
+                    scanner.nextLine();
+    
+                    Item nuevoItem = new Item(nombreItem, tipo, bonoFuerza, bonoAgilidad, bonoConstitucion);
+                    jugador.agregarItem(nuevoItem);
+                    guardarPersonajes(personajes);
+                    break;
+    
+                case 2:
+                    System.out.print("🗑 Nombre del objeto a eliminar: ");
+                    String eliminar = scanner.nextLine();
+                    jugador.eliminarItem(eliminar);
+                    guardarPersonajes(personajes);
+                    break;
+    
+                case 3:
+                    gestionando = false;
+                    break;
+    
+                default:
+                    System.out.println("❌ Opción inválida.");
+            }
+        }
+    }
+
+    private static void encontrarObjeto(Personaje jugador) {
+        List<Item> itemsDisponibles = cargarItems();
+    
+        // Probabilidad de encontrar un objeto (1% a 5%)
+        int probabilidad = rand.nextInt(100);
+        if (probabilidad < rand.nextInt(5) + 1) { // Un número aleatorio entre 1 y 5%
+            if (!itemsDisponibles.isEmpty()) {
+                Item objetoEncontrado = itemsDisponibles.get(rand.nextInt(itemsDisponibles.size()));
+                jugador.agregarItem(objetoEncontrado);
+                System.out.println("🎁 ¡" + jugador.getNombre() + " ha encontrado un objeto: " + objetoEncontrado.getNombre() + "!");
+            } else {
+                System.out.println("📦 No hay objetos disponibles en el juego.");
+            }
+        }
+    }
+
+    public static List<Item> cargarItems() {
+        List<Item> items = new ArrayList<>();
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader("items.json")) {
+            Type itemListType = new TypeToken<ArrayList<Item>>() {}.getType();
+            items = gson.fromJson(reader, itemListType);
+        } catch (IOException e) {
+            System.out.println("📂 Archivo de ítems no encontrado. Se creará uno nuevo.");
+        } catch (Exception e) {
+            System.out.println("⚠️ Error al leer ítems. Inicializando lista vacía.");
+        }
+        return items != null ? items : new ArrayList<>();
+    }
+    
 
 
 }
