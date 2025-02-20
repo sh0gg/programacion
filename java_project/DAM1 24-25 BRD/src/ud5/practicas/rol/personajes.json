@@ -11,7 +11,8 @@
     "nivel": 1,
     "experiencia": 0,
     "puntosVida": 111,
-    "maxPuntosVida": 111
+    "maxPuntosVida": 111,
+    "inventario": []
   },
   {
     "nombre": "Harry",
@@ -25,34 +26,7 @@
     "nivel": 1,
     "experiencia": 428,
     "puntosVida": 100,
-    "maxPuntosVida": 100
-  },
-  {
-    "nombre": "Padineitor",
-    "raza": "TROLL",
-    "fuerza": 60,
-    "agilidad": 68,
-    "constitucion": 58,
-    "inteligencia": 1,
-    "intuicion": 76,
-    "presencia": 6,
-    "nivel": 3,
-    "experiencia": 279,
-    "puntosVida": -53,
-    "maxPuntosVida": 90
-  },
-  {
-    "nombre": "Aroonivs III",
-    "raza": "ENANO",
-    "fuerza": 72,
-    "agilidad": 23,
-    "constitucion": 48,
-    "inteligencia": 52,
-    "intuicion": 83,
-    "presencia": 54,
-    "nivel": 1,
-    "experiencia": 0,
-    "puntosVida": 98,
-    "maxPuntosVida": 98
+    "maxPuntosVida": 100,
+    "inventario": []
   }
 ]

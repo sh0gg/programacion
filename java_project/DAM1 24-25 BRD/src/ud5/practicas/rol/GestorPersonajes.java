@@ -27,10 +27,17 @@ public class GestorPersonajes {
     public static List<Personaje> cargarPersonajes() {
         List<Personaje> personajes = new ArrayList<>();
         Gson gson = new Gson();
-        try (FileReader reader = new FileReader(FILE_PATH)) {
-            Type personajeListType = new TypeToken<ArrayList<Personaje>>() {
-            }.getType();
+        try (FileReader reader = new FileReader("personajes.json")) {
+            Type personajeListType = new TypeToken<ArrayList<Personaje>>() {}.getType();
             personajes = gson.fromJson(reader, personajeListType);
+    
+            // 🔹 Asegurar que todos los personajes tengan un inventario inicializado
+            for (Personaje p : personajes) {
+                if (p.getInventario() == null) {
+                    p.setInventario(new ArrayList<>());
+                }
+            }
+    
         } catch (IOException e) {
             System.out.println("📂 Archivo no encontrado. Se creará uno nuevo.");
         } catch (Exception e) {
@@ -38,22 +45,23 @@ public class GestorPersonajes {
         }
         return personajes != null ? personajes : new ArrayList<>();
     }
+    
+
 
     public static void guardarPersonajes(List<Personaje> personajes) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileWriter file = new FileWriter("personajes.json")) {
             for (Personaje p : personajes) {
-                List<String> nombresItems = new ArrayList<>();
-                for (Item i : p.getInventario()) {
-                    nombresItems.add(i.getNombre());
+                if (p.getInventario() == null) { 
+                    p.setInventario(new ArrayList<>()); // ✅ Prevenir NullPointerException
                 }
-                p.setNombresItems(nombresItems); // Nueva variable en Personaje
             }
             gson.toJson(personajes, file);
         } catch (IOException e) {
             System.out.println("❌ Error al guardar los personajes.");
         }
     }
+    
     
 
     /**

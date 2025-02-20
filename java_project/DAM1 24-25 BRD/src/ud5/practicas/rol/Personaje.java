@@ -38,10 +38,11 @@ public class Personaje {
         this.presencia = presencia;
         this.maxPuntosVida = 50 + this.constitucion;
         this.puntosVida = this.maxPuntosVida;
-        this.inventario = new ArrayList<>(); // Inicializamos el inventario
+        this.inventario = new ArrayList<>(); // 🔹 Inicializa un inventario vacío siempre
 
         aplicarBonificacionesRaza();
     }
+
 
     // Constructor con nombre y raza, atributos aleatorios
     public Personaje(String nombre, String raza) throws Exception {
@@ -230,8 +231,13 @@ public class Personaje {
     }
 
     public List<Item> getInventario() {
+        if (inventario == null) {
+            inventario = new ArrayList<>();
+        }
         return inventario;
     }
+    
+
 
     public void setInventario(List<Item> inventario) {
         this.inventario = inventario;
@@ -248,6 +254,8 @@ public class Personaje {
             }
         }
     }
-    
 
+    public void setNombresItems(List<String> nombresItems) {
+        this.nombresItems = nombresItems;
+    }
 }
