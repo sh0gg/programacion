@@ -110,18 +110,10 @@
       "intuicion": 42,
       "presencia": 40,
       "nivel": 3,
-      "experiencia": 3349,
-      "puntosVida": 38,
-      "maxPuntosVida": 168,
-      "inventario": [
-        {
-          "nombre": "Báculo de Gatos Mágicos",
-          "tipo": "Arma",
-          "bonoFuerza": 5,
-          "bonoAgilidad": 10,
-          "bonoConstitucion": 5
-        }
-      ]
+      "experiencia": 2591,
+      "puntosVida": 138,
+      "maxPuntosVida": 163,
+      "inventario": []
     },
     {
       "nombre": "Padineitor",

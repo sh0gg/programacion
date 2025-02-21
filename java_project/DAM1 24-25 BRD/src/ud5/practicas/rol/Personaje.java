@@ -137,12 +137,17 @@ public class Personaje {
     public byte sumarExperiencia(int puntos) {
         experiencia += puntos;
         byte nivelesSubidos = 0;
-        while (experiencia >= 1000) {
-            experiencia -= 1000;
+
+        while (experiencia >= experienciaNecesariaParaNivel(nivel + 1)) {
+            experiencia -= experienciaNecesariaParaNivel(nivel + 1);
             subirNivel();
             nivelesSubidos++;
         }
         return nivelesSubidos;
+    }
+
+    private int experienciaNecesariaParaNivel(int nivel) {
+        return (int) (1000 * Math.pow(nivel, 1.5));
     }
 
     public void subirNivel() {
@@ -155,9 +160,15 @@ public class Personaje {
         System.out.println(nombre + " ha subido al nivel " + nivel + " y ha recuperado su vida.");
     }
 
-    public void curar() {
-        puntosVida = maxPuntosVida;
+    public int getNivel() {
+        return nivel;
     }
+
+    public void curar() {
+        puntosVida = Math.min(getMaxPuntosVida(), puntosVida + (rand.nextInt(20) + 10)); // 🔥 Ahora solo cura sin pasar el límite
+    }
+
+
 
     public boolean perderVida(int puntos) {
         puntosVida -= puntos;
@@ -169,16 +180,48 @@ public class Personaje {
     }
 
     public int atacar(Personaje enemigo) {
-        int ataque = fuerza + rand.nextInt(100) + 1;
-        int defensa = enemigo.agilidad + rand.nextInt(100) + 1;
-        int dano = Math.max(0, ataque - defensa);
+        int bonoFuerza = calcularBono("fuerza"); // 🔥 Se obtiene el bono total de fuerza
+        int bonoAgilidad = calcularBono("agilidad"); // 🔥 Se obtiene el bono total de agilidad
+
+        int ataque = (fuerza + bonoFuerza) + rand.nextInt(100) + 1; // 🔥 El ataque suma la fuerza y el bono de fuerza
+        int defensa = (enemigo.getAgilidad() + enemigo.calcularBono("agilidad")) + rand.nextInt(100) + 1; // 🔥 La defensa suma la agilidad base y el bono de agilidad
+
+        int dano = Math.max(1, ataque - defensa); // 🔥 Asegura que el daño mínimo sea 1
 
         if (dano > 0) {
             enemigo.perderVida(dano);
             sumarExperiencia(dano);
             enemigo.sumarExperiencia(dano);
         }
+
         return dano;
+    }
+
+    /**
+     * Calcula el bono total de un atributo específico (fuerza, agilidad, constitución)
+     * basado en los objetos equipados en el inventario del personaje.
+     */
+    private int calcularBono(String atributo) {
+        int bonoTotal = 0;
+        for (Item item : inventario) {
+            switch (atributo.toLowerCase()) {
+                case "fuerza":
+                    bonoTotal += item.getBonoFuerza();
+                    break;
+                case "agilidad":
+                    bonoTotal += item.getBonoAgilidad();
+                    break;
+                case "constitucion":
+                    bonoTotal += item.getBonoConstitucion();
+                    break;
+            }
+        }
+        return bonoTotal;
+    }
+
+    public int getMaxPuntosVida() {
+        maxPuntosVida = 50 + constitucion + calcularBono("constitucion"); // 🔥 Ahora se actualiza con los bonos
+        return maxPuntosVida;
     }
 
     // Getters
@@ -188,10 +231,6 @@ public class Personaje {
 
     public int getPuntosVida() {
         return puntosVida;
-    }
-
-    public int getMaxPuntosVida() {
-        return maxPuntosVida;
     }
 
     public void setPuntosVida(int puntosVida) {

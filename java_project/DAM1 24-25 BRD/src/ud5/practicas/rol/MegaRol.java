@@ -1,3 +1,5 @@
+package ud5.practicas.rol;
+
 import ud5.practicas.rol.GestorPersonajes;
 import ud5.practicas.rol.Personaje;
 
@@ -6,7 +8,7 @@ import java.util.Scanner;
 public class MegaRol {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // 🔥 Restaurar la vida de los personajes antes de comenzar el juego
         GestorPersonajes.restaurarPersonajes();
 
@@ -16,8 +18,9 @@ public class MegaRol {
             System.out.println("2️⃣ Ver personajes");
             System.out.println("3️⃣ Iniciar un combate");
             System.out.println("4️⃣ Explorar la mazmorra");
-            System.out.println("5️⃣ Administrar inventario");
-            System.out.println("6️⃣ Salir");
+            System.out.println("5️⃣ Explorar la mazmorra en Autoplay"); // 🔥 Nueva opción añadida
+            System.out.println("6️⃣ Administrar inventario");
+            System.out.println("7️⃣ Salir");
             System.out.print("🔹 Elige una opción: ");
 
             int opcion;
@@ -35,8 +38,9 @@ public class MegaRol {
                 case 2 -> mostrarPersonajes();
                 case 3 -> GestorPersonajes.combate();
                 case 4 -> GestorPersonajes.mazmorra();
-                case 5 -> GestorPersonajes.administrarInventario();
-                case 6 -> {
+                case 5 -> GestorPersonajes.autoplayMazmorra(); // 🔥 Llamamos al nuevo modo autoplay
+                case 6 -> GestorPersonajes.administrarInventario();
+                case 7 -> {
                     System.out.println("👋 ¡Gracias por jugar MegaRol! 🌟");
                     return;
                 }

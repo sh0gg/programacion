@@ -12,6 +12,7 @@ import ud5.practicas.rol.Personaje;
 import java.lang.reflect.Type;
 
 public class AppCombateSingular {
+    private static final String FILE_PATH = "ud5/practicas/rol/personajes.json";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Personaje> personajes = cargarPersonajes();  // Cargar personajes desde JSON
@@ -88,7 +89,7 @@ public class AppCombateSingular {
         List<Personaje> personajes = new ArrayList<>();
         Gson gson = new Gson();
         try {
-            FileReader reader = new FileReader("ud5/practicas/rol/personajes.json");
+            FileReader reader = new FileReader(FILE_PATH);
             Type personajeListType = new TypeToken<ArrayList<Personaje>>() {}.getType();
             personajes = gson.fromJson(reader, personajeListType);
             reader.close();

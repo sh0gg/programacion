@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -14,10 +17,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class GestorPersonajes {
     private static final String FILE_PATH = "ud5/practicas/rol/personajes.json";
@@ -38,7 +38,8 @@ public class GestorPersonajes {
             if (jsonElement != null && jsonElement.isJsonObject()) {
                 JsonObject jsonObject = jsonElement.getAsJsonObject();
                 if (jsonObject.has("personajes")) {
-                    Type personajeListType = new TypeToken<ArrayList<Personaje>>() {}.getType();
+                    Type personajeListType = new TypeToken<ArrayList<Personaje>>() {
+                    }.getType();
                     personajes = gson.fromJson(jsonObject.get("personajes"), personajeListType);
                 } else {
                     System.out.println("⚠️ El archivo JSON no contiene la clave 'personajes'.");
@@ -61,18 +62,21 @@ public class GestorPersonajes {
     }
 
     public static void guardarPersonajes(List<Personaje> personajes) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try {
+            // Crear un respaldo antes de escribir
+            Files.copy(Paths.get(FILE_PATH), Paths.get(FILE_PATH + "_backup.json"), StandardCopyOption.REPLACE_EXISTING);
 
-        try (FileWriter writer = new FileWriter("personajes.json")) {
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.add("personajes", gson.toJsonTree(personajes));
-            jsonObject.addProperty("ultimaEjecucion", LocalDateTime.now().toString());  // 🔥 Guarda la última ejecución
-
-            gson.toJson(jsonObject, writer);
+            // Escribir el nuevo archivo en la ubicación correcta
+            try (FileWriter writer = new FileWriter(FILE_PATH)) {
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                gson.toJson(Map.of("personajes", personajes), writer);
+            }
         } catch (IOException e) {
-            System.out.println("❌ Error al guardar 'personajes.json': " + e.getMessage());
+            System.out.println("⚠️ Error al guardar personajes: " + e.getMessage());
         }
     }
+
+
 
     /**
      * Crear un nuevo personaje
@@ -148,7 +152,7 @@ public class GestorPersonajes {
         guardarPersonajes(personajes);
     }
 
-    public static void mazmorra() {
+    public static void mazmorra() throws Exception {
         List<Personaje> personajes = cargarPersonajes();
         if (personajes.isEmpty()) {
             System.out.println("⚠️ No hay personajes disponibles.");
@@ -203,7 +207,7 @@ public class GestorPersonajes {
     /**
      * Generar un evento en la mazmorra
      */
-    private static void eventoMazmorra(Personaje jugador, int turnos) {
+    private static void eventoMazmorra(Personaje jugador, int turnos) throws Exception {
         int evento = rand.nextInt(100); // Probabilidades basadas en 100
 
         if (evento < 40) {  // 40% de probabilidad de combate
@@ -225,6 +229,8 @@ public class GestorPersonajes {
      */
     private static void combate(Personaje jugador, Personaje enemigo) {
         System.out.println("\n⚔️ ¡Empieza el combate entre " + jugador.getNombre() + " y " + enemigo.getNombre() + "!");
+        System.out.println("❤️ Vida de " + jugador.getNombre() + ": " + jugador.getPuntosVida() + "/" + jugador.getMaxPuntosVida());
+
 
         while (jugador.estaVivo() && enemigo.estaVivo()) {
             // Turno del jugador
@@ -236,10 +242,11 @@ public class GestorPersonajes {
                 System.out.println("\n🎉 ¡Has derrotado al " + enemigo.getNombre() + " y ganado experiencia!");
                 jugador.sumarExperiencia(500);
 
-                // Posibilidad de encontrar un objeto tras la victoria
-                encontrarObjeto(jugador);
+                // 🔥 Ahora se toma en cuenta el nivel del enemigo para mejores recompensas
+                encontrarObjeto(jugador, enemigo);
                 return;
             }
+
 
             // Turno del enemigo
             System.out.println("\n☠️ " + enemigo.getNombre() + " ataca a " + jugador.getNombre());
@@ -339,24 +346,59 @@ public class GestorPersonajes {
     /**
      * Evento de acertijo en la mazmorra
      */
-    private static void acertijo(Personaje jugador) {
+    private static void acertijo(Personaje jugador) throws Exception {
         System.out.println("\n🧩 ¡Has encontrado un acertijo mágico!");
 
         String[][] acertijos = {
                 {"¿Cuál es el pilar de la POO que permite reutilizar código?", "herencia"},
                 {"Si en Java una clase implementa una interfaz, ¿qué palabra clave se usa?", "implements"},
                 {"¿Cómo se llama el proceso de ocultar detalles internos de un objeto y exponer solo lo necesario?", "encapsulamiento"},
-                {"¿Qué palabra clave en Java se usa para crear un objeto?", "new"}
+                {"¿Qué palabra clave en Java se usa para crear un objeto?", "new"},
+                {"¿Cómo se llama la capacidad de un método para tomar diferentes formas en distintas clases?", "polimorfismo"},
+                {"¿Qué pilar de la POO permite definir múltiples métodos con el mismo nombre pero diferentes parámetros?", "sobrecarga"},
+                {"¿Qué palabra clave en Java evita que una variable sea modificada después de inicializarla?", "final"},
+                {"¿Qué palabra clave permite acceder a un método sin necesidad de instanciar la clase?", "static"},
+                {"En Java, si una clase hereda de otra, ¿qué palabra clave se usa para llamar al constructor de la clase padre?", "super"},
+                {"¿Cómo se llama la técnica que permite a un objeto comportarse como su clase base?", "upcasting"}
         };
 
         boolean esPreguntaMatematica = rand.nextBoolean();
         String pregunta, respuestaCorrecta;
 
         if (esPreguntaMatematica) {
-            int num1 = rand.nextInt(20) + 1;
-            int num2 = rand.nextInt(20) + 1;
-            pregunta = "¿Cuánto es " + num1 + " + " + num2 + "?";
-            respuestaCorrecta = String.valueOf(num1 + num2);
+            int operacion = rand.nextInt(5); // 0=Suma, 1=Resta, 2=Multiplicación, 3=División, 4=Módulo
+            int num1, num2;
+
+            do {
+                num1 = rand.nextInt(20) + 1;
+                num2 = rand.nextInt(10) + 1;
+            } while (operacion == 3 && num1 % num2 != 0); // Evita divisiones con decimales
+
+            switch (operacion) {
+                case 0: // Suma
+                    pregunta = "¿Cuánto es " + num1 + " + " + num2 + "?";
+                    respuestaCorrecta = String.valueOf(num1 + num2);
+                    break;
+                case 1: // Resta
+                    pregunta = "¿Cuánto es " + num1 + " - " + num2 + "?";
+                    respuestaCorrecta = String.valueOf(num1 - num2);
+                    break;
+                case 2: // Multiplicación
+                    pregunta = "¿Cuánto es " + num1 + " * " + num2 + "?";
+                    respuestaCorrecta = String.valueOf(num1 * num2);
+                    break;
+                case 3: // División (solo si el resultado es entero)
+                    pregunta = "¿Cuánto es " + num1 + " / " + num2 + "?";
+                    respuestaCorrecta = String.valueOf(num1 / num2);
+                    break;
+                case 4: // Módulo (resto de la división)
+                    pregunta = "¿Cuál es el residuo de " + num1 + " % " + num2 + "?";
+                    respuestaCorrecta = String.valueOf(num1 % num2);
+                    break;
+                default:
+                    pregunta = "Error al generar la pregunta";
+                    respuestaCorrecta = "0";
+            }
         } else {
             int index;
             do {
@@ -375,8 +417,8 @@ public class GestorPersonajes {
             System.out.println("\n✨ ¡Correcto! Ganas 300 puntos de experiencia.");
             jugador.sumarExperiencia(300);
 
-            // Posibilidad de encontrar un objeto tras acertar
-            encontrarObjeto(jugador);
+            // Ahora el nivel del jugador afecta la probabilidad de obtener un objeto
+            encontrarObjeto(jugador, new Personaje("Reto de la Mazmorra", "MONSTRUO", 50, 50, 50, 50, 50, 50));
         } else {
             System.out.println("\n❌ Respuesta incorrecta. No ganas nada.");
         }
@@ -456,8 +498,6 @@ public class GestorPersonajes {
     }
 
 
-
-
     public static void administrarInventario() {
         List<Personaje> personajes = cargarPersonajes();
         if (personajes.isEmpty()) {
@@ -516,21 +556,43 @@ public class GestorPersonajes {
         }
     }
 
-    private static void encontrarObjeto(Personaje jugador) {
+    private static void encontrarObjeto(Personaje jugador, Personaje enemigo) {
         List<Item> itemsDisponibles = cargarItems();
+        if (itemsDisponibles.isEmpty()) {
+            System.out.println("📦 No hay objetos disponibles en el juego.");
+            return;
+        }
 
-        // Probabilidad de encontrar un objeto (1% a 5%)
-        int probabilidad = rand.nextInt(100);
-        if (probabilidad < rand.nextInt(5) + 1) { // Un número aleatorio entre 1 y 5%
-            if (!itemsDisponibles.isEmpty()) {
-                Item objetoEncontrado = itemsDisponibles.get(rand.nextInt(itemsDisponibles.size()));
-                jugador.agregarItem(objetoEncontrado);
-                System.out.println("🎁 ¡" + jugador.getNombre() + " ha encontrado un objeto: " + objetoEncontrado.getNombre() + "!");
-            } else {
-                System.out.println("📦 No hay objetos disponibles en el juego.");
-            }
+        // 🛠️ Ajustar probabilidad en base al nivel del jugador
+        int probabilidadBase = 5; // Probabilidad mínima del 5%
+        int probabilidadPorNivel = Math.min(jugador.getNivel() / 2, 30); // Máximo 30% extra
+        int probabilidadFinal = probabilidadBase + probabilidadPorNivel;
+
+        if (rand.nextInt(100) < probabilidadFinal) { // Determinar si gana un objeto
+            Item objetoEncontrado = seleccionarObjetoPorDificultad(itemsDisponibles, enemigo);
+            jugador.agregarItem(objetoEncontrado);
+            System.out.println("🎁 ¡" + jugador.getNombre() + " ha encontrado un objeto: " + objetoEncontrado.getNombre() + "!");
         }
     }
+
+    /**
+     * Selecciona un objeto basado en la dificultad del enemigo.
+     * Los monstruos fuertes otorgan objetos con mejores bonificaciones.
+     */
+    private static Item seleccionarObjetoPorDificultad(List<Item> items, Personaje enemigo) {
+        int dificultad = enemigo.getNivel();
+        if (dificultad > 10) {
+            // Si es un enemigo fuerte, buscar un objeto con buenos bonos
+            return items.stream()
+                    .max((i1, i2) -> Integer.compare(i1.getBonoFuerza() + i1.getBonoAgilidad() + i1.getBonoConstitucion(),
+                            i2.getBonoFuerza() + i2.getBonoAgilidad() + i2.getBonoConstitucion()))
+                    .orElse(items.get(rand.nextInt(items.size())));
+        } else {
+            // Si el enemigo es débil, dar un objeto aleatorio normal
+            return items.get(rand.nextInt(items.size()));
+        }
+    }
+
 
     public static void guardarItems(List<Item> items) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -554,6 +616,100 @@ public class GestorPersonajes {
             System.out.println("⚠️ Error al leer ítems. Inicializando lista vacía.");
         }
         return items != null ? items : new ArrayList<>();
+    }
+
+    public static void autoplayMazmorra() throws Exception {
+        List<Personaje> personajes = cargarPersonajes();
+        if (personajes.isEmpty()) {
+            System.out.println("⚠️ No hay personajes disponibles.");
+            return;
+        }
+
+        Personaje jugador = seleccionarPersonaje(personajes, "🏰 Elige un personaje para el modo Autoplay: ");
+        if (jugador == null) return;
+
+        int pocionesEncontradas = 0;
+        int objetosEncontrados = 0;
+        Map<String, Integer> monstruosVencidos = new HashMap<>();
+        boolean explorando = true;
+        int turnos = 0;
+
+        System.out.println("\n🚀 Modo Autoplay: Explorando la mazmorra...");
+
+        while (explorando && jugador.estaVivo()) {
+            turnos++;
+            System.out.println("\n----------------------------------");
+            System.out.println("📜 Turno " + turnos + " en la mazmorra...");
+
+            // Generar un monstruo
+            Personaje monstruo = generarMonstruo(turnos, jugador);
+            System.out.println("\n👹 ¡Aparece un " + monstruo.getNombre() + " (Nivel " + monstruo.getNivel() + ")!");
+
+            // Combate automático
+            combate(jugador, monstruo);
+
+            // Si el jugador muere en el combate, salir del autoplay
+            if (!jugador.estaVivo()) {
+                System.out.println("💀 " + jugador.getNombre() + " ha caído en la mazmorra...");
+                break;
+            }
+
+            // Registrar victoria sobre el monstruo
+            monstruosVencidos.put(monstruo.getNombre(), monstruosVencidos.getOrDefault(monstruo.getNombre(), 0) + 1);
+
+            // 🔹 Pequeña pausa entre combates (simulación de tiempo real)
+            try {
+                Thread.sleep(1500); // 1.5 segundos de pausa entre combates
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
+            // Si la vida del jugador es menor al 50% antes del siguiente combate, escapar
+            int vidaActual = jugador.getPuntosVida();
+            int vidaMaximaReal = jugador.getMaxPuntosVida();
+
+            System.out.println("🔍 Depuración: Vida actual = " + vidaActual + ", Vida máxima real = " + vidaMaximaReal);
+
+            if (vidaActual < vidaMaximaReal / 2) {
+                System.out.println("\n🏃 " + jugador.getNombre() + " decide huir de la mazmorra antes de morir...");
+                break;
+            }
+
+
+
+            // 30% de probabilidad de encontrar una poción
+            if (rand.nextInt(100) < 30) {
+                int cura = rand.nextInt(20) + 10;
+                jugador.curar();
+                pocionesEncontradas++;
+                System.out.println("\n🧪 ¡Has encontrado una poción y recuperado " + cura + " puntos de vida!");
+            }
+
+            // 20% de probabilidad de encontrar un objeto
+            if (rand.nextInt(100) < 20) {
+                List<Item> itemsDisponibles = cargarItems();
+                if (!itemsDisponibles.isEmpty()) {
+                    Item objetoEncontrado = itemsDisponibles.get(rand.nextInt(itemsDisponibles.size()));
+                    jugador.agregarItem(objetoEncontrado);
+                    objetosEncontrados++;
+                    System.out.println("\n🎁 ¡Has encontrado un objeto: " + objetoEncontrado.getNombre() + "!");
+                }
+            }
+        }
+
+        // 🔥 Resumen de la exploración
+        System.out.println("\n📜 RESUMEN DE LA EXPLORACIÓN 📜");
+        System.out.println("🔹 Turnos en la mazmorra: " + turnos);
+        System.out.println("⚔️ Monstruos vencidos:");
+        for (Map.Entry<String, Integer> entry : monstruosVencidos.entrySet()) {
+            System.out.println("   - " + entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("🧪 Pociones encontradas: " + pocionesEncontradas);
+        System.out.println("🎁 Objetos encontrados: " + objetosEncontrados);
+        System.out.println("\n🏆 ¡Exploración terminada!");
+
+        // Guardar el estado del personaje después de la exploración
+        guardarPersonajes(personajes);
     }
 
 
