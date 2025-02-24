@@ -7,13 +7,13 @@ public class ComplejidadCiclomatica {
 
     public static void main(String[] args) {
         int[][] grafo1 = {
-                {1},
-                {3,5},
-                {1},
-                {2,4},
-                {6},
-                {6},
-                {}
+                {1},    // 0
+                {3,5},  // 1
+                {1},    // 2
+                {2,4},  // 3
+                {6},    // 4
+                {6},    // 5
+                {}      // 6
 
         };
         int[][] grafo2 = {
