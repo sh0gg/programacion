@@ -3,31 +3,37 @@
     {
       "nombre": "Carlitos",
       "raza": "ELFO",
-      "fuerza": 66,
-      "agilidad": 140,
-      "constitucion": 72,
+      "fuerza": 78,
+      "agilidad": 169,
+      "constitucion": 85,
       "inteligencia": 52,
       "intuicion": 35,
       "presencia": 67,
-      "nivel": 7,
-      "experiencia": 682,
-      "puntosVida": 12,
-      "maxPuntosVida": 122,
-      "inventario": []
+      "nivel": 11,
+      "experiencia": 11599,
+      "puntosVida": 360,
+      "maxPuntosVida": 360,
+      "inventario": [
+        "item_11",
+        "item_8",
+        "item_26",
+        "item_17",
+        "item_13"
+      ]
     },
     {
       "nombre": "Xarro",
       "raza": "ENANO",
-      "fuerza": 105,
-      "agilidad": 52,
-      "constitucion": 103,
+      "fuerza": 126,
+      "agilidad": 60,
+      "constitucion": 123,
       "inteligencia": 69,
       "intuicion": 42,
       "presencia": 40,
-      "nivel": 1,
-      "experiencia": 292,
-      "puntosVida": -8,
-      "maxPuntosVida": 143,
+      "nivel": 5,
+      "experiencia": 4049,
+      "puntosVida": -21,
+      "maxPuntosVida": 173,
       "inventario": []
     },
     {
@@ -41,8 +47,8 @@
       "presencia": 69,
       "nivel": 1,
       "experiencia": 135,
-      "puntosVida": 28,
-      "maxPuntosVida": 93,
+      "puntosVida": 108,
+      "maxPuntosVida": 108,
       "inventario": []
     },
     {
@@ -56,7 +62,7 @@
       "presencia": 85,
       "nivel": 2,
       "experiencia": 407,
-      "puntosVida": 67,
+      "puntosVida": 137,
       "maxPuntosVida": 137,
       "inventario": []
     },
@@ -70,19 +76,10 @@
       "intuicion": 65,
       "presencia": 69,
       "nivel": 1,
-      "experiencia": 760,
-      "puntosVida": 47,
+      "experiencia": 1180,
+      "puntosVida": 82,
       "maxPuntosVida": 82,
-      "inventario": [
-        {
-          "nombre": "Escudo de Hierro",
-          "tipo": "Armadura",
-          "bonoFuerza": 100,
-          "bonoAgilidad": 1000,
-          "bonoConstitucion": 1000
-        }
-      ]
+      "inventario": []
     }
-  ],
-  "ultimaEjecucion": "2025-02-20T13:41:33.404101700"
+  ]
 }

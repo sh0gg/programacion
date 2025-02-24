@@ -12,18 +12,22 @@ import com.google.gson.reflect.TypeToken;
 
 
 public class Item {
+    private String id;
     private String nombre;
     private String tipo; // Ej: "Arma", "Armadura", "Poción", "Accesorio"
-    private int bonoFuerza;
-    private int bonoAgilidad;
-    private int bonoConstitucion;
+    private int bonoFuerza, bonoAgilidad, bonoConstitucion;
 
-    public Item(String nombre, String tipo, int bonoFuerza, int bonoAgilidad, int bonoConstitucion) {
+    public Item(String id, String nombre, String tipo, int bonoFuerza, int bonoAgilidad, int bonoConstitucion) {
+        this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
         this.bonoFuerza = bonoFuerza;
         this.bonoAgilidad = bonoAgilidad;
         this.bonoConstitucion = bonoConstitucion;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getNombre() {

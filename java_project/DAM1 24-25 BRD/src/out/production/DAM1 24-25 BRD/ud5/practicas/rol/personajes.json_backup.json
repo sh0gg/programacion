@@ -1,0 +1,215 @@
+{
+  "personajes": [
+    {
+      "nombre": "Carlitos",
+      "raza": "ELFO",
+      "fuerza": 78,
+      "agilidad": 169,
+      "constitucion": 85,
+      "inteligencia": 52,
+      "intuicion": 35,
+      "presencia": 67,
+      "nivel": 11,
+      "experiencia": 1175,
+      "puntosVida": 360,
+      "maxPuntosVida": 360,
+      "inventario": [
+        {
+          "nombre": "Gorro de Mago Psicodélico",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 0
+        },
+        {
+          "nombre": "Espada de la muerte mortal",
+          "tipo": "Arma",
+          "bonoFuerza": 700,
+          "bonoAgilidad": 5,
+          "bonoConstitucion": 25
+        },
+        {
+          "nombre": "Casco de Dragón",
+          "tipo": "Armadura",
+          "bonoFuerza": 5,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 15
+        },
+        {
+          "nombre": "Dado de la Suerte Extrema",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 0
+        },
+        {
+          "nombre": "Dado de la Suerte Extrema",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 0
+        },
+        {
+          "nombre": "Escudo de Gelatina",
+          "tipo": "Armadura",
+          "bonoFuerza": 0,
+          "bonoAgilidad": -5,
+          "bonoConstitucion": 30
+        },
+        {
+          "nombre": "Piedra Filosofal Pirata",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 50
+        },
+        {
+          "nombre": "Espada Laser de Doble Mango",
+          "tipo": "Arma",
+          "bonoFuerza": 30,
+          "bonoAgilidad": 20,
+          "bonoConstitucion": 0
+        },
+        {
+          "nombre": "Espada de Fuego",
+          "tipo": "Arma",
+          "bonoFuerza": 15,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 0
+        },
+        {
+          "nombre": "Amuleto de Poder",
+          "tipo": "Accesorio",
+          "bonoFuerza": 10,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 0
+        },
+        {
+          "nombre": "Pantalones de Gravedad Invertida",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": -10,
+          "bonoConstitucion": 30
+        },
+        {
+          "nombre": "Martillo del Trueno",
+          "tipo": "Arma",
+          "bonoFuerza": 25,
+          "bonoAgilidad": 5,
+          "bonoConstitucion": 10
+        },
+        {
+          "nombre": "Pantalones de Gravedad Invertida",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": -10,
+          "bonoConstitucion": 30
+        },
+        {
+          "nombre": "Dado de la Suerte Extrema",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 0
+        },
+        {
+          "nombre": "Báculo de Gatos Mágicos",
+          "tipo": "Arma",
+          "bonoFuerza": 5,
+          "bonoAgilidad": 10,
+          "bonoConstitucion": 5
+        },
+        {
+          "nombre": "Pantalones de Gravedad Invertida",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": -10,
+          "bonoConstitucion": 30
+        },
+        {
+          "nombre": "Guantes de Titanio",
+          "tipo": "Accesorio",
+          "bonoFuerza": 12,
+          "bonoAgilidad": 5,
+          "bonoConstitucion": 0
+        }
+      ]
+    },
+    {
+      "nombre": "Xarro",
+      "raza": "ENANO",
+      "fuerza": 115,
+      "agilidad": 56,
+      "constitucion": 113,
+      "inteligencia": 69,
+      "intuicion": 42,
+      "presencia": 40,
+      "nivel": 3,
+      "experiencia": 7433,
+      "puntosVida": 168,
+      "maxPuntosVida": 168,
+      "inventario": [
+        {
+          "nombre": "Báculo de Gatos Mágicos",
+          "tipo": "Arma",
+          "bonoFuerza": 5,
+          "bonoAgilidad": 10,
+          "bonoConstitucion": 5
+        }
+      ]
+    },
+    {
+      "nombre": "Padineitor",
+      "raza": "TROLL",
+      "fuerza": 82,
+      "agilidad": 37,
+      "constitucion": 58,
+      "inteligencia": 24,
+      "intuicion": 84,
+      "presencia": 69,
+      "nivel": 1,
+      "experiencia": 135,
+      "puntosVida": 108,
+      "maxPuntosVida": 108,
+      "inventario": []
+    },
+    {
+      "nombre": "Aronius III",
+      "raza": "HUMANO",
+      "fuerza": 28,
+      "agilidad": 108,
+      "constitucion": 87,
+      "inteligencia": 68,
+      "intuicion": 36,
+      "presencia": 85,
+      "nivel": 2,
+      "experiencia": 407,
+      "puntosVida": 137,
+      "maxPuntosVida": 137,
+      "inventario": []
+    },
+    {
+      "nombre": "Mip \"el Valiente\"",
+      "raza": "HOBBIT",
+      "fuerza": 64,
+      "agilidad": 48,
+      "constitucion": 32,
+      "inteligencia": 94,
+      "intuicion": 65,
+      "presencia": 69,
+      "nivel": 1,
+      "experiencia": 1180,
+      "puntosVida": 1082,
+      "maxPuntosVida": 1082,
+      "inventario": [
+        {
+          "nombre": "Escudo de Hierro",
+          "tipo": "Armadura",
+          "bonoFuerza": 100,
+          "bonoAgilidad": 1000,
+          "bonoConstitucion": 1000
+        }
+      ]
+    }
+  ]
+}

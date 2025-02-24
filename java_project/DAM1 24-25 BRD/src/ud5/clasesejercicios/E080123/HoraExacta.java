@@ -1,13 +1,13 @@
 package ud5.clasesejercicios.E080123;
 
 public class HoraExacta extends Hora {
-    private int segundo;
+    private byte segundo;
 
     // Constructor
     public HoraExacta(int hora, int minuto, int segundo) {
         super(hora, minuto);
         if (segundo >= 0 && segundo < 60) {
-            this.segundo = segundo;
+            this.segundo = (byte) segundo;
         } else {
             this.segundo = 0;
         }
@@ -16,7 +16,7 @@ public class HoraExacta extends Hora {
     // Asigna un nuevo valor a los segundos si es válido
     public boolean setSegundo(int valor) {
         if (valor >= 0 && valor < 60) {
-            this.segundo = valor;
+            this.segundo = (byte) valor;
             return true;
         }
         return false;

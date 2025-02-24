@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class AppMazmorra {
     private static final Random rand = new Random();
     private static final Scanner scanner = new Scanner(System.in);
+    private static final String FILE_PATH = "ud5/practicas/rol/personajes.json";
 
     public static void main(String[] args) {
         List<Personaje> personajes = cargarPersonajes();  // Cargar personajes desde JSON
@@ -77,7 +78,7 @@ public class AppMazmorra {
         List<Personaje> personajes = new ArrayList<>();
         Gson gson = new Gson();
         try {
-            FileReader reader = new FileReader("ud5/practicas/rol/personajes.json");
+            FileReader reader = new FileReader(FILE_PATH);
             Type personajeListType = new TypeToken<ArrayList<Personaje>>() {}.getType();
             personajes = gson.fromJson(reader, personajeListType);
             reader.close();
