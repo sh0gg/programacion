@@ -3,16 +3,16 @@
     {
       "nombre": "Carlitos",
       "raza": "ELFO",
-      "fuerza": 75,
-      "agilidad": 161,
-      "constitucion": 81,
+      "fuerza": 78,
+      "agilidad": 169,
+      "constitucion": 85,
       "inteligencia": 52,
       "intuicion": 35,
       "presencia": 67,
-      "nivel": 10,
-      "experiencia": 16936,
-      "puntosVida": 131,
-      "maxPuntosVida": 291,
+      "nivel": 11,
+      "experiencia": 1175,
+      "puntosVida": 360,
+      "maxPuntosVida": 360,
       "inventario": [
         {
           "nombre": "Gorro de Mago Psicodélico",
@@ -97,6 +97,41 @@
           "bonoFuerza": 25,
           "bonoAgilidad": 5,
           "bonoConstitucion": 10
+        },
+        {
+          "nombre": "Pantalones de Gravedad Invertida",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": -10,
+          "bonoConstitucion": 30
+        },
+        {
+          "nombre": "Dado de la Suerte Extrema",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": 0,
+          "bonoConstitucion": 0
+        },
+        {
+          "nombre": "Báculo de Gatos Mágicos",
+          "tipo": "Arma",
+          "bonoFuerza": 5,
+          "bonoAgilidad": 10,
+          "bonoConstitucion": 5
+        },
+        {
+          "nombre": "Pantalones de Gravedad Invertida",
+          "tipo": "Accesorio",
+          "bonoFuerza": 0,
+          "bonoAgilidad": -10,
+          "bonoConstitucion": 30
+        },
+        {
+          "nombre": "Guantes de Titanio",
+          "tipo": "Accesorio",
+          "bonoFuerza": 12,
+          "bonoAgilidad": 5,
+          "bonoConstitucion": 0
         }
       ]
     },
@@ -110,10 +145,18 @@
       "intuicion": 42,
       "presencia": 40,
       "nivel": 3,
-      "experiencia": 2591,
-      "puntosVida": 138,
-      "maxPuntosVida": 163,
-      "inventario": []
+      "experiencia": 7433,
+      "puntosVida": 168,
+      "maxPuntosVida": 168,
+      "inventario": [
+        {
+          "nombre": "Báculo de Gatos Mágicos",
+          "tipo": "Arma",
+          "bonoFuerza": 5,
+          "bonoAgilidad": 10,
+          "bonoConstitucion": 5
+        }
+      ]
     },
     {
       "nombre": "Padineitor",
@@ -126,8 +169,8 @@
       "presencia": 69,
       "nivel": 1,
       "experiencia": 135,
-      "puntosVida": 93,
-      "maxPuntosVida": 93,
+      "puntosVida": 108,
+      "maxPuntosVida": 108,
       "inventario": []
     },
     {
@@ -156,8 +199,8 @@
       "presencia": 69,
       "nivel": 1,
       "experiencia": 1180,
-      "puntosVida": 82,
-      "maxPuntosVida": 82,
+      "puntosVida": 1082,
+      "maxPuntosVida": 1082,
       "inventario": [
         {
           "nombre": "Escudo de Hierro",

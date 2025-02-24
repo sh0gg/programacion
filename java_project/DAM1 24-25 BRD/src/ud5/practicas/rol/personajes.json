@@ -3,125 +3,32 @@
     {
       "nombre": "Carlitos",
       "raza": "ELFO",
-      "fuerza": 75,
-      "agilidad": 161,
-      "constitucion": 81,
+      "fuerza": 78,
+      "agilidad": 169,
+      "constitucion": 85,
       "inteligencia": 52,
       "intuicion": 35,
       "presencia": 67,
-      "nivel": 10,
-      "experiencia": 16936,
-      "puntosVida": 131,
-      "maxPuntosVida": 291,
-      "inventario": [
-        {
-          "nombre": "Gorro de Mago Psicodélico",
-          "tipo": "Accesorio",
-          "bonoFuerza": 0,
-          "bonoAgilidad": 0,
-          "bonoConstitucion": 0
-        },
-        {
-          "nombre": "Espada de la muerte mortal",
-          "tipo": "Arma",
-          "bonoFuerza": 700,
-          "bonoAgilidad": 5,
-          "bonoConstitucion": 25
-        },
-        {
-          "nombre": "Casco de Dragón",
-          "tipo": "Armadura",
-          "bonoFuerza": 5,
-          "bonoAgilidad": 0,
-          "bonoConstitucion": 15
-        },
-        {
-          "nombre": "Dado de la Suerte Extrema",
-          "tipo": "Accesorio",
-          "bonoFuerza": 0,
-          "bonoAgilidad": 0,
-          "bonoConstitucion": 0
-        },
-        {
-          "nombre": "Dado de la Suerte Extrema",
-          "tipo": "Accesorio",
-          "bonoFuerza": 0,
-          "bonoAgilidad": 0,
-          "bonoConstitucion": 0
-        },
-        {
-          "nombre": "Escudo de Gelatina",
-          "tipo": "Armadura",
-          "bonoFuerza": 0,
-          "bonoAgilidad": -5,
-          "bonoConstitucion": 30
-        },
-        {
-          "nombre": "Piedra Filosofal Pirata",
-          "tipo": "Accesorio",
-          "bonoFuerza": 0,
-          "bonoAgilidad": 0,
-          "bonoConstitucion": 50
-        },
-        {
-          "nombre": "Espada Laser de Doble Mango",
-          "tipo": "Arma",
-          "bonoFuerza": 30,
-          "bonoAgilidad": 20,
-          "bonoConstitucion": 0
-        },
-        {
-          "nombre": "Espada de Fuego",
-          "tipo": "Arma",
-          "bonoFuerza": 15,
-          "bonoAgilidad": 0,
-          "bonoConstitucion": 0
-        },
-        {
-          "nombre": "Amuleto de Poder",
-          "tipo": "Accesorio",
-          "bonoFuerza": 10,
-          "bonoAgilidad": 0,
-          "bonoConstitucion": 0
-        },
-        {
-          "nombre": "Pantalones de Gravedad Invertida",
-          "tipo": "Accesorio",
-          "bonoFuerza": 0,
-          "bonoAgilidad": -10,
-          "bonoConstitucion": 30
-        },
-        {
-          "nombre": "Martillo del Trueno",
-          "tipo": "Arma",
-          "bonoFuerza": 25,
-          "bonoAgilidad": 5,
-          "bonoConstitucion": 10
-        }
-      ]
+      "nivel": 11,
+      "experiencia": 1175,
+      "puntosVida": 360,
+      "maxPuntosVida": 360,
+      "inventario": []
     },
     {
       "nombre": "Xarro",
       "raza": "ENANO",
-      "fuerza": 115,
-      "agilidad": 56,
-      "constitucion": 113,
+      "fuerza": 120,
+      "agilidad": 58,
+      "constitucion": 118,
       "inteligencia": 69,
       "intuicion": 42,
       "presencia": 40,
-      "nivel": 3,
-      "experiencia": 3349,
-      "puntosVida": 38,
-      "maxPuntosVida": 168,
-      "inventario": [
-        {
-          "nombre": "Báculo de Gatos Mágicos",
-          "tipo": "Arma",
-          "bonoFuerza": 5,
-          "bonoAgilidad": 10,
-          "bonoConstitucion": 5
-        }
-      ]
+      "nivel": 4,
+      "experiencia": 7803,
+      "puntosVida": 203,
+      "maxPuntosVida": 203,
+      "inventario": []
     },
     {
       "nombre": "Padineitor",
@@ -134,8 +41,8 @@
       "presencia": 69,
       "nivel": 1,
       "experiencia": 135,
-      "puntosVida": 93,
-      "maxPuntosVida": 93,
+      "puntosVida": 108,
+      "maxPuntosVida": 108,
       "inventario": []
     },
     {
@@ -166,15 +73,8 @@
       "experiencia": 1180,
       "puntosVida": 82,
       "maxPuntosVida": 82,
-      "inventario": [
-        {
-          "nombre": "Escudo de Hierro",
-          "tipo": "Armadura",
-          "bonoFuerza": 100,
-          "bonoAgilidad": 1000,
-          "bonoConstitucion": 1000
-        }
-      ]
+      "inventario": []
     }
-  ]
+  ],
+  "ultimaEjecucion": "2025-02-24T13:57:53.416413600"
 }

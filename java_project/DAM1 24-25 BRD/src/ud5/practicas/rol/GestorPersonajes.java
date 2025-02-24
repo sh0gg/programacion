@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -32,9 +34,8 @@ public class GestorPersonajes {
         List<Personaje> personajes = new ArrayList<>();
         Gson gson = new Gson();
 
-        try (FileReader reader = new FileReader(FILE_PATH)) {  // 🔥 Se usa la ruta correcta
+        try (FileReader reader = new FileReader(FILE_PATH)) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
-
             if (jsonElement != null && jsonElement.isJsonObject()) {
                 JsonObject jsonObject = jsonElement.getAsJsonObject();
                 if (jsonObject.has("personajes")) {
@@ -51,31 +52,20 @@ public class GestorPersonajes {
             System.out.println("⚠️ Error al leer 'personajes.json': " + e.getMessage());
         }
 
-        // 🔥 Asegurar que todos los personajes tengan inventario inicializado
-        for (Personaje p : personajes) {
-            if (p.getInventario() == null) {
-                p.setInventario(new ArrayList<>());
-            }
-        }
-
         return personajes;
     }
 
-    public static void guardarPersonajes(List<Personaje> personajes) {
-        try {
-            // Crear un respaldo antes de escribir
-            Files.copy(Paths.get(FILE_PATH), Paths.get(FILE_PATH + "_backup.json"), StandardCopyOption.REPLACE_EXISTING);
 
-            // Escribir el nuevo archivo en la ubicación correcta
-            try (FileWriter writer = new FileWriter(FILE_PATH)) {
-                Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                gson.toJson(Map.of("personajes", personajes), writer);
-            }
+    public static void guardarPersonajes(List<Personaje> personajes) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (FileWriter writer = new FileWriter(FILE_PATH)) {
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.add("personajes", gson.toJsonTree(personajes));
+            gson.toJson(jsonObject, writer);
         } catch (IOException e) {
-            System.out.println("⚠️ Error al guardar personajes: " + e.getMessage());
+            System.out.println("⚠️ Error al guardar personajes.json");
         }
     }
-
 
 
     /**
@@ -132,7 +122,8 @@ public class GestorPersonajes {
 
         while (p1.estaVivo() && p2.estaVivo()) {
             System.out.println("\n⚔️ " + atacante + " ataca a " + defensor);
-            int dano = atacante.atacar(defensor);
+            List<Item> itemsDisponibles = cargarItems(); // 🔥 Cargar los ítems disponibles
+            int dano = atacante.atacar(defensor, itemsDisponibles);
             System.out.println("💥 Daño infligido: " + dano);
 
             if (!defensor.estaVivo()) {
@@ -235,7 +226,8 @@ public class GestorPersonajes {
         while (jugador.estaVivo() && enemigo.estaVivo()) {
             // Turno del jugador
             System.out.println("\n⚔️ " + jugador.getNombre() + " ataca a " + enemigo.getNombre());
-            int dano = jugador.atacar(enemigo);
+            List<Item> itemsDisponibles = cargarItems(); // 🔥 Cargar los ítems disponibles
+            int dano = jugador.atacar(enemigo, itemsDisponibles);
             System.out.println("💥 Daño infligido: " + dano);
 
             if (!enemigo.estaVivo()) {
@@ -250,7 +242,7 @@ public class GestorPersonajes {
 
             // Turno del enemigo
             System.out.println("\n☠️ " + enemigo.getNombre() + " ataca a " + jugador.getNombre());
-            dano = enemigo.atacar(jugador);
+            dano = enemigo.atacar(jugador, itemsDisponibles);
             System.out.println("💀 Daño recibido: " + dano);
 
             if (!jugador.estaVivo()) {
@@ -430,9 +422,6 @@ public class GestorPersonajes {
     // Variable estática para evitar repetir la última pregunta de POO
     private static int ultimaPregunta = -1;
 
-    /**
-     * Restaurar vida de los personajes basada en el tiempo real transcurrido
-     */
     public static void restaurarPersonajes() {
         List<Personaje> personajes = cargarPersonajes();
         if (personajes.isEmpty()) return;
@@ -447,10 +436,11 @@ public class GestorPersonajes {
                 JsonObject json = jsonElement.getAsJsonObject();
                 if (json.has("ultimaEjecucion")) {
                     ultimaEjecucion = LocalDateTime.parse(json.get("ultimaEjecucion").getAsString());
+                    System.out.println("📅 Última ejecución registrada: " + ultimaEjecucion);
                 }
             }
         } catch (Exception e) {
-            System.out.println("⚠️ No se encontró información de la última ejecución.");
+            System.out.println("⚠️ No se encontró información de la última ejecución o hubo un error: " + e.getMessage());
         }
 
         // Obtener tiempo actual
@@ -461,18 +451,13 @@ public class GestorPersonajes {
 
         // Calcular minutos transcurridos
         long minutosPasados = ChronoUnit.MINUTES.between(ultimaEjecucion, ahora);
+        System.out.println("⏳ Minutos transcurridos desde la última sesión: " + minutosPasados);
 
         if (minutosPasados > 0) {
-            System.out.println("⏳ Han pasado " + minutosPasados + " minutos desde la última sesión.");
-
             for (Personaje p : personajes) {
-                // 🔹 Recuperar vida incluso si está en negativo
                 int nuevaVida = p.getPuntosVida() + (int) minutosPasados * 10;
-
-                // 🔥 Asegurar que no pase de su vida máxima
                 p.setPuntosVida(Math.min(nuevaVida, p.getMaxPuntosVida()));
 
-                // 🔥 Avisar si el personaje ha revivido
                 if (p.getPuntosVida() > 0 && p.getPuntosVida() - (int) minutosPasados * 10 <= 0) {
                     System.out.println("✨ " + p.getNombre() + " ha revivido con " + p.getPuntosVida() + " puntos de vida.");
                 }
@@ -481,22 +466,20 @@ public class GestorPersonajes {
             guardarPersonajes(personajes);
         }
 
-        // 🔥 Guardar la nueva última ejecución en `personajes.json` respetando su estructura original
-        try (FileReader reader = new FileReader(FILE_PATH)) {
-            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
-            JsonObject json = (jsonElement != null && jsonElement.isJsonObject()) ? jsonElement.getAsJsonObject() : new JsonObject();
-
-            json.add("personajes", gson.toJsonTree(personajes));
-            json.addProperty("ultimaEjecucion", ahora.toString());
+        // Guardar la nueva última ejecución en `personajes.json`
+        try {
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.add("personajes", gson.toJsonTree(personajes));
+            jsonObject.addProperty("ultimaEjecucion", ahora.toString());
 
             try (FileWriter writer = new FileWriter(FILE_PATH)) {
-                gson.toJson(json, writer);
+                gson.toJson(jsonObject, writer);
+                System.out.println("✅ Se ha actualizado la última ejecución a: " + ahora);
             }
         } catch (IOException e) {
             System.out.println("❌ Error al guardar la última ejecución en 'personajes.json': " + e.getMessage());
         }
     }
-
 
     public static void administrarInventario() {
         List<Personaje> personajes = cargarPersonajes();
@@ -505,54 +488,36 @@ public class GestorPersonajes {
             return;
         }
 
-        Personaje jugador = seleccionarPersonaje(personajes, "🎒 Elige un personaje para administrar su inventario: ");
-        if (jugador == null) return;
+        Personaje jugador = personajes.get(0); // Selección rápida
+        List<Item> items = cargarItems();
 
-        boolean gestionando = true;
-        while (gestionando) {
-            System.out.println("\n📜 Inventario de " + jugador.getNombre());
-            jugador.mostrarInventario();
-            System.out.println("1️⃣ Añadir objeto");
-            System.out.println("2️⃣ Eliminar objeto");
-            System.out.println("3️⃣ Salir");
-            System.out.print("🔹 Elige una opción: ");
+        System.out.println("\n📜 Inventario de " + jugador.getNombre());
+        System.out.println("1️⃣ Añadir objeto");
+        System.out.println("2️⃣ Eliminar objeto");
+        System.out.println("3️⃣ Salir");
 
-            int opcion = scanner.nextInt();
-            scanner.nextLine();
+        int opcion = scanner.nextInt();
+        scanner.nextLine();
 
-            switch (opcion) {
-                case 1:
-                    System.out.print("📝 Nombre del objeto: ");
-                    String nombreItem = scanner.nextLine();
-                    System.out.print("⚔️ Tipo (Arma, Armadura, Poción): ");
-                    String tipo = scanner.nextLine();
-                    System.out.print("💪 Bono de fuerza: ");
-                    int bonoFuerza = scanner.nextInt();
-                    System.out.print("🏃 Bono de agilidad: ");
-                    int bonoAgilidad = scanner.nextInt();
-                    System.out.print("❤️ Bono de constitución: ");
-                    int bonoConstitucion = scanner.nextInt();
-                    scanner.nextLine();
-
-                    Item nuevoItem = new Item(nombreItem, tipo, bonoFuerza, bonoAgilidad, bonoConstitucion);
-                    jugador.agregarItem(nuevoItem);
-                    guardarPersonajes(personajes);
-                    break;
-
-                case 2:
-                    System.out.print("🗑 Nombre del objeto a eliminar: ");
-                    String eliminar = scanner.nextLine();
-                    jugador.eliminarItem(eliminar);
-                    guardarPersonajes(personajes);
-                    break;
-
-                case 3:
-                    gestionando = false;
-                    break;
-
-                default:
-                    System.out.println("❌ Opción inválida.");
+        switch (opcion) {
+            case 1 -> {
+                System.out.println("🔍 Lista de ítems disponibles:");
+                for (Item item : items) {
+                    System.out.println(item.getId() + " - " + item.getNombre());
+                }
+                System.out.print("📝 Introduce el ID del objeto a añadir: ");
+                String itemId = scanner.nextLine();
+                jugador.agregarItem(itemId);
+                guardarPersonajes(personajes);
             }
+            case 2 -> {
+                System.out.print("🗑 Introduce el ID del objeto a eliminar: ");
+                String itemId = scanner.nextLine();
+                jugador.eliminarItem(itemId);
+                guardarPersonajes(personajes);
+            }
+            case 3 -> System.out.println("🚪 Saliendo...");
+            default -> System.out.println("❌ Opción inválida.");
         }
     }
 
@@ -606,17 +571,18 @@ public class GestorPersonajes {
     public static List<Item> cargarItems() {
         List<Item> items = new ArrayList<>();
         Gson gson = new Gson();
+
         try (FileReader reader = new FileReader(FILE_PATH_ITEMS)) {
             Type itemListType = new TypeToken<ArrayList<Item>>() {
             }.getType();
             items = gson.fromJson(reader, itemListType);
         } catch (IOException e) {
-            System.out.println("📂 Archivo de ítems no encontrado. Se creará uno nuevo.");
-        } catch (Exception e) {
-            System.out.println("⚠️ Error al leer ítems. Inicializando lista vacía.");
+            System.out.println("📂 Archivo de ítems no encontrado.");
         }
-        return items != null ? items : new ArrayList<>();
+
+        return items;
     }
+
 
     public static void autoplayMazmorra() throws Exception {
         List<Personaje> personajes = cargarPersonajes();
@@ -631,12 +597,22 @@ public class GestorPersonajes {
         int pocionesEncontradas = 0;
         int objetosEncontrados = 0;
         Map<String, Integer> monstruosVencidos = new HashMap<>();
-        boolean explorando = true;
+        AtomicBoolean explorando = new AtomicBoolean(true); // 🔥 Variable que controla si sigue explorando
         int turnos = 0;
 
         System.out.println("\n🚀 Modo Autoplay: Explorando la mazmorra...");
+        System.out.println("⚠️ Escribe cualquier letra + [ENTER] para detener el autoplay en cualquier momento.");
 
-        while (explorando && jugador.estaVivo()) {
+        // 🔥 Hilo en segundo plano que escucha la entrada del usuario
+        Thread inputThread = new Thread(() -> {
+            Scanner scanner = new Scanner(System.in);
+            scanner.nextLine(); // Espera que el usuario presione una tecla
+            explorando.set(false); // 🔥 Detener autoplay cuando el usuario ingrese algo
+            System.out.println("\n🛑 ¡Autoplay detenido por el usuario!");
+        });
+        inputThread.start(); // Iniciar el hilo de escucha
+
+        while (explorando.get() && jugador.estaVivo()) {
             turnos++;
             System.out.println("\n----------------------------------");
             System.out.println("📜 Turno " + turnos + " en la mazmorra...");
@@ -675,8 +651,6 @@ public class GestorPersonajes {
                 break;
             }
 
-
-
             // 30% de probabilidad de encontrar una poción
             if (rand.nextInt(100) < 30) {
                 int cura = rand.nextInt(20) + 10;
@@ -697,19 +671,24 @@ public class GestorPersonajes {
             }
         }
 
-        // 🔥 Resumen de la exploración
-        System.out.println("\n📜 RESUMEN DE LA EXPLORACIÓN 📜");
-        System.out.println("🔹 Turnos en la mazmorra: " + turnos);
-        System.out.println("⚔️ Monstruos vencidos:");
-        for (Map.Entry<String, Integer> entry : monstruosVencidos.entrySet()) {
-            System.out.println("   - " + entry.getKey() + ": " + entry.getValue());
-        }
-        System.out.println("🧪 Pociones encontradas: " + pocionesEncontradas);
-        System.out.println("🎁 Objetos encontrados: " + objetosEncontrados);
         System.out.println("\n🏆 ¡Exploración terminada!");
+        explorando.set(false);
+    }
 
-        // Guardar el estado del personaje después de la exploración
+
+    public static void curarTodos() {
+        List<Personaje> personajes = cargarPersonajes();
+        if (personajes.isEmpty()) {
+            System.out.println("⚠️ No hay personajes disponibles.");
+            return;
+        }
+
+        for (Personaje p : personajes) {
+            p.setPuntosVida(p.getMaxPuntosVida());
+        }
+
         guardarPersonajes(personajes);
+        System.out.println("💖 Todos los personajes han sido curados al máximo.");
     }
 
 
