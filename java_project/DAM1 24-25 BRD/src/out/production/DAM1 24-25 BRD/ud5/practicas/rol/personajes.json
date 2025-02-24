@@ -10,10 +10,16 @@
       "intuicion": 35,
       "presencia": 67,
       "nivel": 11,
-      "experiencia": 1175,
-      "puntosVida": 360,
+      "experiencia": 11599,
+      "puntosVida": 37,
       "maxPuntosVida": 360,
-      "inventario": []
+      "inventario": [
+        "item_11",
+        "item_8",
+        "item_26",
+        "item_17",
+        "item_13"
+      ]
     },
     {
       "nombre": "Xarro",
@@ -25,8 +31,8 @@
       "intuicion": 42,
       "presencia": 40,
       "nivel": 4,
-      "experiencia": 7803,
-      "puntosVida": 203,
+      "experiencia": 8924,
+      "puntosVida": 31,
       "maxPuntosVida": 203,
       "inventario": []
     },
@@ -75,6 +81,5 @@
       "maxPuntosVida": 82,
       "inventario": []
     }
-  ],
-  "ultimaEjecucion": "2025-02-24T13:36:39.760643"
+  ]
 }

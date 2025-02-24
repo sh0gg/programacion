@@ -10,24 +10,30 @@
       "intuicion": 35,
       "presencia": 67,
       "nivel": 11,
-      "experiencia": 1175,
+      "experiencia": 11599,
       "puntosVida": 360,
       "maxPuntosVida": 360,
-      "inventario": []
+      "inventario": [
+        "item_11",
+        "item_8",
+        "item_26",
+        "item_17",
+        "item_13"
+      ]
     },
     {
       "nombre": "Xarro",
       "raza": "ENANO",
-      "fuerza": 120,
-      "agilidad": 58,
-      "constitucion": 118,
+      "fuerza": 126,
+      "agilidad": 60,
+      "constitucion": 123,
       "inteligencia": 69,
       "intuicion": 42,
       "presencia": 40,
-      "nivel": 4,
-      "experiencia": 7803,
-      "puntosVida": 203,
-      "maxPuntosVida": 203,
+      "nivel": 5,
+      "experiencia": 3054,
+      "puntosVida": 2,
+      "maxPuntosVida": 173,
       "inventario": []
     },
     {
@@ -75,6 +81,5 @@
       "maxPuntosVida": 82,
       "inventario": []
     }
-  ],
-  "ultimaEjecucion": "2025-02-24T13:57:53.416413600"
+  ]
 }

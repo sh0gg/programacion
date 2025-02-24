@@ -9,7 +9,8 @@
 
 <!ELEMENT curriculumVitae (presentación, (estudios | experienciaLaboral)+, (idiomas | deportes | otros)*, referencias*, observaciones?)>
 <!ELEMENT presentación (#PCDATA)>
-<!ELEMENT estudios (practicas*)>
+<!ELEMENT estudios (titulo, practicas*)>
+<!ELEMENT titulo (#PCDATA)>
 <!ATTLIST estudios notamedia CDATA #IMPLIED>
 <!ELEMENT practicas EMPTY>
 <!ATTLIST practicas empresa CDATA #REQUIRED horas CDATA #REQUIRED>

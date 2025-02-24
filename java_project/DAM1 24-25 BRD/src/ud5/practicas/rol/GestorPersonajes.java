@@ -626,6 +626,7 @@ public class GestorPersonajes {
 
             // Si el jugador muere en el combate, salir del autoplay
             if (!jugador.estaVivo()) {
+                explorando.set(false);
                 System.out.println("💀 " + jugador.getNombre() + " ha caído en la mazmorra...");
                 break;
             }
@@ -670,9 +671,22 @@ public class GestorPersonajes {
                 }
             }
         }
-
         System.out.println("\n🏆 ¡Exploración terminada!");
         explorando.set(false);
+        // 🔥 Resumen de la exploración
+        System.out.println(" ");
+        System.out.println("\n📜 RESUMEN DE LA EXPLORACIÓN 📜");
+        System.out.println("🔹 Turnos en la mazmorra: " + turnos);
+        System.out.println("⚔️ Monstruos vencidos:");
+        for (Map.Entry<String, Integer> entry : monstruosVencidos.entrySet()) {
+            System.out.println("   - " + entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("🧪 Pociones encontradas: " + pocionesEncontradas);
+        System.out.println("🎁 Objetos encontrados: " + objetosEncontrados);
+        System.out.println("\n🏆 ¡Exploración terminada!");
+
+        // Guardar el estado del personaje después de la exploración
+        guardarPersonajes(personajes);
     }
 
 

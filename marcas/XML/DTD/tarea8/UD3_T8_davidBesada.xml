@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE curriculumVitae SYSTEM "UD3_T8_davidBesada.dtd">
 <curriculumVitae>
     <presentación>Mi nombre es David Besada. Soy ingeniero informático con experiencia en desarrollo de software.</presentación>
 
     <estudios notamedia="8.7">
+        <titulo>DAM</titulo>
         <practicas empresa="Galicloud S. Coop. Galega" horas="200"/>
     </estudios>
 
@@ -17,7 +18,7 @@
     <otros>Programación en Java, desarrollo web con HTML, CSS y JavaScript, bases de datos SQL.</otros>
 
     <referencias>Profesor Juan Pérez - Universidad Oberta de Catalunya</referencias>
-    <referencias>Director de Galicloud S. Coop. Galega</referencias>
+    <referencias>Carlos Paz - Director de Galicloud S. Coop. Galega</referencias>
 
     <observaciones>Interesado en oportunidades internacionales y formación continua.</observaciones>
 </curriculumVitae>
