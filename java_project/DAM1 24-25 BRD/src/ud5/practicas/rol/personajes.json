@@ -10,7 +10,7 @@
       "intuicion": 35,
       "presencia": 67,
       "nivel": 11,
-      "experiencia": 11599,
+      "experiencia": 22853,
       "puntosVida": 360,
       "maxPuntosVida": 360,
       "inventario": [
@@ -18,7 +18,12 @@
         "item_8",
         "item_26",
         "item_17",
-        "item_13"
+        "item_13",
+        "item_16",
+        "item_37",
+        "item_31",
+        "item_10",
+        "item_7"
       ]
     },
     {
@@ -31,8 +36,8 @@
       "intuicion": 42,
       "presencia": 40,
       "nivel": 5,
-      "experiencia": 3054,
-      "puntosVida": 2,
+      "experiencia": 4049,
+      "puntosVida": 173,
       "maxPuntosVida": 173,
       "inventario": []
     },

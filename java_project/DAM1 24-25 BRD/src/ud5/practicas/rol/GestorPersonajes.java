@@ -606,9 +606,10 @@ public class GestorPersonajes {
         // 🔥 Hilo en segundo plano que escucha la entrada del usuario
         Thread inputThread = new Thread(() -> {
             Scanner scanner = new Scanner(System.in);
+            if (explorando.get()) {
             scanner.nextLine(); // Espera que el usuario presione una tecla
             explorando.set(false); // 🔥 Detener autoplay cuando el usuario ingrese algo
-            System.out.println("\n🛑 ¡Autoplay detenido por el usuario!");
+            System.out.println("\n🛑 ¡Autoplay detenido por el usuario!"); }
         });
         inputThread.start(); // Iniciar el hilo de escucha
 
