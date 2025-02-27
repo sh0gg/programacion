@@ -1,101 +1,59 @@
-package ud5.practicas.rol.oldApp;
+package ud5.practicas.rol;
 
-import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import ud5.practicas.rol.Personaje;
-
-import java.lang.reflect.Type;
 
 public class AppCombateSingular {
-    private static final String FILE_PATH = "ud5/practicas/rol/personajes.json";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Personaje> personajes = cargarPersonajes();  // Cargar personajes desde JSON
+        List<Personaje> personajes = GestorPersonajes.cargarPersonajes();
 
-        if (personajes.isEmpty()) {
-            System.out.println("No hay personajes disponibles. Crea algunos primero.");
+        if (personajes.size() < 2) {
+            System.out.println("No hay suficientes personajes para un combate.");
+            scanner.close();
             return;
         }
 
-        // Mostrar lista de personajes
-        System.out.println("\n--- Personajes Disponibles ---");
+        System.out.println("Selecciona dos personajes para el combate:");
         for (int i = 0; i < personajes.size(); i++) {
-            System.out.println((i + 1) + ". " + personajes.get(i).toString());
+            System.out.println((i + 1) + ". " + personajes.get(i));
         }
 
-        // Seleccionar personajes para el combate
-        System.out.print("\nElige el número del primer personaje: ");
-        int index1 = scanner.nextInt() - 1;
-        System.out.print("Elige el número del segundo personaje: ");
-        int index2 = scanner.nextInt() - 1;
+        System.out.print("Elige el primer personaje: ");
+        int p1Index = scanner.nextInt() - 1;
+        System.out.print("Elige el segundo personaje: ");
+        int p2Index = scanner.nextInt() - 1;
 
-        if (index1 < 0 || index1 >= personajes.size() || index2 < 0 || index2 >= personajes.size() || index1 == index2) {
+        if (p1Index < 0 || p2Index >= personajes.size() || p1Index == p2Index) {
             System.out.println("Selección inválida.");
+            scanner.close();
             return;
         }
 
-        Personaje p1 = personajes.get(index1);
-        Personaje p2 = personajes.get(index2);
+        Personaje p1 = personajes.get(p1Index);
+        Personaje p2 = personajes.get(p2Index);
 
-        // Mostrar fichas antes del combate
-        System.out.println("\n--- INICIO DEL COMBATE ---");
-        p1.mostrar();
-        p2.mostrar();
+        System.out.println("Inicio del combate: " + p1 + " vs " + p2);
 
-        // Determinar quién empieza
-        Personaje atacante, defensor;
-        if (p1.getAgilidad() > p2.getAgilidad()) {
-            atacante = p1;
-            defensor = p2;
-        } else if (p2.getAgilidad() > p1.getAgilidad()) {
-            atacante = p2;
-            defensor = p1;
-        } else {
-            atacante = (Math.random() > 0.5) ? p1 : p2;
-            defensor = (atacante == p1) ? p2 : p1;
-        }
+        Personaje atacante = p1.getAgilidad() > p2.getAgilidad() ? p1 : p2;
+        Personaje defensor = atacante == p1 ? p2 : p1;
 
-        // Turnos de combate
         while (p1.estaVivo() && p2.estaVivo()) {
-            System.out.println("\n" + atacante.toString() + " ataca a " + defensor.toString());
+            System.out.println(atacante + " ataca a " + defensor);
             int dano = atacante.atacar(defensor);
             System.out.println("Daño infligido: " + dano);
 
             if (!defensor.estaVivo()) {
-                System.out.println(defensor.toString() + " ha muerto!");
+                System.out.println(defensor + " ha muerto.");
                 break;
             }
 
-            // Cambio de turno
             Personaje temp = atacante;
             atacante = defensor;
             defensor = temp;
         }
 
-        System.out.println("\n--- FIN DEL COMBATE ---");
-        p1.mostrar();
-        p2.mostrar();
-
+        GestorPersonajes.guardarPersonajes(personajes);
         scanner.close();
-    }
-
-    // Método para cargar personajes desde un archivo JSON
-    private static List<Personaje> cargarPersonajes() {
-        List<Personaje> personajes = new ArrayList<>();
-        Gson gson = new Gson();
-        try {
-            FileReader reader = new FileReader(FILE_PATH);
-            Type personajeListType = new TypeToken<ArrayList<Personaje>>() {}.getType();
-            personajes = gson.fromJson(reader, personajeListType);
-            reader.close();
-        } catch (Exception e) {
-            System.out.println("No se pudo cargar el archivo de personajes.");
-        }
-        return personajes;
     }
 }

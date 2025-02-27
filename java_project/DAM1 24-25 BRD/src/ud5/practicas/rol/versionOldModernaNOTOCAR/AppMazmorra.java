@@ -1,9 +1,9 @@
-package ud5.practicas.rol.oldApp;
+package ud5.practicas.rol.versionOldModernaNOTOCAR;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import ud5.practicas.rol.Personaje;
+import ud5.practicas.rol.versionOldModernaNOTOCAR.Personaje;
 
 import java.io.FileReader;
 import java.io.IOException;
