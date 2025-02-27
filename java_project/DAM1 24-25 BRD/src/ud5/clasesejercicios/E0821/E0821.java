@@ -2,7 +2,7 @@ package ud5.clasesejercicios.E0821;
 
 public class E0821 {
     static boolean esNumero (Object ob) {
-        if (ob instanceof Integer || ob instanceof Double || ob instanceof Float || ob instanceof Long || ob instanceof Short || ob instanceof Byte) {
+        if (ob instanceof Number) {
             return true;
         } else {
             return false;
@@ -10,7 +10,7 @@ public class E0821 {
     }
 
     static boolean esCadena (Object ob) {
-        if (ob instanceof String || ob instanceof Character || ob instanceof Byte || ob instanceof Short || ob instanceof Long) {
+        if (ob instanceof CharSequence) {
             return true;
         } else {
             return false;
@@ -19,19 +19,18 @@ public class E0821 {
 
     static boolean sumar (Object a, Object b) {
         if (esNumero(a) && esNumero(b)) {
-            Double a = Double.valueOf(a);
-            Double b = Double.valueOf((Doub b);
-            Double resultado = a + b;
-            System.out.println(resultado);
+            Double resultado = ((Number) a).doubleValue() + ((Number) b).doubleValue();
+            if (resultado - resultado.longValue() == 0.0) {
+                System.out.println("El resultado es: " + resultado.intValue());
+            } else {
+                System.out.println("El resultado es: " + resultado);
+            }
             return true;
         } else if (esCadena(a) && esCadena(b)) {
-            String resultado;
-            String cad1 = a.toString();
-            String cad2 = b.toString();
-            resultado = cad1+cad2;
-            System.out.println(resultado);
+            System.out.println("La concatenación es: " + a + b);
             return true;
         } else {
+            System.out.println(a + " y " + b + " no son sumables");
             return false;
         }
     }
