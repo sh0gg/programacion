@@ -1,4 +1,4 @@
-package ud5.ejemplo;
+package ud5.ejemplo.main;
 
 import ud5.ejemplo.models.Estudiante;
 import ud5.ejemplo.models.Profesor;

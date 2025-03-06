@@ -606,6 +606,7 @@ public class GestorPersonajes {
             if (explorando.get()) {
             scanner.nextLine(); // Espera que el usuario presione una tecla
             explorando.set(false); // 🔥 Detener autoplay cuando el usuario ingrese algo
+            scanner.close();
             System.out.println("\n🛑 ¡Autoplay detenido por el usuario!"); }
         });
         inputThread.start(); // Iniciar el hilo de escucha

@@ -21,14 +21,49 @@ public class Monstruo extends Personaje {
         int defensaTotal = enemigo.getAgilidad() + rand.nextInt(100) + 1;
 
         int dano = Math.max(0, ataqueTotal - defensaTotal);
-        if (dano > enemigo.getPuntosVida()) dano = enemigo.getPuntosVida();
+        if (dano > enemigo.getPuntosVida())
+            dano = enemigo.getPuntosVida();
         enemigo.perderVida(dano);
 
         return dano;
     }
 
     @Override
-    public String toString() {
-        return getNombre() + " (" + getPuntosVida() + "/" + getMaxPuntosVida() + ") - Monstruo";
+    public void mostrar() {
+        System.out.println(toString());
     }
+
+    @Override
+    public String toString() {
+        return getNombre() + " - " + getClass().getSimpleName() + " (" + getPuntosVida() + "/" + getMaxPuntosVida() + ")";
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
+    public int getDefensa() {
+        return defensa;
+    }
+
+    public void setDefensa(int defensa) {
+        this.defensa = defensa;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public static Random getRand() {
+        return rand;
+    }
+
 }

@@ -19,6 +19,7 @@ public class AppCombateSingular {
 
         if (personajes.isEmpty()) {
             System.out.println("No hay personajes disponibles. Crea algunos primero.");
+            scanner.close();
             return;
         }
 
@@ -36,6 +37,7 @@ public class AppCombateSingular {
 
         if (index1 < 0 || index1 >= personajes.size() || index2 < 0 || index2 >= personajes.size() || index1 == index2) {
             System.out.println("Selección inválida.");
+            scanner.close();
             return;
         }
 

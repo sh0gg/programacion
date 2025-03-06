@@ -1,5 +1,7 @@
 package ud5.practicas.rol;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Personaje {
@@ -8,7 +10,7 @@ public class Personaje {
     private int fuerza, agilidad, constitucion, inteligencia, intuicion, presencia;
     private int nivel = 1, experiencia = 0, puntosVida, maxPuntosVida;
 
-    private static final String[] RAZAS_VALIDAS = {"HUMANO", "ELFO", "ENANO", "HOBBIT", "ORCO", "TROLL"};
+    private static final String[] RAZAS_VALIDAS = { "HUMANO", "ELFO", "ENANO", "HOBBIT", "ORCO", "TROLL" };
     private static final Random rand = new Random();
 
     // Constructor 1: Nombre y raza, con atributos aleatorios
@@ -42,7 +44,7 @@ public class Personaje {
 
     // Constructor 3: Todos los atributos definidos
     public Personaje(String nombre, String raza, int fuerza, int agilidad, int constitucion,
-                     int inteligencia, int intuicion, int presencia) throws Exception {
+            int inteligencia, int intuicion, int presencia) throws Exception {
         validarRaza(raza);
         this.nombre = nombre;
         this.raza = raza;
@@ -63,7 +65,8 @@ public class Personaje {
 
     private void validarRaza(String raza) throws Exception {
         for (String r : RAZAS_VALIDAS) {
-            if (r.equalsIgnoreCase(raza)) return;
+            if (r.equalsIgnoreCase(raza))
+                return;
         }
         throw new Exception("Raza no válida: " + raza);
     }
@@ -73,13 +76,27 @@ public class Personaje {
         int defensa = enemigo.agilidad + rand.nextInt(100) + 1;
 
         int dano = Math.max(0, ataque - defensa);
-        if (dano > enemigo.puntosVida) dano = enemigo.puntosVida;
+        if (dano > enemigo.puntosVida)
+            dano = enemigo.puntosVida;
         enemigo.puntosVida -= dano;
 
         if (dano > 0) {
             sumarExperiencia(dano);
             enemigo.sumarExperiencia(dano);
         }
+        return dano;
+    }
+
+    // Método para atacar a un monstruo
+    public int atacar(Monstruo enemigo) {
+        int ataqueTotal = fuerza + rand.nextInt(100) + 1;
+        int defensaTotal = enemigo.getDefensa() + rand.nextInt(100) + 1;
+
+        int dano = Math.max(0, ataqueTotal - defensaTotal);
+        if (dano > enemigo.getPuntosVida())
+            dano = enemigo.getPuntosVida();
+        enemigo.perderVida(dano);
+
         return dano;
     }
 
@@ -112,6 +129,22 @@ public class Personaje {
     public String toString() {
         return nombre + " (" + puntosVida + "/" + maxPuntosVida + ") - " + raza + " - Nivel " + nivel;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true; // Si es la misma instancia, es igual
+        if (obj == null || getClass() != obj.getClass())
+            return false; // Si es null o no es la misma clase, es diferente
+
+        Personaje otro = (Personaje) obj;
+        return this.nombre.equals(otro.nombre) && this.raza.equals(otro.raza);
+    }
+
+    public static Personaje[] sortAgilidadDesc(Personaje[] personajes) {
+    Arrays.sort(personajes, Comparator.comparingInt(Personaje::getAgilidad).reversed());
+    return personajes;
+}
 
     // GETTERS Y SETTERS
 
