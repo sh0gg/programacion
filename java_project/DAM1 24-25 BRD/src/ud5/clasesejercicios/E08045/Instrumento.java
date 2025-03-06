@@ -22,33 +22,41 @@ public abstract class Instrumento {
     public abstract void interpretar();
 
     public static void main(String[] args) {
-        Piano piano = new Piano();
-        piano.add(Nota.DO);
-        piano.add(Nota.RE);
-        piano.add(Nota.MI);
-        piano.add(Nota.FA);
-        piano.add(Nota.SOL);
-        piano.interpretar();
+        // Piano piano = new Piano();
+        // piano.add(Nota.DO);
+        // piano.add(Nota.RE);
+        // piano.add(Nota.MI);
+        // piano.add(Nota.FA);
+        // piano.add(Nota.SOL);
+        // piano.interpretar();
 
-        Guitarra guitarra = new Guitarra();
-        guitarra.add(Nota.LA);
-        guitarra.add(Nota.FA);
-        guitarra.add(Nota.SOL);
-        guitarra.interpretar();
+        // Guitarra guitarra = new Guitarra();
+        // guitarra.add(Nota.LA);
+        // guitarra.add(Nota.FA);
+        // guitarra.add(Nota.SOL);
+        // guitarra.interpretar();
 
-        Trompeta trompeta = new Trompeta();
-        trompeta.copiarMelodia(piano);
-        trompeta.interpretar();
+        // Trompeta trompeta = new Trompeta();
+        // trompeta.copiarMelodia(piano);
+        // trompeta.interpretar();
 
-        Oboe oboe = new Oboe();
-        oboe.copiarMelodia(guitarra);
-        oboe.interpretar();
+        // Oboe oboe = new Oboe();
+        // oboe.copiarMelodia(guitarra);
+        // oboe.interpretar();
 
 
-        System.out.println("Orquesta");
-        Instrumento[] orquesta = {piano, guitarra, trompeta, oboe};
-        for (Instrumento instrumento : orquesta) {
-            instrumento.interpretar();
-        }
+        // System.out.println("Orquesta");
+        // Instrumento[] orquesta = {piano, guitarra, trompeta, oboe};
+        // for (Instrumento instrumento : orquesta) {
+        //     instrumento.interpretar();
+        // }
+
+    }
+
+    public void tocar(){
+        this.add(Nota.DO);
+        this.add(Nota.RE);
+        this.add(Nota.FA);
+
     }
 }

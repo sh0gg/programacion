@@ -1,7 +1,5 @@
 package ud5.practicas.rol;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Personaje {
@@ -9,26 +7,40 @@ public class Personaje {
     private String raza;
     private int fuerza, agilidad, constitucion, inteligencia, intuicion, presencia;
     private int nivel = 1, experiencia = 0, puntosVida, maxPuntosVida;
-    private List<String> inventario; // 🔥 Ahora almacena solo los IDs de los objetos
 
-    private static final String[] RAZAS_VALIDAS = {"HUMANO", "ELFO", "ENANO", "HOBBIT", "ORCO", "TROLL", "MONSTRUO"};
+    private static final String[] RAZAS_VALIDAS = {"HUMANO", "ELFO", "ENANO", "HOBBIT", "ORCO", "TROLL"};
     private static final Random rand = new Random();
 
+    // Constructor 1: Nombre y raza, con atributos aleatorios
     public Personaje(String nombre, String raza) throws Exception {
         validarRaza(raza);
         this.nombre = nombre;
         this.raza = raza;
-        this.fuerza = rand.nextInt(80) + 20;
-        this.agilidad = rand.nextInt(80) + 20;
-        this.constitucion = rand.nextInt(80) + 20;
-        this.inteligencia = rand.nextInt(80) + 20;
-        this.intuicion = rand.nextInt(80) + 20;
-        this.presencia = rand.nextInt(80) + 20;
+        this.fuerza = rand.nextInt(100) + 1;
+        this.agilidad = rand.nextInt(100) + 1;
+        this.constitucion = rand.nextInt(100) + 1;
+        this.inteligencia = rand.nextInt(100) + 1;
+        this.intuicion = rand.nextInt(100) + 1;
+        this.presencia = rand.nextInt(100) + 1;
         this.maxPuntosVida = 50 + this.constitucion;
         this.puntosVida = maxPuntosVida;
-        this.inventario = new ArrayList<>(); // 🔥 Inicializa la lista de IDs de ítems vacía
     }
 
+    // Constructor 2: Para monstruos (nombre, ataque, defensa, velocidad)
+    public Personaje(String nombre, int ataque, int defensa, int velocidad) {
+        this.nombre = nombre;
+        this.raza = "MONSTRUO";
+        this.fuerza = ataque;
+        this.agilidad = defensa;
+        this.constitucion = velocidad;
+        this.inteligencia = 0;
+        this.intuicion = 0;
+        this.presencia = 0;
+        this.maxPuntosVida = 50 + this.constitucion;
+        this.puntosVida = maxPuntosVida;
+    }
+
+    // Constructor 3: Todos los atributos definidos
     public Personaje(String nombre, String raza, int fuerza, int agilidad, int constitucion,
                      int inteligencia, int intuicion, int presencia) throws Exception {
         validarRaza(raza);
@@ -42,115 +54,145 @@ public class Personaje {
         this.presencia = presencia;
         this.maxPuntosVida = 50 + this.constitucion;
         this.puntosVida = maxPuntosVida;
-        this.inventario = new ArrayList<>(); // 🔥 Lista vacía de IDs de objetos
     }
 
+    // Constructor 4: Solo nombre, se asigna como humano con atributos aleatorios
+    public Personaje(String nombre) throws Exception {
+        this(nombre, "HUMANO");
+    }
 
-    // 🔹 Validar que la raza sea una de las permitidas
     private void validarRaza(String raza) throws Exception {
         for (String r : RAZAS_VALIDAS) {
             if (r.equalsIgnoreCase(raza)) return;
         }
-        throw new Exception("❌ Raza no válida: " + raza);
+        throw new Exception("Raza no válida: " + raza);
     }
 
-    // 🔹 Método para subir de nivel
-    public void subirNivel() {
+    public int atacar(Personaje enemigo) {
+        int ataque = fuerza + rand.nextInt(100) + 1;
+        int defensa = enemigo.agilidad + rand.nextInt(100) + 1;
+
+        int dano = Math.max(0, ataque - defensa);
+        if (dano > enemigo.puntosVida) dano = enemigo.puntosVida;
+        enemigo.puntosVida -= dano;
+
+        if (dano > 0) {
+            sumarExperiencia(dano);
+            enemigo.sumarExperiencia(dano);
+        }
+        return dano;
+    }
+
+    public void sumarExperiencia(int puntos) {
+        experiencia += puntos;
+        while (experiencia >= nivel * 1000) {
+            experiencia -= nivel * 1000;
+            subirNivel();
+        }
+    }
+
+    private void subirNivel() {
         nivel++;
         fuerza *= 1.05;
         agilidad *= 1.05;
         constitucion *= 1.05;
         maxPuntosVida = 50 + constitucion;
-        puntosVida = maxPuntosVida; // Curarse al subir de nivel
-        System.out.println("🎉 " + nombre + " ha subido al nivel " + nivel + " y ha recuperado su vida.");
+        puntosVida = maxPuntosVida;
     }
 
-    // 🔹 Agregar un objeto al inventario por su ID
-    public void agregarItem(String itemId) {
-        if (!inventario.contains(itemId)) {
-            inventario.add(itemId);
-            System.out.println("🎒 " + nombre + " ha obtenido un nuevo objeto: " + itemId);
-        } else {
-            System.out.println("⚠️ " + nombre + " ya tiene este objeto.");
-        }
+    public boolean estaVivo() {
+        return puntosVida > 0;
     }
 
-    // 🔹 Eliminar un objeto del inventario
-    public void eliminarItem(String itemId) {
-        if (inventario.remove(itemId)) {
-            System.out.println("🗑 " + nombre + " ha eliminado el objeto: " + itemId);
-        } else {
-            System.out.println("⚠️ " + nombre + " no tenía ese objeto.");
-        }
+    public void mostrar() {
+        System.out.println(toString());
     }
 
-    // 🔹 Mostrar los IDs de los objetos en el inventario
-    public void mostrarInventario() {
-        if (inventario.isEmpty()) {
-            System.out.println("📭 " + nombre + " no tiene objetos en su inventario.");
-        } else {
-            System.out.println("🎒 Inventario de " + nombre + ":");
-            for (String itemId : inventario) {
-                System.out.println("- ID: " + itemId);
-            }
-        }
+    @Override
+    public String toString() {
+        return nombre + " (" + puntosVida + "/" + maxPuntosVida + ") - " + raza + " - Nivel " + nivel;
     }
 
-    // 🔹 Calcular bonificaciones de los objetos equipados (basado en el archivo `items.json`)
-    public int calcularBono(String atributo, List<Item> itemsDisponibles) {
-        int bonoTotal = 0;
-        for (String itemId : inventario) {
-            for (Item item : itemsDisponibles) {
-                if (item.getId().equals(itemId)) {
-                    switch (atributo.toLowerCase()) {
-                        case "fuerza":
-                            bonoTotal += item.getBonoFuerza();
-                            break;
-                        case "agilidad":
-                            bonoTotal += item.getBonoAgilidad();
-                            break;
-                        case "constitucion":
-                            bonoTotal += item.getBonoConstitucion();
-                            break;
-                    }
-                }
-            }
-        }
-        return bonoTotal;
+    // GETTERS Y SETTERS
+
+    public String getNombre() {
+        return nombre;
     }
 
-    // 🔹 Determinar daño en un ataque
-    public int atacar(Personaje enemigo, List<Item> itemsDisponibles) {
-        int bonoFuerza = calcularBono("fuerza", itemsDisponibles);
-        int bonoAgilidad = calcularBono("agilidad", itemsDisponibles);
-
-        int ataque = (fuerza + bonoFuerza) + rand.nextInt(100) + 1;
-        int defensa = (enemigo.getAgilidad() + enemigo.calcularBono("agilidad", itemsDisponibles)) + rand.nextInt(100) + 1;
-
-        int dano = Math.max(1, ataque - defensa);
-        if (dano > 0) {
-            enemigo.perderVida(dano);
-            this.sumarExperiencia(dano);
-            enemigo.sumarExperiencia(dano);
-        }
-
-        return dano;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-
-    // 🔹 Manejar la pérdida de vida
-    public boolean perderVida(int puntos) {
-        puntosVida -= puntos;
-        return puntosVida <= 0;
+    public String getRaza() {
+        return raza;
     }
 
-    // 🔹 Obtener estadísticas de combate
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public int getFuerza() {
+        return fuerza;
+    }
+
+    public void setFuerza(int fuerza) {
+        this.fuerza = fuerza;
+    }
+
+    public int getAgilidad() {
+        return agilidad;
+    }
+
+    public void setAgilidad(int agilidad) {
+        this.agilidad = agilidad;
+    }
+
+    public int getConstitucion() {
+        return constitucion;
+    }
+
+    public void setConstitucion(int constitucion) {
+        this.constitucion = constitucion;
+    }
+
+    public int getInteligencia() {
+        return inteligencia;
+    }
+
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
+    }
+
+    public int getIntuicion() {
+        return intuicion;
+    }
+
+    public void setIntuicion(int intuicion) {
+        this.intuicion = intuicion;
+    }
+
+    public int getPresencia() {
+        return presencia;
+    }
+
+    public void setPresencia(int presencia) {
+        this.presencia = presencia;
+    }
+
     public int getNivel() {
         return nivel;
     }
 
-    public int getMaxPuntosVida() {
-        return maxPuntosVida;
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public int getExperiencia() {
+        return experiencia;
+    }
+
+    public void setExperiencia(int experiencia) {
+        this.experiencia = experiencia;
     }
 
     public int getPuntosVida() {
@@ -161,78 +203,18 @@ public class Personaje {
         this.puntosVida = puntosVida;
     }
 
-    public int getFuerza() {
-        return fuerza;
+    public int getMaxPuntosVida() {
+        return maxPuntosVida;
     }
 
-    public int getAgilidad() {
-        return agilidad;
+    public void setMaxPuntosVida(int maxPuntosVida) {
+        this.maxPuntosVida = maxPuntosVida;
     }
 
-    public int getConstitucion() {
-        return constitucion;
-    }
-
-    public int getInteligencia() {
-        return inteligencia;
-    }
-
-    public int getIntuicion() {
-        return intuicion;
-    }
-
-    public int getPresencia() {
-        return presencia;
-    }
-
-    public List<String> getInventario() {
-        return inventario;
-    }
-
-    public void setInventario(List<String> inventario) {
-        this.inventario = inventario;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    @Override
-    public String toString() {
-        return nombre + " (" + puntosVida + "/" + maxPuntosVida + ") - Raza: " + raza + " - Nivel: " + nivel;
-    }
-
-    public void sumarExperiencia(int puntos) {
-        experiencia += puntos;
-        while (experiencia >= experienciaNecesariaParaNivel(nivel + 1)) {
-            experiencia -= experienciaNecesariaParaNivel(nivel + 1);
-            subirNivel();
-        }
-    }
-
-    private int experienciaNecesariaParaNivel(int nivel) {
-        return (int) (1000 * Math.pow(nivel, 1.5));
-    }
-
-    public void mostrar() {
-        System.out.println(this);
-    }
-
-    public boolean estaVivo() {
-        return puntosVida > 0;
-    }
-
-    public void curar() {
-        this.puntosVida = maxPuntosVida;
-        System.out.println("💖 " + nombre + " ha sido completamente curado.");
-    }
-
-    public void agregarItem(Item item) {
-        if (item != null) {
-            inventario.add(item.getId()); // 🔥 Ahora guardamos el ID, no el objeto completo
-            System.out.println("🎒 " + nombre + " ha recibido: " + item.getNombre());
-        } else {
-            System.out.println("⚠️ No se puede agregar un objeto nulo.");
+    protected void perderVida(int dano) {
+        this.puntosVida -= dano;
+        if (this.puntosVida < 0) {
+            this.puntosVida = 0; // Evita valores negativos
         }
     }
 

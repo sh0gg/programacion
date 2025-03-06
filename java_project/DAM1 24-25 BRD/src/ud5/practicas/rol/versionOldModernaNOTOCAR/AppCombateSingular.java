@@ -1,4 +1,4 @@
-package ud5.practicas.rol.oldApp;
+package ud5.practicas.rol.versionOldModernaNOTOCAR;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import ud5.practicas.rol.Personaje;
+import ud5.practicas.rol.versionOldModernaNOTOCAR.Personaje;
 
 import java.lang.reflect.Type;
 
