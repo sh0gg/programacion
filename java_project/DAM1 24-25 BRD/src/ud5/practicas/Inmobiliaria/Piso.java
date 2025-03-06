@@ -5,9 +5,10 @@ public class Piso extends Inmueble {
     private int planta;
 
     public Piso(String direccion, int metrosCuadrados, int habitaciones, int aseos, int planta) {
-        super();
+        super(direccion, metrosCuadrados, habitaciones, aseos);  // Llamar al constructor de Inmueble
         this.planta = planta;
     }
+
 
     // GETTERS Y SETTERS
 
@@ -21,13 +22,16 @@ public class Piso extends Inmueble {
 
     @Override
     public String detalle() {
-        String detalle = "Casa en " + getDireccion() +".\n" + getMetrosCuadrados() +" m2, " + getHabitaciones() + " hab, " + getAseos() + " baños, " + getPlanta() + "ª planta.\n";
+        String detalle = "Piso en " + getDireccion() + ".\n" + getMetrosCuadrados() + " m2, " +
+                getHabitaciones() + " hab, " + getAseos() + " baños, " +
+                getPlanta() + "ª planta.\n";
         if (getPrecioAlquiler() != 0) {
-            detalle = detalle + "Precio de alquiler: " + getPrecioAlquiler() + "\n";
+            detalle += "Precio de alquiler: " + getPrecioAlquiler() + "\n";
         }
         if (getPrecioVenta() != 0) {
-            detalle = detalle + "Precio de venta: " + getPrecioVenta() + "\n";
+            detalle += "Precio de venta: " + getPrecioVenta() + "\n";
         }
         return detalle;
     }
+
 }

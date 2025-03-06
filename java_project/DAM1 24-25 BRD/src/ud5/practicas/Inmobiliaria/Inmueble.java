@@ -9,7 +9,7 @@ public abstract class Inmueble {
     private int precioVenta;
 
 
-    public Inmueble() {
+    public Inmueble(String direccion, int metrosCuadrados, int habitaciones, int aseos) {
         this.direccion = direccion;
         this.metrosCuadrados = metrosCuadrados;
         this.habitaciones = habitaciones;
@@ -18,10 +18,11 @@ public abstract class Inmueble {
 
     @Override
     public String toString() {
-        return "Inmueble en " + getDireccion() + "(" + getMetrosCuadrados() + "m2," + getHabitaciones() + " hab)";
+        return "Inmueble en " + getDireccion() + " (" + getMetrosCuadrados() + "m2, " + getHabitaciones() + " hab, " + getAseos() + " baños).";
     }
 
-   public abstract String detalle();
+
+    public abstract String detalle();
 
     // GETTERS Y SETTERS
 
