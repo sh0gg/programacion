@@ -1,0 +1,322 @@
+[
+    {
+        "id": "item_1",
+        "nombre": "Espada de Fuego",
+        "tipo": "Arma",
+        "bonoFuerza": 15,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_2",
+        "nombre": "Escudo de Hierro",
+        "tipo": "Armadura",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 10
+    },
+    {
+        "id": "item_3",
+        "nombre": "Anillo de Agilidad",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_4",
+        "nombre": "Amuleto de Poder",
+        "tipo": "Accesorio",
+        "bonoFuerza": 10,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_5",
+        "nombre": "Casco de Dragón",
+        "tipo": "Armadura",
+        "bonoFuerza": 5,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 15
+    },
+    {
+        "id": "item_6",
+        "nombre": "Botas de Velocidad",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 15,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_7",
+        "nombre": "Guantes de Titanio",
+        "tipo": "Accesorio",
+        "bonoFuerza": 12,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_8",
+        "nombre": "Lanza de los Dioses",
+        "tipo": "Arma",
+        "bonoFuerza": 20,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_9",
+        "nombre": "Capa de Sombra",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 12,
+        "bonoConstitucion": 5
+    },
+    {
+        "id": "item_10",
+        "nombre": "Martillo del Trueno",
+        "tipo": "Arma",
+        "bonoFuerza": 25,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 10
+    },
+    {
+        "id": "item_11",
+        "nombre": "Chaleco de Espinas",
+        "tipo": "Armadura",
+        "bonoFuerza": 0,
+        "bonoAgilidad": -5,
+        "bonoConstitucion": 25
+    },
+    {
+        "id": "item_12",
+        "nombre": "Zapatillas del Infinito",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 30,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_13",
+        "nombre": "Hueso de Tiranosaurio",
+        "tipo": "Arma",
+        "bonoFuerza": 40,
+        "bonoAgilidad": -5,
+        "bonoConstitucion": 10
+    },
+    {
+        "id": "item_14",
+        "nombre": "Guantelete del Meme Supremo",
+        "tipo": "Accesorio",
+        "bonoFuerza": 50,
+        "bonoAgilidad": 50,
+        "bonoConstitucion": 50
+    },
+    {
+        "id": "item_15",
+        "nombre": "Espada Laser de Doble Mango",
+        "tipo": "Arma",
+        "bonoFuerza": 30,
+        "bonoAgilidad": 20,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_16",
+        "nombre": "Cinturón de la Realidad Alternativa",
+        "tipo": "Accesorio",
+        "bonoFuerza": 5,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": -5
+    },
+    {
+        "id": "item_17",
+        "nombre": "Espada del Apocalipsis",
+        "tipo": "Arma",
+        "bonoFuerza": 100,
+        "bonoAgilidad": 20,
+        "bonoConstitucion": 10
+    },
+    {
+        "id": "item_18",
+        "nombre": "Armadura del Rey Demonio",
+        "tipo": "Armadura",
+        "bonoFuerza": 20,
+        "bonoAgilidad": -10,
+        "bonoConstitucion": 100
+    },
+    {
+        "id": "item_19",
+        "nombre": "Botas de Teletransportación",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 50,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_20",
+        "nombre": "Guantelete de la Devastación",
+        "tipo": "Accesorio",
+        "bonoFuerza": 75,
+        "bonoAgilidad": 25,
+        "bonoConstitucion": 25
+    },
+    {
+        "id": "item_21",
+        "nombre": "Lanza del Inframundo",
+        "tipo": "Arma",
+        "bonoFuerza": 90,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 10
+    },
+    {
+        "id": "item_22",
+        "nombre": "Poción de Gigantismo",
+        "tipo": "Poción",
+        "bonoFuerza": 50,
+        "bonoAgilidad": -20,
+        "bonoConstitucion": 75
+    },
+    {
+        "id": "item_23",
+        "nombre": "Cinturón de Gravedad Cero",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 100,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_24",
+        "nombre": "Escudo de Titanio Cósmico",
+        "tipo": "Armadura",
+        "bonoFuerza": 30,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 80
+    },
+    {
+        "id": "item_25",
+        "nombre": "Espada de la Singularidad",
+        "tipo": "Arma",
+        "bonoFuerza": 120,
+        "bonoAgilidad": 30,
+        "bonoConstitucion": 15
+    },
+    {
+        "id": "item_26",
+        "nombre": "Capa de la Dimensión Perdida",
+        "tipo": "Accesorio",
+        "bonoFuerza": 10,
+        "bonoAgilidad": 90,
+        "bonoConstitucion": 10
+    },
+    {
+        "id": "item_27",
+        "nombre": "Anillo del Caos",
+        "tipo": "Accesorio",
+        "bonoFuerza": 40,
+        "bonoAgilidad": -30,
+        "bonoConstitucion": 40
+    },
+    {
+        "id": "item_28",
+        "nombre": "Martillo de los Dioses",
+        "tipo": "Arma",
+        "bonoFuerza": 150,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 30
+    },
+    {
+        "id": "item_29",
+        "nombre": "Sombrero del Mago Dementado",
+        "tipo": "Accesorio",
+        "bonoFuerza": -10,
+        "bonoAgilidad": 20,
+        "bonoConstitucion": 50
+    },
+    {
+        "id": "item_30",
+        "nombre": "Cubo de Rubik Interdimensional",
+        "tipo": "Accesorio",
+        "bonoFuerza": 20,
+        "bonoAgilidad": 20,
+        "bonoConstitucion": 20
+    },
+    {
+        "id": "item_31",
+        "nombre": "Báculo de los Ancestros",
+        "tipo": "Arma",
+        "bonoFuerza": 50,
+        "bonoAgilidad": 50,
+        "bonoConstitucion": 50
+    },
+    {
+        "id": "item_32",
+        "nombre": "Piedra Filosofal Definitiva",
+        "tipo": "Accesorio",
+        "bonoFuerza": 100,
+        "bonoAgilidad": 100,
+        "bonoConstitucion": 100
+    },
+    {
+        "id": "item_33",
+        "nombre": "Dado de la Suerte Infinita",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_34",
+        "nombre": "Poción de la Inmortalidad Temporal",
+        "tipo": "Poción",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 500
+    },
+    {
+        "id": "item_35",
+        "nombre": "Ladrillo del Destino",
+        "tipo": "Arma",
+        "bonoFuerza": 200,
+        "bonoAgilidad": -50,
+        "bonoConstitucion": 100
+    },
+    {
+        "id": "item_36",
+        "nombre": "Cinturón de la Realidad Alternativa",
+        "tipo": "Accesorio",
+        "bonoFuerza": 5,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": -5
+    },
+    {
+        "id": "item_37",
+        "nombre": "Toga del Sabio Despistado",
+        "tipo": "Armadura",
+        "bonoFuerza": -5,
+        "bonoAgilidad": 10,
+        "bonoConstitucion": 10
+    },
+    {
+        "id": "item_38",
+        "nombre": "Libro de Hechizos Aleatorios",
+        "tipo": "Accesorio",
+        "bonoFuerza": 0,
+        "bonoAgilidad": 0,
+        "bonoConstitucion": 0
+    },
+    {
+        "id": "item_39",
+        "nombre": "Reloj del Tiempo Inestable",
+        "tipo": "Accesorio",
+        "bonoFuerza": 5,
+        "bonoAgilidad": 5,
+        "bonoConstitucion": 5
+    },
+    {
+        "id": "item_40",
+        "nombre": "Guantelete del Infinito de Mercadillo",
+        "tipo": "Accesorio",
+        "bonoFuerza": 500,
+        "bonoAgilidad": 500,
+        "bonoConstitucion": 500
+    }
+]

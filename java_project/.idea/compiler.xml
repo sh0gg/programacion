@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <file url="file://$PROJECT_DIR$/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/Personaje.java" />
+      <file url="file://$PROJECT_DIR$/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/AppCombateSingular.java" />
+      <file url="file://$PROJECT_DIR$/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/AppCreaPersonaje.java" />
+      <file url="file://$PROJECT_DIR$/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/AppMazmorra.java" />
+      <file url="file://$PROJECT_DIR$/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/GestorPersonajes.java" />
+      <file url="file://$PROJECT_DIR$/DAM1 24-25 BRD/src/ud5/clasesejercicios/E0822/E0822.java" />
+      <file url="file://$PROJECT_DIR$/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/MegaRol.java" />
+      <file url="file://$PROJECT_DIR$/DAM1 24-25 BRD/src/ud4/arraysejercicios/BuscandoLetras2.java" />
+    </excludeFromCompile>
+  </component>
+</project>
