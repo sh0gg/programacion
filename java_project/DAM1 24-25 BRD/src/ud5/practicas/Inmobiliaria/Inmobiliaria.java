@@ -1,5 +1,9 @@
 package ud5.practicas.Inmobiliaria;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
+
 public class Inmobiliaria {
     public static void main(String[] args) {
         // 1.1. Modelo de Clases
@@ -31,5 +35,73 @@ public class Inmobiliaria {
         System.out.println(piso2.detalle());
         System.out.println("");
         System.out.println(casa2.detalle());
+
+        Inmueble[] arrayInmuebles = new Inmueble[] {
+                piso1, piso2, piso3, casa1, casa2
+        };
+
+        // 1.2. Lista de inmuebles
+
+        System.out.println("\nTODOS LOS INMUEBLES: ");
+        Inmueble.mostrarInmuebles(arrayInmuebles);
+
+        // Inmuebles ordenados por direccion
+        Comparator ordenAlfabeticoDireccion = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return ((Inmueble) o1).getDireccion().compareTo(((Inmueble) o2).getDireccion());
+            }
+        };
+
+        Arrays.sort(arrayInmuebles, ordenAlfabeticoDireccion);
+        System.out.println("\nINMUEBLES ORDENADOS ALFABÉTICAMENTE: ");
+        Inmueble.mostrarInmuebles(arrayInmuebles);
+
+        // Inmuebles ordenados por metros cuadrados
+        Comparator ordenMetrosAsc = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+
+                int metros1 = ((Inmueble) o1).getMetrosCuadrados();
+                int metros2 = ((Inmueble) o2).getMetrosCuadrados();
+
+                return metros1 - metros2;
+            }
+        };
+
+        Arrays.sort(arrayInmuebles, ordenMetrosAsc);
+        System.out.println("\nINMUEBLES ORDENADOS POR m2 (ascendente): ");
+        Inmueble.mostrarInmuebles(arrayInmuebles);
+
+        // Ordena Inmuebles por m2 (de mayor a menor)
+
+        Inmueble.sortMetrosDesc(arrayInmuebles);
+        // Arrays.sort(arrayInmuebles, ordenMetrosAsc.reversed());
+        System.out.println("\nINMUEBLES ORDENADOS POR m2 (descendente): ");
+        Inmueble.mostrarInmuebles(arrayInmuebles);
+
+        // Ordena Inmuebles por numHabitaciones y luego por m2 (de mayor a menor)
+
+        Inmueble.sortHabMetrosDesc(arrayInmuebles);
+        System.out.println("\nINMUEBLES ORDENADOS POR NUM DE HABITACIONES Y m2 (de mayor a menor): ");
+        Inmueble.mostrarInmuebles(arrayInmuebles);
+
+        // Ordena Inmuebles por precio de alquiler (de menos a mayor)
+
+        Inmueble.sortPrecioAlquilerAsc(arrayInmuebles);
+        System.out.println("\nINMUEBLES ORDENADOS POR PRECIO ALQUILER (MENOR A MAYOR): ");
+        Inmueble.mostrarInmuebles(arrayInmuebles);
+
+        // Ordena Inmuebles por precio Venta (de menor a mayor)
+
+        Inmueble.sortPrecioVentaAsc(arrayInmuebles);
+        System.out.println("\nINMUEBLES ORDENADOS POR PRECIO VENTA (MENOR A MAYOR): ");
+        Inmueble.mostrarInmuebles(arrayInmuebles);
+
+
+
+
+
     }
+
 }

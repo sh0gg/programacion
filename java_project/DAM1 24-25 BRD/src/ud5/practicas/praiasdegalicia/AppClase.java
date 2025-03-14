@@ -1,0 +1,31 @@
+package ud5.practicas.praiasdegalicia;
+
+import java.util.Arrays;
+
+public class AppClase {
+    private static final String FILE_PATH = "ud5/practicas/praiasdegalicia/praias.json";
+    public static void main(String[] args) {
+        // Carga las playas desde el fichero JSON en un array de Praias
+        Praia[] praias = Util.importarPraias(FILE_PATH);
+
+        // Ordenar por metodo natural (id)
+        Arrays.sort(praias);
+
+        // muestra 
+        System.out.println("\n\nPRAIAS ORDENADAS POR id");
+        System.out.println("=======================");
+        Praia.imprimirLista(praias, 10);
+
+        // Buscar una playa por id y la muestra
+        int id = 2181;
+        int pos = Arrays.binarySearch(praias, new Praia(id));
+
+        System.out.println("\nPRAIA CON id = " + id + " - " + praias[pos]);
+
+        System.out.print("\nDetalles: ");
+        praias[pos].mostrarDetalles();
+
+        System.out.println();
+
+    }
+}
