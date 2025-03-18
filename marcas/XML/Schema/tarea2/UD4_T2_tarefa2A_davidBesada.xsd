@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="modulo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="duracion" type="DuracionType"/>
+                <xs:element name="nome" type="xs:string"/>
+                <xs:element ref="ciclo" maxOccurs="unbounded"/>
+                <xs:element name="contidos" type="ContidosType"/>
+            </xs:sequence>
+            <xs:attribute name="codigo" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Tipo para duración -->
+    <xs:complexType name="DuracionType">
+        <xs:attribute name="horas" type="xs:positiveInteger" use="required"/>
+        <xs:attribute name="sesions" type="xs:positiveInteger" use="required"/>
+        <xs:attribute name="sesionsSemanais" type="xs:positiveInteger" use="optional"/>
+    </xs:complexType>
+
+    <!-- Tipo para ciclo -->
+    <xs:element name="ciclo">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="codigo" type="xs:string" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Tipo para contidos -->
+    <xs:complexType name="ContidosType">
+        <xs:sequence>
+            <xs:element name="UD" type="UDType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Tipo para UD -->
+    <xs:complexType name="UDType">
+        <xs:sequence>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="descrición" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="num" type="xs:positiveInteger" use="required"/>
+        <xs:attribute name="sesións" type="xs:positiveInteger" use="required"/>
+    </xs:complexType>
+
+</xs:schema>
