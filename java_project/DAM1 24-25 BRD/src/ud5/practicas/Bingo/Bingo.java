@@ -223,6 +223,7 @@ class Carton {
         Random random = new Random();
         Set<Integer> numerosUsados = new HashSet<>();
 
+<<<<<<< HEAD
         // Iterar sobre las 9 columnas y generar números
         for (int columna = 0; columna < 9; columna++) {
             int numMin = columna * 10 + 1;  // Rango mínimo de la columna
@@ -271,13 +272,32 @@ class Carton {
                     j++;
                 } else {
                     matriz[fila][columna] = -1;  // Asignar huecos (#)
+=======
+        for (int fila = 0; fila < 3; fila++) {
+            int numerosEnFila = 0;
+            while (numerosEnFila < 5) {
+                int columna = random.nextInt(9);
+                if (matriz[fila][columna] == 0) {
+                    int numMin = columna * 10 + 1;
+                    int numMax = (columna + 1) * 10;
+                    int numero;
+                    do {
+                        numero = random.nextInt(numMax - numMin + 1) + numMin;
+                    } while (numerosUsados.contains(numero));
+                    matriz[fila][columna] = numero;
+                    numerosUsados.add(numero);
+                    numerosEnFila++;
+>>>>>>> a068ad1 (Add Bingo game classes and XML schema definitions for modules)
                 }
             }
         }
     }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a068ad1 (Add Bingo game classes and XML schema definitions for modules)
     public boolean marcarNumero(int numero) {
         for (int fila = 0; fila < 3; fila++) {
             for (int columna = 0; columna < 9; columna++) {
