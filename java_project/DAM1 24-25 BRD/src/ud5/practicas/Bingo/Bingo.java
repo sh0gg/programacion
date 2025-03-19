@@ -173,31 +173,33 @@ class Carton {
      * @return
      */
     public int revisarCarton(int[] numerosSorteo) {
-        int[][] numerosAcertados = Arrays.copyOf(numeros, numeros.length);
-        for (int i = 0; i < numerosAcertados.length; i++) {
-            for (int j = 0; j < numerosSorteo.length; j++) {
-                if (numerosAcertados[i][j] == numerosSorteo[j]) {
-                    numerosAcertados[i][j] = 0;
+        boolean hayLinea = false;
+        boolean hayBingo = true;
+    
+        for (int i = 0; i < MAX_FILAS; i++) {
+            boolean lineaCompleta = true;
+            for (int j = 0; j < MAX_COLS; j++) {
+                boolean encontrado = false;
+                for (int n : numerosSorteo) {
+                    if (numeros[i][j] == n) {
+                        encontrado = true;
+                        break;
+                    }
+                }
+                if (!encontrado) {
+                    hayBingo = false;
+                    lineaCompleta = false;
                 }
             }
-        }
-
-        int[] lineas = new int[MAX_FILAS];
-        int valor = 0;
-
-        for ()
-
-        for (int i = 0; i < MAX_FILAS; i++) {
-            for (int j = 0; j < numerosAcertados.length; j++) {
-                valor =+ numerosAcertados[i][j];
-            }
-            if (valor == 0) {
-                lineas[i] = 0;
+            if (lineaCompleta) {
+                hayLinea = true;
             }
         }
-
-
-
+    
+        if (hayBingo) return 2;
+        if (hayLinea) return 1;
+        return 0;
     }
+    
 
 }
