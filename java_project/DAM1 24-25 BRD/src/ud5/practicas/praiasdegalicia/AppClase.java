@@ -3,10 +3,9 @@ package ud5.practicas.praiasdegalicia;
 import java.util.Arrays;
 
 public class AppClase {
-    private static final String FILE_PATH = "ud5/practicas/praiasdegalicia/praias.json";
     public static void main(String[] args) {
         // Carga las playas desde el fichero JSON en un array de Praias
-        Praia[] praias = Util.importarPraias(FILE_PATH);
+        Praia[] praias = Util.importarPraias("praias.json");
 
         // Ordenar por metodo natural (id)
         Arrays.sort(praias);

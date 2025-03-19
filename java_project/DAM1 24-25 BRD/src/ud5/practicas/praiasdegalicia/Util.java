@@ -1,6 +1,7 @@
 package ud5.practicas.praiasdegalicia;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -15,9 +16,24 @@ public class Util {
      */
     public static Praia[] importarPraias(String fichero) {
         Gson gson = new Gson();
+        String json = Util.readFileToString(fichero);
 
-        String json = Util.readFileToString(fichero); // contenido JSON;
-        return gson.fromJson(json, Praia[].class);
+        // Verificar si json es null o vacío
+        if (json == null || json.isEmpty()) {
+            System.out.println("Error: El archivo no se pudo leer o está vacío.");
+            return null; // Retorna null si no se pudo leer el archivo
+        }
+
+        // Deserialización del JSON
+        Praia[] praias = gson.fromJson(json, Praia[].class);
+
+        // Verificación de la deserialización
+        if (praias == null || praias.length == 0) {
+            System.out.println("Error: El archivo no contiene datos válidos o el formato es incorrecto.");
+            return null; // Retorna null si el array de praias está vacío o inválido
+        }
+
+        return praias;
     }
 
     /**
@@ -27,34 +43,47 @@ public class Util {
      * @return Contenido del fichero como un String
      */
     public static String readFileToString(String filePath) {
+        System.out.println("Leyendo archivo desde: " + filePath); // Agregar mensaje de depuración
         StringBuilder fileContent = new StringBuilder();
+        
         try {
-            // Creamos un objeto FileReader que nos permitirá leer el fichero
+            // Intentar leer el archivo
             FileReader reader = new FileReader(filePath);
-
-            // Creamos un buffer para leer el fichero de forma más eficiente
             BufferedReader buffer = new BufferedReader(reader);
-
-            // Leemos el fichero línea a línea
+            
             String line;
             while ((line = buffer.readLine()) != null) {
-                // Vamos añadiendo cada línea al StringBuilder
                 fileContent.append(line);
-                // Añadimos un salto de línea al final de cada línea
                 fileContent.append("\n");
             }
-
-            // Cerramos el buffer y el fichero
-            buffer.close();
+    
+            buffer.close(); // Cerramos el buffer y el lector
             reader.close();
         } catch (IOException e) {
-            System.out.println("No existe el fichero.");
-            // e.printStackTrace();
+            System.out.println("Error: No existe el fichero o no se puede leer.");
+    
+            // Si el archivo no existe, lo creamos en el mismo directorio
+            try {
+                System.out.println("Creando el archivo " + filePath);
+                File file = new File(filePath);
+                // Si no existe, lo creamos
+                if (file.createNewFile()) {
+                    System.out.println("Archivo creado: " + file.getName());
+                } else {
+                    System.out.println("El archivo ya existe.");
+                }
+            } catch (IOException ex) {
+                System.out.println("No se pudo crear el archivo.");
+                ex.printStackTrace();
+            }
+    
+            // Imprime el detalle del error
+            e.printStackTrace();
         }
-
-        // Devolvemos el contenido del fichero como un String
+    
         return fileContent.toString();
     }
+    
 
     /**
      * Calcula la distancia en metros entre dos puntos geográficos
