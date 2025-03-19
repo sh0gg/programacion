@@ -223,24 +223,60 @@ class Carton {
         Random random = new Random();
         Set<Integer> numerosUsados = new HashSet<>();
 
-        for (int fila = 0; fila < 3; fila++) {
-            int numerosEnFila = 0;
-            while (numerosEnFila < 5) {
-                int columna = random.nextInt(9);
-                if (matriz[fila][columna] == 0) {
-                    int numMin = columna * 10 + 1;
-                    int numMax = (columna + 1) * 10;
-                    int numero;
-                    do {
-                        numero = random.nextInt(numMax - numMin + 1) + numMin;
-                    } while (numerosUsados.contains(numero));
-                    matriz[fila][columna] = numero;
+        // Iterar sobre las 9 columnas y generar números
+        for (int columna = 0; columna < 9; columna++) {
+            int numMin = columna * 10 + 1;  // Rango mínimo de la columna
+            int numMax = (columna + 1) * 10;  // Rango máximo de la columna
+
+            // Generar los 3 números en cada columna, asegurando que sean únicos y en el rango adecuado
+            List<Integer> columnaNumeros = new ArrayList<>();
+            while (columnaNumeros.size() < 3) {
+                int numero = random.nextInt(numMax - numMin + 1) + numMin;
+                if (!numerosUsados.contains(numero)) {
+                    columnaNumeros.add(numero);
                     numerosUsados.add(numero);
-                    numerosEnFila++;
+                }
+            }
+
+            // Ordenar los números generados en la columna de menor a mayor
+            Collections.sort(columnaNumeros);
+
+            // Asignar los números generados a las filas, asegurando que cada fila tenga 5 números
+            // y se mantenga el patrón de huecos en cada fila
+            for (int i = 0; i < 3; i++) {
+                if (i < columnaNumeros.size()) {
+                    matriz[i][columna] = columnaNumeros.get(i);  // Asignar el número a la columna correspondiente
+                } else {
+                    matriz[i][columna] = 0;  // Dejar los huecos (0 representa un hueco)
+                }
+            }
+        }
+
+        // Ahora, distribuimos los números en cada fila asegurando que haya exactamente 5 números por fila
+        // y el resto de las casillas sean huecos (#).
+        for (int fila = 0; fila < 3; fila++) {
+            List<Integer> numerosFila = new ArrayList<>();
+            for (int columna = 0; columna < 9; columna++) {
+                if (matriz[fila][columna] != 0) {
+                    numerosFila.add(matriz[fila][columna]);  // Añadir los números de la fila
+                }
+            }
+
+            // Aleatoriamente, distribuimos los números en la fila y completamos con huecos
+            Collections.shuffle(numerosFila);  // Aleatorizar los números en la fila
+            int j = 0;
+            for (int columna = 0; columna < 9; columna++) {
+                if (j < 5) {
+                    matriz[fila][columna] = numerosFila.get(j);  // Asignar números
+                    j++;
+                } else {
+                    matriz[fila][columna] = -1;  // Asignar huecos (#)
                 }
             }
         }
     }
+
+
 
     public boolean marcarNumero(int numero) {
         for (int fila = 0; fila < 3; fila++) {
