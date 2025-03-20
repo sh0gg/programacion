@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Bingo {
     static final int MAX_NUM = 99;
     static Jugador[] jugadores;
-    static int[] numeros = new int[0];
+    static int[] numerosSorteados = new int[0];
     static boolean linea = false;
     static boolean bingo = false;
 
@@ -60,11 +60,49 @@ public class Bingo {
     }
 
     private static void modoNumeroANumero() {
-        // El programa saca un bola aleatoria, no repetida
-        int numero = sortearNumero();
-        System.out.println("Número que sale del bombo: " + numero);
-        // Revisar Cartones
+        do {
+            // El programa saca un bola aleatoria, no repetida
+            int numero = sortearNumero();
+            System.out.println("Número que sale del bombo: " + numero);
+            System.out.println("Números ya cantados: " + Arrays.toString(numerosSorteados));
+            // Revisar Cartones
+            revisarCartonesJugadores();
+            System.out.println("Pulsa ENTER para continuar");
+            new Scanner(System.in).nextLine();
+        } while (!bingo);
 
+        System.out.println("Fin del programa!");
+    }
+
+    private static void revisarCartonesJugadores() {
+        boolean nuevaLinea = false;
+        boolean nuevoBingo = false;
+        for (Jugador jugador : jugadores) {
+            for (Carton carton : jugador.cartones) {
+                switch (carton.revisarCarton(numerosSorteados)) {
+                    case 0: break;
+                    case 1: //Línea se canta si no se ha hecho antes
+                        if (!linea) {
+                            System.out.println(jugador.nombre + " ha cantado línea en el siguiente cartón: " );
+                            System.out.println(carton);
+                            nuevaLinea = true;
+                        }
+                        break;
+                    case 2: //Bingo, si no se ha cantado antes, claro
+                        if (!bingo) {
+                            System.out.println(jugador.nombre + " ha cantado bingo en su cartón: ");
+                            System.out.println(carton);
+                            System.out.println("ENHORABUENA!!");
+                            nuevoBingo = true;
+                        }
+                        break;
+                }
+            }
+        }
+        if (nuevaLinea)
+            linea = true;
+        if (nuevoBingo)
+            bingo = true;
     }
 
     /**
@@ -80,15 +118,15 @@ public class Bingo {
             numRandom = rnd.nextInt(MAX_NUM) + 1;
             repetido = false;
             int i = 0;
-            while (i < numeros.length && !repetido) {
-                if (numeros[i] == numRandom)
+            while (i < numerosSorteados.length && !repetido) {
+                if (numerosSorteados[i] == numRandom)
                     repetido = true;
                 i++;
             }
         } while (repetido);
 
-        numeros = Arrays.copyOf(numeros, numeros.length + 1);
-        numeros[numeros.length - 1] = numRandom;
+        numerosSorteados = Arrays.copyOf(numerosSorteados, numerosSorteados.length + 1);
+        numerosSorteados[numerosSorteados.length - 1] = numRandom;
         return numRandom;
     }
 }
@@ -133,7 +171,7 @@ class Carton {
                 int numRandom;
                 do {
                     numRandom = rnd.nextInt(Bingo.MAX_NUM) + 1;
-                    // TODO Comprobar que el número no está repetido
+                    // Comprobar que el numero no está repetido
                     repetido = false;
                     int ii = 0;
                     while (ii < MAX_FILAS && !repetido) {
