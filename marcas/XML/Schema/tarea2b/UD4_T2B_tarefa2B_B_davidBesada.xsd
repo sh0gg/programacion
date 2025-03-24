@@ -3,7 +3,7 @@
   <xs:element name="personas">
        <xs:complexType>
           <xs:sequence>
-             <xs:element name="persona">
+             <xs:element name="persona" maxOccurs="unbounded">
                <xs:complexType>
                  <xs:all>
                     <xs:element name="nombre" type="xs:string" />

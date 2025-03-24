@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personas>
+    <persona>
+        <nombre>Ana</nombre>
+        <apellido>Suárez</apellido>
+        <fechanacimiento>1988-08-08</fechanacimiento>
+        <numerodocumento>11111111</numerodocumento>
+        <trianero>true</trianero>
+    </persona>
+    <persona>
+        <nombre>Pedro</nombre>
+        <apellido>Rodríguez</apellido>
+        <fechanacimiento>1992-12-12</fechanacimiento>
+        <numerodocumento>22222222</numerodocumento>
+        <trianero>false</trianero>
+    </persona>
+</personas>
+<!--
+RESPUESTAS TAREFA 2B_B
+
+1. DIFERENCIA ENTRE "sequence" Y "all":
+
+- Con el compositor "sequence", los elementos deben aparecer en el orden exacto en el que están definidos en el esquema XSD. Por ejemplo, si el orden es <nombre>, <apellido>, <fechanacimiento>, etc., deben seguir ese mismo orden en el XML. Si se cambia el orden, el documento no será válido.
+
+- Con el compositor "all", los elementos pueden aparecer en cualquier orden, pero cada uno debe aparecer exactamente una vez (no se pueden repetir ni omitir). Es útil cuando el orden no importa pero se requiere que estén todos los elementos.
+
+2. ¿QUÉ PASA SI USAMOS "choice"?
+
+- Si se usa el compositor "choice", solo se permite la aparición de uno de los elementos definidos en el grupo. Es decir, de todos los elementos posibles, el XML solo podrá contener uno (por ejemplo, solo <nombre> o solo <apellido>, pero no ambos). Es útil cuando queremos que solo uno de varios elementos esté presente en cada caso.
+
+-->

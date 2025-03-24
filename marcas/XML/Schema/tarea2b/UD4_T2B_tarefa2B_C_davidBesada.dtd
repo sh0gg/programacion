@@ -1,0 +1,5 @@
+<!ELEMENT carta (de, para, asunto, texto)>
+<!ELEMENT de (#PCDATA)>
+<!ELEMENT para (#PCDATA)>
+<!ELEMENT asunto (#PCDATA)>
+<!ELEMENT texto (#PCDATA)>

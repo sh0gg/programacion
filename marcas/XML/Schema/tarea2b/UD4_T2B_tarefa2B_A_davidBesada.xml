@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persona>
+    <nombre>Carlos</nombre>
+    <apellido>López</apellido>
+    <apellido>Martínez</apellido>
+    <fechanacimiento>1990-10-10</fechanacimiento>
+    <numerodocumento>87654321</numerodocumento>
+    <trianero>false</trianero>
+</persona>
