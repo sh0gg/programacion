@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/praiasdegalicia/Util.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/GestorPersonajes.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/AppCombateSingular.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/AppCreaPersonaje.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/Item.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/AppMazmorra.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/GestorPersonajes.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/clasesejercicios/E0822/E0822.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/Personaje.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud4/arraysejercicios/BuscandoLetras2.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/praiasdegalicia/AppBanderaAzul.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/praiasdegalicia/AppClase.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/AppCombateSingular.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/AppCombateGrupos.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/AppCreaPersonaje.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/practicas/rol/versionOldModernaNOTOCAR/MegaRol.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/apuntesinterfaces/E0910.java" />
+    </excludeFromCompile>
+  </component>
+</project>

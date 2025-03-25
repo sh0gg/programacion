@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="edificio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="enderezo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="rua" type="xs:string"/>
+              <xs:element name="numero">
+                <xs:simpleType>
+                  <xs:restriction base="xs:positiveInteger">
+                    <xs:maxInclusive value="2000"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="poboacion" type="xs:string"/>
+              <xs:element name="provincia" type="xs:string"/>
+              <xs:element name="codigoPostal">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="\d{5}"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="dataConstrucion">
+          <xs:complexType>
+            <xs:attribute name="mes">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Xaneiro"/>
+                  <xs:enumeration value="Febreiro"/>
+                  <xs:enumeration value="Marzo"/>
+                  <xs:enumeration value="Abril"/>
+                  <xs:enumeration value="Maio"/>
+                  <xs:enumeration value="Xuño"/>
+                  <xs:enumeration value="Xullo"/>
+                  <xs:enumeration value="Agosto"/>
+                  <xs:enumeration value="Setembro"/>
+                  <xs:enumeration value="Outubro"/>
+                  <xs:enumeration value="Novembro"/>
+                  <xs:enumeration value="Decembro"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="ano" type="xs:gYear" use="required"/>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="material" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+
+      <xs:attribute name="valor">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.00"/>
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+
+      <xs:attribute name="alquiler">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="verdadeiro"/>
+            <xs:enumeration value="falso"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
