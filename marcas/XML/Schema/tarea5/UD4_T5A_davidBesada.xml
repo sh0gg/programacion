@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <edificio alquiler="verdadeiro" valor="410.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="tarefaUD7_5a.xsd">
+          xsi:noNamespaceSchemaLocation="UD4_T5A_davidBesada.xsd">
    <enderezo>
       <rua>Ponzano</rua>
       <numero>66</numero>

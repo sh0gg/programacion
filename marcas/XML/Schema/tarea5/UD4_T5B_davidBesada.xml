@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empresa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="UD4_T5B_davidBesada.xsd">
+
+   <empregado id="e001">
+      <nome>Ana Torres</nome>
+      <nss>123456789012</nss>
+      <contactos>981234567 987654321</contactos>
+   </empregado>
+
+   <empregado id="e002">
+      <nome>Pedro Gómez</nome>
+      <nss>987654321000</nss>
+      <contactos nulo="true"/>
+   </empregado>
+
+   <departamento>
+      <nome>Recursos Humanos</nome>
+      <xefe empregadoID="e001"/>
+   </departamento>
+
+   <departamento>
+      <nome>Finanzas</nome>
+      <xefe empregadoID="e002"/>
+   </departamento>
+
+</empresa>
