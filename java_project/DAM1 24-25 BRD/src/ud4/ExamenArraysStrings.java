@@ -114,6 +114,84 @@ public class ExamenArraysStrings {
         for (int[] fila : traspuesta) {
             System.out.println(Arrays.toString(fila));
         }
+
+        // MATRICES EN JAVA - FORMAS DE RECORRER
+
+        int[][] matriz2 = {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }
+        };
+
+        // ---------------------------------------------
+        // 1. RECORRER FILA POR FILA (ORDEN NATURAL)
+        // Recorre desde la fila 0 hasta la última
+        // y dentro de cada fila, de la columna 0 a la última
+
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = 0; j < matriz2[i].length; j++) {
+                System.out.print(matriz2[i][j] + " ");
+            }
+            System.out.println(); // salto de línea después de cada fila
+        }
+        // Salida: 1 2 3
+        // 4 5 6
+        // 7 8 9
+
+        // ---------------------------------------------
+        // 2. RECORRER COLUMNA POR COLUMNA
+        // Cambia el orden de los bucles: primero columnas, luego filas
+
+        for (int j = 0; j < matriz2[0].length; j++) {
+            for (int i = 0; i < matriz2.length; i++) {
+                System.out.print(matriz2[i][j] + " ");
+            }
+            System.out.println();
+        }
+        // Salida: 1 4 7
+        // 2 5 8
+        // 3 6 9
+
+        // ---------------------------------------------
+        // 3. RECORRER FILAS EN ORDEN INVERSO (DE ABAJO HACIA ARRIBA)
+
+        for (int i = matriz2.length - 1; i >= 0; i--) {
+            for (int j = 0; j < matriz2[i].length; j++) {
+                System.out.print(matriz2[i][j] + " ");
+            }
+            System.out.println();
+        }
+        // Salida: 7 8 9
+        // 4 5 6
+        // 1 2 3
+
+        // ---------------------------------------------
+        // 4. RECORRER COLUMNAS EN ORDEN INVERSO (DE DERECHA A IZQUIERDA)
+
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = matriz2[i].length - 1; j >= 0; j--) {
+                System.out.print(matriz2[i][j] + " ");
+            }
+            System.out.println();
+        }
+        // Salida: 3 2 1
+        // 6 5 4
+        // 9 8 7
+
+        // ---------------------------------------------
+        // 5. RECORRER TODA LA MATRIZ EN ORDEN INVERSO TOTAL
+        // (de la última fila y última columna hacia el principio)
+
+        for (int i = matriz2.length - 1; i >= 0; i--) {
+            for (int j = matriz2[i].length - 1; j >= 0; j--) {
+                System.out.print(matriz2[i][j] + " ");
+            }
+            System.out.println();
+        }
+        // Salida: 9 8 7
+        // 6 5 4
+        // 3 2 1
+
     }
 
     // ================== 3. STRINGS ==================
