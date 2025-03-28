@@ -1,0 +1,183 @@
+-- 63. Relación de pisos con metros útiles superiores a la media de los metros construidos
+SELECT 
+    P.CALLE, 
+    P.NUMERO, 
+    P.PLANTA, 
+    P.PUERTA, 
+    P.NUMHABITACIONES, 
+    P.METROSUTILES, 
+    PR.NOMBRE, 
+    PR.APELLIDO1, 
+    PR.APELLIDO2
+FROM 
+    PISO P
+INNER JOIN 
+    PROPIETARIO PR ON P.DNIPROPIETARIO = PR.DNI
+WHERE 
+    P.METROSUTILES > (
+        SELECT AVG(METROSCONSTRUIDOS) FROM PISO
+    );
+
+-- 64. Tamaño medio de solares con bloques de pisos de más de 15 viviendas
+SELECT 
+    AVG(V.METROSSOLAR) AS MEDIA_METROS_SOLAR
+FROM 
+    VIVIENDA V
+WHERE 
+    EXISTS (
+        SELECT 1
+        FROM BLOQUEPISOS B
+        WHERE B.CALLE = V.CALLE AND B.NUMERO = V.NUMERO AND B.NUMPISOS > 15
+    );
+
+-- 65. Número de parques en zonas urbanas donde hay viviendas construidas
+SELECT 
+    COUNT(Z.NUMPARQUES) AS TOTAL_PARQUES
+FROM 
+    ZONAURBANA Z
+WHERE 
+    EXISTS (
+        SELECT 1 
+        FROM VIVIENDA V 
+        WHERE V.NOMBREZONA = Z.NOMBREZONA
+    );
+
+-- 66. Mostrar zonas (nombre y descripción) y viviendas unifamiliares construidas en ellas
+SELECT 
+    Z.NOMBREZONA, 
+    Z.DESCRIPCIÓN, 
+    V.CALLE, 
+    V.NUMERO, 
+    V.METROSSOLAR
+FROM 
+    CASAPARTICULAR C
+INNER JOIN VIVIENDA V ON C.CALLE = V.CALLE AND C.NUMERO = V.NUMERO
+INNER JOIN ZONAURBANA Z ON V.NOMBREZONA = Z.NOMBREZONA;
+
+-- Alternativa con subconsultas
+SELECT 
+    V.NOMBREZONA,
+    (SELECT DESCRIPCIÓN FROM ZONAURBANA Z WHERE Z.NOMBREZONA = V.NOMBREZONA) AS DESCRIPCION,
+    V.CALLE, 
+    V.NUMERO, 
+    V.METROSSOLAR
+FROM 
+    VIVIENDA V
+WHERE 
+    EXISTS (
+        SELECT 1 FROM CASAPARTICULAR C 
+        WHERE C.CALLE = V.CALLE AND C.NUMERO = V.NUMERO
+    );
+
+-- 67. Propietarios con algún piso y/o vivienda, y cuántos tienen de cada tipo
+SELECT 
+    PR.DNI, 
+    PR.NOMBRE, 
+    PR.APELLIDO1, 
+    PR.APELLIDO2,
+    (SELECT COUNT(*) FROM PISO P WHERE P.DNIPROPIETARIO = PR.DNI) AS NUM_PISOS,
+    (SELECT COUNT(*) FROM CASAPARTICULAR C WHERE C.DNIPROPIETARIO = PR.DNI) AS NUM_VIVIENDAS
+FROM 
+    PROPIETARIO PR
+WHERE 
+    PR.DNI IN (SELECT DNIPROPIETARIO FROM PISO)
+    OR PR.DNI IN (SELECT DNIPROPIETARIO FROM CASAPARTICULAR);
+
+-- 68. Pisos cuyo propietario es mujer y tienen el máximo número de habitaciones
+SELECT 
+    P.CALLE, 
+    P.NUMERO, 
+    P.PLANTA, 
+    P.PUERTA
+FROM 
+    PISO P
+INNER JOIN PROPIETARIO PR ON P.DNIPROPIETARIO = PR.DNI
+WHERE 
+    PR.SEXO = 'M'
+    AND P.NUMHABITACIONES = (
+        SELECT MAX(P2.NUMHABITACIONES)
+        FROM PISO P2
+        INNER JOIN PROPIETARIO PR2 ON P2.DNIPROPIETARIO = PR2.DNI
+        WHERE PR2.SEXO = 'M'
+    );
+
+-- Alternativa con subconsulta
+SELECT 
+    CALLE, NUMERO, PLANTA, PUERTA
+FROM 
+    PISO
+WHERE 
+    DNIPROPIETARIO IN (
+        SELECT DNI FROM PROPIETARIO WHERE SEXO = 'M'
+    )
+    AND NUMHABITACIONES = (
+        SELECT MAX(NUMHABITACIONES)
+        FROM PISO
+        WHERE DNIPROPIETARIO IN (
+            SELECT DNI FROM PROPIETARIO WHERE SEXO = 'M'
+        )
+    );
+
+-- 69. Viviendas unifamiliares sin piscina y con metros construidos menores a la media
+SELECT 
+    C.CALLE, 
+    C.NUMERO, 
+    C.METROSCONSTRUIDOS
+FROM 
+    CASAPARTICULAR C
+WHERE 
+    C.PISCINA = 'N'
+    AND C.METROSCONSTRUIDOS < (
+        SELECT AVG(METROSCONSTRUIDOS) FROM CASAPARTICULAR
+    );
+
+-- 70. Personas que poseen más de un piso con al menos dos habitaciones
+SELECT 
+    PR.DNI, 
+    PR.NOMBRE, 
+    PR.APELLIDO1, 
+    PR.APELLIDO2, 
+    COUNT(P.CALLE) AS NUM_PISOS
+FROM 
+    PROPIETARIO PR
+INNER JOIN 
+    PISO P ON PR.DNI = P.DNIPROPIETARIO
+WHERE 
+    P.NUMHABITACIONES >= 2
+GROUP BY 
+    PR.DNI, PR.NOMBRE, PR.APELLIDO1, PR.APELLIDO2
+HAVING 
+    COUNT(P.CALLE) > 1;
+
+-- 71. Personas que no poseen ningún piso
+SELECT 
+    PR.DNI, 
+    PR.NOMBRE, 
+    PR.APELLIDO1, 
+    PR.APELLIDO2
+FROM 
+    PROPIETARIO PR
+WHERE 
+    PR.DNI NOT IN (
+        SELECT DISTINCT DNIPROPIETARIO FROM PISO
+    );
+
+-- 72. Personas con más de un piso pero sin ninguna vivienda unifamiliar
+SELECT 
+    PR.DNI, 
+    PR.NOMBRE, 
+    PR.APELLIDO1, 
+    PR.APELLIDO2, 
+    COUNT(P.CALLE) AS NUM_PISOS
+FROM 
+    PROPIETARIO PR
+INNER JOIN 
+    PISO P ON PR.DNI = P.DNIPROPIETARIO
+WHERE 
+    PR.DNI NOT IN (
+        SELECT DISTINCT DNIPROPIETARIO FROM CASAPARTICULAR
+    )
+GROUP BY 
+    PR.DNI, PR.NOMBRE, PR.APELLIDO1, PR.APELLIDO2
+HAVING 
+    COUNT(P.CALLE) > 1;
