@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pizza>
+  <tamaño>grande</tamaño>
+  <tipo>barbacoa</tipo>
+  <extra_mozzarela>Yes</extra_mozzarela>
+  <jamón>Yes</jamón>
+  <nombre>Lucía</nombre>
+  <apellidos>Gómez Pérez</apellidos>
+  <teléfono>612345678</teléfono>
+  <enviar>SI</enviar>
+  <dirección>Calle Mayor 22</dirección>
+  <precio>14.95</precio>
+</pizza>

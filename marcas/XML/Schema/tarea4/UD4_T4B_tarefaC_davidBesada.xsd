@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- Restricción para numerodocumento: 8 números y 1 letra -->
+  <xs:simpleType name="tipoDocumento">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{8}[A-Za-z]"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Restricción para nombre y apellido: 2 a 25 letras -->
+  <xs:simpleType name="tipoNombre">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="25"/>
+      <xs:pattern value="[A-Za-záéíóúÁÉÍÓÚñÑ\s]{2,25}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Enumeración para trianero -->
+  <xs:simpleType name="tipotrianero">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="nacido"/>
+      <xs:enumeration value="adoptado"/>
+      <xs:enumeration value="residente"/>
+      <xs:enumeration value="extranjero"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Elementos usando los tipos definidos -->
+  <xs:element name="numerodocumento" type="tipoDocumento"/>
+  <xs:element name="nombre" type="tipoNombre"/>
+  <xs:element name="apellido" type="tipoNombre"/>
+  <xs:element name="trianero" type="tipotrianero"/>
+</xs:schema>
