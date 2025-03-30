@@ -134,7 +134,8 @@ public class ExamenArraysStrings {
             }
             System.out.println(); // salto de línea después de cada fila
         }
-        // Salida: 1 2 3
+        // Salida:
+        // 1 2 3
         // 4 5 6
         // 7 8 9
 
@@ -148,7 +149,8 @@ public class ExamenArraysStrings {
             }
             System.out.println();
         }
-        // Salida: 1 4 7
+        // Salida:
+        // 1 4 7
         // 2 5 8
         // 3 6 9
 
@@ -161,7 +163,8 @@ public class ExamenArraysStrings {
             }
             System.out.println();
         }
-        // Salida: 7 8 9
+        // Salida: 
+        // 7 8 9
         // 4 5 6
         // 1 2 3
 
@@ -174,7 +177,8 @@ public class ExamenArraysStrings {
             }
             System.out.println();
         }
-        // Salida: 3 2 1
+        // Salida:
+        // 3 2 1
         // 6 5 4
         // 9 8 7
 
@@ -188,7 +192,8 @@ public class ExamenArraysStrings {
             }
             System.out.println();
         }
-        // Salida: 9 8 7
+        // Salida:
+        // 9 8 7
         // 6 5 4
         // 3 2 1
 

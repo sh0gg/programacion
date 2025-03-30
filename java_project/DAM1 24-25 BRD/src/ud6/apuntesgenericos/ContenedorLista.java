@@ -1,6 +1,7 @@
 package ud6.apuntesgenericos;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class ContenedorLista<T> implements Pila<T>, Cola<T>{
     T[] elementos;
@@ -10,9 +11,12 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T>{
     }
 
     void insertarAlPrincipio(T nuevo) {
-        elementos = Arrays.copyOf(elementos, elementos.length + 1);
-        System.arraycopy(elementos, 0, elementos, 1, elementos.length - 1);
-        elementos[0] = nuevo;
+        T[] elementosProv = Arrays.copyOf(elementos, elementos.length + 1);
+        elementosProv[0] = nuevo;
+        for (int i = 0; i < elementos.length; i++) {
+            elementosProv[i + 1] = elementos[i];
+        }
+        elementos = elementosProv;
     }
 
     void insertarAlFinal(T nuevo) {
@@ -42,6 +46,56 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T>{
         Arrays.sort((T[]) elementos);
     }
 
+    T get (int indice) {
+        return elementos[indice];
+    }
+
+    void ordenar (Comparator<T> c) {
+        Arrays.sort(elementos, c);
+    }
+
+    T extract (int indice) {
+        T elemento = null;
+        for (int i = 0; i < elementos.length; i++) {
+            if (elementos[i] == elementos[indice]) {}
+            elemento = elementos[i];
+        }
+        return elemento;
+    }
+
+    int[] buscarTodos (Object e) {
+        int[] resultado = new int[0];
+        for (int i = 0; i < elementos.length; i++) {
+            if (elementos[i] == e) {
+                // resultado.insertarAlFinal(elementos[i]); NO PUEDO LLAMAR AL METODO, NO ES UN ELEMENTO SINO UN ARRAY DE INTS
+                resultado = Arrays.copyOf(resultado, resultado.length + 1);
+                resultado[resultado.length - 1] = (int) elementos[i];
+            }
+        }
+        return resultado;
+    }
+
+    boolean eliminarTodos (Object e) {
+        int[] aBorrar = buscarTodos(e);
+
+        T[] elementosProv = Arrays.copyOf(elementos, elementos.length - aBorrar.length);
+
+        try {
+            for (int i = 0; i < aBorrar.length; i++) {
+                for (int j = i + 1; j < elementos.length; j++) {
+                    int k = 0;
+                    if (j != aBorrar[i]) {
+                        elementosProv[k] = elementos[j];
+                    }
+                }
+            }
+            elementos = elementosProv;
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("La lista no se ha alterado");
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(elementos);
@@ -54,6 +108,12 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T>{
         lista.insertarAlFinal(1);
         lista.insertarAlFinal(2);
         System.out.println("Antes de ordenar: " + lista);
+        System.out.println("Insertamos 4 al principio:");
+        lista.insertarAlPrincipio(4);
+        System.out.println(lista);
+        System.out.println("Insertamos 5 al principio:");
+        lista.insertarAlPrincipio(5);
+        System.out.println(lista);
         lista.ordenar();
         System.out.println("Después de ordenar: " + lista);
         System.out.println("Extraído del principio: " + lista.extraerDelPrincipio());
