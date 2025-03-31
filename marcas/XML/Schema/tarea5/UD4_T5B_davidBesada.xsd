@@ -15,7 +15,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="contactos" minOccurs="1">
+              <xs:element name="contactos">
                 <xs:complexType mixed="true">
                   <xs:attribute name="nulo" type="xs:boolean" use="optional"/>
                 </xs:complexType>

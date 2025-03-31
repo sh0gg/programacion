@@ -10,7 +10,7 @@
               <xs:element name="rua" type="xs:string"/>
               <xs:element name="numero">
                 <xs:simpleType>
-                  <xs:restriction base="xs:positiveInteger">
+                  <xs:restriction base="xs:unsignedShort">
                     <xs:maxInclusive value="2000"/>
                   </xs:restriction>
                 </xs:simpleType>
@@ -52,7 +52,7 @@
           </xs:complexType>
         </xs:element>
 
-        <xs:element name="material" type="xs:string" minOccurs="0"/>
+        <xs:element name="material" type="xs:string"/>
       </xs:sequence>
 
       <xs:attribute name="valor">
