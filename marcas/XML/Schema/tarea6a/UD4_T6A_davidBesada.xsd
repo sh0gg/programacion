@@ -1,67 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:complexType name="reinados">
-    <xs:sequence>
-        <xs:element name="reinado" type="tipoReinado"/>
-        <xs:element name="persoa" type="tipoPersoa" />
-    </xs:sequence>
-  </xs:complexType>
-  
-  <!-- tipo reinado -->
-  
-  <xs:complexType name="tipoReinado">
-      <xs:choice>
-          <xs:element name="rei" type="tipoRei"/>
-          <xs:element name="raiña" type="tipoRaiña"/>
-          <xs:element name="consorte" type="tipoConsorte"/>
-      </xs:choice>
-      <xs:attribute name="dende" type="date" use="required"/>
-      <xs:attribute name="ata" type="date" use="required"/>
-  </xs:complexType>
-  
-  <!-- tipo persoa -->
-  
-  <xs:complexType name="tipoPersoa">
-      <xs:sequence>
-          <xs:element name="nome" type="xs:string"/>
-          <xs:element name="apodo" type="xs:string"/>
-          <xs:element name="pai" type="xs:string"/>
-          <xs:element name="nai" type="xs:string"/>
-          <xs:element name="casa" type="xs:string"/>
-      </xs:sequence>
-      <xs:attribute name="codigo" type="tipoCodigo"/>
-  </xs:complexType>
-  
-  <!-- tipo codigo -->
-  
-  <xs:simpleType name="tipoCodigo">
-      <xs:restriction base="xs:string">
-          <xs:pattern value="[A-Z]\d{2}"/>          
-      </xs:restriction>
-  </xs:simpleType>
-  
-  <!-- tipo rei --> 
-    
+  <!-- Grupo de atributos para datas -->
+  <xs:attributeGroup name="atributosDatas">
+    <xs:attribute name="dende" type="xs:date" use="required"/>
+    <xs:attribute name="ata" type="xs:date" use="required"/>
+  </xs:attributeGroup>
+
+  <!-- Tipo rei -->
   <xs:complexType name="tipoRei">
-      <xs:attribute name="codigo" type="tipoCodigo" />      
+    <xs:attribute name="codigo" type="xs:string" use="required"/>
   </xs:complexType>
-      
-  <!-- tipo raiña --> 
-    
-  <xs:complexType name="tipoRaiña">
-      <xs:attribute name="codigo" type="tipoCodigo" /> 
+
+  <!-- Tipo raíña -->
+  <xs:complexType name="tipoRaíña">
+    <xs:attribute name="codigo" type="xs:string" use="required"/>
   </xs:complexType>
-      
-  <!-- tipo consorte --> 
-  
+
+  <!-- Tipo consorte -->
   <xs:complexType name="tipoConsorte">
-      <xs:simpleContent>
-          <xs:extension base="xs:string">
-              <xs:attribute name="dende" type="date" use="required"/>
-              <xs:attribute name="ata" type="date" use="required"/>
-          </xs:extension>
-      </xs:simpleContent>
-  </xs:complexType>  
-      
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attributeGroup ref="atributosDatas"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Tipo reinado -->
+  <xs:complexType name="tipoReinado">
+    <xs:sequence>
+      <xs:element name="rei" type="tipoRei" minOccurs="0"/>
+      <xs:element name="raiña" type="tipoRaíña" minOccurs="0"/>
+      <xs:element name="consorte" type="tipoConsorte" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="atributosDatas"/>
+  </xs:complexType>
+
+  <!-- Tipo persoa -->
+  <xs:complexType name="tipoPersoa">
+    <xs:sequence>
+      <xs:element name="nome" type="xs:string"/>
+      <xs:element name="apodo" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="pai" type="xs:string" minOccurs="0"/>
+      <xs:element name="nai" type="xs:string" minOccurs="0"/>
+      <xs:element name="casa" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="codigo" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Elemento raíz -->
+  <xs:element name="reinados">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="reinado" type="tipoReinado" maxOccurs="unbounded"/>
+        <xs:element name="persoa" type="tipoPersoa" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- Clave primaria: nome único como rei/raiña -->
+    <xs:unique name="nomeUnicoReinado">
+      <xs:selector xpath="persoa"/>
+      <xs:field xpath="nome"/>
+    </xs:unique>
+
+    <!-- Clave primaria: código único por persoa -->
+    <xs:key name="clavePersoa">
+      <xs:selector xpath="persoa"/>
+      <xs:field xpath="@codigo"/>
+    </xs:key>
+
+    <!-- Referencias -->
+    
+    <xs:keyref name="refRei" refer="clavePersoa">
+      <xs:selector xpath="reinado/rei"/>
+      <xs:field xpath="@codigo"/>
+    </xs:keyref>
+
+    <xs:keyref name="refRaiña" refer="clavePersoa">
+      <xs:selector xpath="reinado/raiña"/>
+      <xs:field xpath="@codigo"/>
+    </xs:keyref>
+
+    <xs:keyref name="refPai" refer="clavePersoa">
+      <xs:selector xpath="persoa"/>
+      <xs:field xpath="pai"/>
+    </xs:keyref>
+
+    <xs:keyref name="refNai" refer="clavePersoa">
+      <xs:selector xpath="persoa"/>
+      <xs:field xpath="nai"/>
+    </xs:keyref>
+
+  </xs:element>
+
 </xs:schema>
