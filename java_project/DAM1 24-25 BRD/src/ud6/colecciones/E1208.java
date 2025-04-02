@@ -11,7 +11,7 @@ public class E1208 {
     public static void main(String[] args) {
         Collection<Integer> numeros = new ArrayList();
 
-        numeros = ud6.Util.numerosAleartoriosEntre100(20);
+        numeros = ud6.Util.numerosAleartorios(20,100);
 
         System.out.println(numeros);
 

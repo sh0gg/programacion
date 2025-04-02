@@ -8,7 +8,7 @@ public class E1209 {
     public static void main(String[] args) {
         List<Integer> numeros = new ArrayList<>();
 
-        numeros = (List<Integer>) ud6.Util.numerosAleartoriosEntre100(20);
+        numeros = (List<Integer>) ud6.Util.numerosAleartorios(20,100);
 
         System.out.println("Elementos con valor par");
         // Indice y valor de los elementos con valor par
