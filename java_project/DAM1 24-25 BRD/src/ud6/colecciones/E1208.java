@@ -3,26 +3,34 @@ package ud6.colecciones;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Random;
+import java.util.Comparator;
+
+import ud6.Util;
 
 public class E1208 {
     public static void main(String[] args) {
         Collection<Integer> numeros = new ArrayList();
-        Random rnd = new Random();
-        for (int i = 0; i < 20; i++) {
-            numeros.add(rnd.nextInt(100)+1);
-        }
+
+        numeros = ud6.Util.numerosAleartoriosEntre100(20);
 
         System.out.println(numeros);
 
-        Integer[] arrayNumeros = numeros.toArray(new Integer[0]);
+        Integer[] t = numeros.toArray(new Integer[0]);
 
-        Arrays.sort(arrayNumeros);
+        // De menor a mayor
+        Arrays.sort(t);
+        Collection<Integer> numerosMenorMayor = Arrays.asList(t);
+        System.out.println(numerosMenorMayor);
 
-        numeros = Arrays.asList(arrayNumeros);
+        // De mayor a menor
 
-        System.out.println(numeros);
+        Comparator<Integer> ordenMayorMenor = Comparator.reverseOrder();
 
+        Arrays.sort(t, ordenMayorMenor);
+
+        Collection<Integer> numerosMayorMayor = Arrays.asList(t);
+
+        System.out.println(numerosMayorMayor);
 
     }
 }
