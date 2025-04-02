@@ -6,26 +6,29 @@ public class Sorteo<E> {
 
     Set<E> valores = new HashSet<>();
 
-    boolean add (E elemento) {
-        if (valores.contains(elemento)) {
-            return false;
-        } else {
-            valores.add(elemento);
-            return true;
-        }
+    boolean add(E elemento) {
+        return valores.add(elemento); 
     }
 
-    Set<E> premiados (int numPremiados) {
-        Set<E> premiados = new HashSet<>();
-        if (numPremiados > 0) {
-            throw new IllegalArgumentException ("Numero de premiados tiene que ser al menos 1");
+    Set<E> premiados(int numPremiados) {
+        if (numPremiados < 1) {
+            throw new IllegalArgumentException("Numero de premiados tiene que ser al menos 1");
         }
-        Random r = new Random();
-        for (int i = 0; i > numPremiados; i++) {
-            int num = r.nextInt(premiados.size()+1);
-            //TODO: extraer valor del indice premiado.
 
+        if (numPremiados > valores.size()) {
+            numPremiados = valores.size();
         }
+
+        List<E> lista = new ArrayList<>(valores);
+        Set<E> premiados = new HashSet<>();
+        Random r = new Random();
+
+        while (premiados.size() < numPremiados) {
+            int index = r.nextInt(lista.size());
+            premiados.add(lista.get(index));
+        }
+
         return premiados;
     }
+    
 }
