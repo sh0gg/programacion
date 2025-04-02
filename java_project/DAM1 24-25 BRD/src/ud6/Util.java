@@ -6,11 +6,11 @@ import java.util.Random;
 
 public class Util {
     public static Collection<Integer> numerosAleartorios(int numero, int maximo) {
-        Collection<Integer> numerosAleartorios = new ArrayList<>();
+        Collection<Integer> numerosAleatorios = new ArrayList<>();
         Random r = new Random();
         for (int i = 0; i < numero; i++) {
-            numerosAleartorios.add(r.nextInt(maximo)+1);
+            numerosAleatorios.add(r.nextInt(maximo)+1);
         }
-        return numerosAleartorios;
+        return numerosAleatorios;
     }
 }
