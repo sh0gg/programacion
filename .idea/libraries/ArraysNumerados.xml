@@ -2,6 +2,7 @@
   <library name="ArraysNumerados">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud4/ArraysNumerados.zip!/" />
+      <root url="jar://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/lib/gson-2.11.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
