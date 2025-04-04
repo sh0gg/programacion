@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pizza>
+  <tamaño>mediana</tamaño>
+  <tipo>vegetal</tipo>
+  <atún>No</atún>
+  <pimiento>Yes</pimiento>
+  <nombre>Carlos</nombre>
+  <apellidos>Martínez Ruiz</apellidos>
+  <enviar>SI</enviar>
+  <precio>11.50</precio>
+</pizza>
