@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Grupo de atributos comunes a todas las nominaciones -->
+  <xs:attributeGroup name="atributosComunes">
+    <xs:attribute name="codigo_pelicula" type="xs:string"/>
+    <xs:attribute name="nominacion" type="xs:string"/>
+    <xs:attribute name="oscar" type="xs:string" use="optional"/>
+  </xs:attributeGroup>
+
+  <!-- Tipo simple para validar los géneros de una película -->
+  <xs:simpleType name="generoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Negro"/>
+      <xs:enumeration value="Drama"/>
+      <xs:enumeration value="Acción"/>
+      <xs:enumeration value="Comedia"/>
+      <xs:enumeration value="Thriller"/>
+      <xs:enumeration value="Musical"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Tipo complejo para la información de una película -->
+  <xs:complexType name="peliculaType">
+    <xs:sequence>
+      <xs:element name="titulo" type="xs:string"/>
+      <xs:element name="generos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="genero" type="generoType" maxOccurs="3"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="codigo_pelicula" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- Tipo complejo para los premios -->
+  <xs:complexType name="premioType">
+    <xs:sequence>
+      <xs:element name="pelicula" type="peliculaType"/>
+      <xs:element name="nominaciones">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="director" type="xs:string"/>
+            <xs:element name="actor" type="xs:string"/>
+            <xs:element name="actriz" type="xs:string"/>
+            <xs:element name="actor_secundario" type="xs:string"/>
+            <xs:element name="actriz_secundaria" type="xs:string"/>
+            <xs:element name="lingua_no_inglesa" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="codigo_pelicula" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- Elemento raíz que contiene todos los premios -->
+  <xs:element name="nominaciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="premio" type="premioType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

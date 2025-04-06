@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nominaciones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="UD4_T7A_davidBesada.xsd">
+
+  <!-- Premio a Mejor Película -->
+  <premio>
+    <pelicula codigo_pelicula="AA1234">
+      <titulo>La Gran Aventura</titulo>
+      <generos>
+        <genero>Drama</genero>
+        <genero>Acción</genero>
+        <genero>Musical</genero>
+      </generos>
+    </pelicula>
+    <nominaciones>
+      <director>JU-D01</director>
+      <actor>MA-B02</actor>
+      <actriz>JO-C03</actriz>
+      <actor_secundario>PE-D04</actor_secundario>
+      <actriz_secundaria>LA-E05</actriz_secundaria>
+      <lingua_no_inglesa>Español</lingua_no_inglesa>
+    </nominaciones>
+  </premio>
+
+  <!-- Premio a Mejor Director -->
+  <premio>
+    <pelicula codigo_pelicula="BB5678">
+      <titulo>El Secreto del Bosque</titulo>
+      <generos>
+        <genero>Thriller</genero>
+        <genero>Acción</genero>
+      </generos>
+    </pelicula>
+    <nominaciones>
+      <director>JU-D01</director>
+      <actor>MA-B02</actor>
+      <actriz>JO-C03</actriz>
+      <actor_secundario>PE-D04</actor_secundario>
+      <actriz_secundaria>LA-E05</actriz_secundaria>
+      <lingua_no_inglesa>Francés</lingua_no_inglesa>
+    </nominaciones>
+  </premio>
+
+</nominaciones>

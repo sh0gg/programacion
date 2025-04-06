@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tabla_periodica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="UD4_T6B_davidBesada.xsd">
+
+  <atomo estado="gas">
+    <nombre>Hidrógeno</nombre>
+    <simbolo>H</simbolo>
+    <numero_atomico>1</numero_atomico>
+    <punto_ebullicion unidades="kelvin">
+      <valor>20.28</valor>
+    </punto_ebullicion>
+    <densidad unidades="gramos/centimetros_cubicos">
+      <valor>0.0899</valor>
+    </densidad>
+    <grupo>
+      <numero>1</numero>
+      <nombre>Alcalinos</nombre>
+      <caracteristicas>Reactividad alta, forman hidróxidos fuertemente básicos</caracteristicas>
+    </grupo>
+  </atomo>
+
+  <atomo estado="gas">
+    <nombre>Helio</nombre>
+    <simbolo>He</simbolo>
+    <numero_atomico>2</numero_atomico>
+    <punto_ebullicion unidades="kelvin">
+      <valor>4.216</valor>
+    </punto_ebullicion>
+    <densidad unidades="gramos/centimetros_cubicos">
+      <valor>0.1785</valor>
+    </densidad>
+    <grupo>
+      <numero>18</numero>
+      <nombre>Gases nobles</nombre>
+      <caracteristicas>No reactivos, gases incoloros e inodoros</caracteristicas>
+    </grupo>
+  </atomo>
+</tabla_periodica>

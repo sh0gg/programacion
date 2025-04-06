@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Incluir el esquema de definiciones comunes -->
+  <xs:include schemaLocation="UD4_T7Bb_davidBesada.xsd"/>
+
+  <!-- Tipo complejo para los alumnos -->
+  <xs:complexType name="alumnoType">
+    <xs:sequence>
+      <xs:element name="numExpedente" type="xs:string"/>
+      <xs:element name="nombreCompleto" type="nombreCompletoType"/>
+      <xs:element name="altura">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Alto"/>
+            <xs:enumeration value="Baixo"/>
+            <xs:restriction base="xs:decimal">
+              <xs:minInclusive value="20"/>
+            </xs:restriction>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Elemento raíz del instituto -->
+  <xs:element name="instituto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="alumno" type="alumnoType" maxOccurs="unbounded"/>
+        <xs:element name="profesor" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NRP" type="xs:string"/>
+              <xs:element name="nombreCompleto" type="nombreCompletoType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

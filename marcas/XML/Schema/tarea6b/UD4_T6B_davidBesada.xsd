@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Estado de un átomo -->
+  <xs:simpleType name="estadoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sólido"/>
+      <xs:enumeration value="líquido"/>
+      <xs:enumeration value="gaseoso"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Unidades de temperatura -->
+  <xs:simpleType name="unidadesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="centigrados"/>
+      <xs:enumeration value="kelvin"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Punto de ebullición -->
+  <xs:complexType name="puntoEbullicionType">
+    <xs:sequence>
+      <xs:element name="valor" type="xs:decimal"/>
+    </xs:sequence>
+    <xs:attribute name="unidades" type="unidadesType" default="centigrados"/>
+  </xs:complexType>
+
+  <!-- Densidad -->
+  <xs:complexType name="densidadType">
+    <xs:sequence>
+      <xs:element name="valor" type="xs:decimal"/>
+    </xs:sequence>
+    <xs:attribute name="unidades" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- Átomo -->
+  <xs:complexType name="atomoType">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:string"/>
+      <xs:element name="simbolo" type="xs:string"/>
+      <xs:element name="numero_atomico" type="xs:int"/>
+      <xs:element name="punto_ebullicion" type="puntoEbullicionType"/>
+      <xs:element name="densidad" type="densidadType"/>
+      <xs:element name="grupo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="numero" type="xs:int"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="caracteristicas" minOccurs="0" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="estado" type="estadoType"/>
+  </xs:complexType>
+
+  <!-- Elemento raíz -->
+  <xs:element name="tabla_periodica">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Listado de átomos -->
+        <xs:element name="atomo" type="atomoType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
