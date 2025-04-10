@@ -75,7 +75,7 @@ public class Cliente extends Host implements Comparable{
                 Integer resCombinada1 = Integer.valueOf(arrayResCombinada1[0]) * Integer.valueOf(arrayResCombinada1[1]);
                 Integer resCombinada2 = Integer.valueOf(arrayResCombinada2[0]) * Integer.valueOf(arrayResCombinada2[1]);
 
-                return resCombinada2 - resCombinada1;
+                return resCombinada2 - resC0ombinada1;
             }
         };
         Arrays.sort(clientes, compName2);

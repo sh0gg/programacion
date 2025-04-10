@@ -21,10 +21,10 @@ Host(String nombre, String ip, String mac) {
         this.nombre = nombre;
     } else throw new IllegalArgumentException("El nombre no puede ser nulo");
 
-    if (validarIP(ip)) {
+    if (ip == null) {
+        ip = null; }
+    else if (validarIP(ip)) {
         this.ip = ip;
-    } else if (ip == null) {
-        ip = null;
     } else throw new IllegalArgumentException("La dirección IP no es válida");
 
     if (validarMAC(mac)) {
