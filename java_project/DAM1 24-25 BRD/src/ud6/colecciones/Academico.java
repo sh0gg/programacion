@@ -46,9 +46,13 @@ public class Academico implements Comparable<Academico> {
     private String nombre;
     private Integer anoIngreso;
 
-    Academico(String nombre, Integer anoIngreso) {
+    public Academico(String nombre, Integer anoIngreso) {
         this.nombre = nombre;
         this.anoIngreso = anoIngreso;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     @Override
