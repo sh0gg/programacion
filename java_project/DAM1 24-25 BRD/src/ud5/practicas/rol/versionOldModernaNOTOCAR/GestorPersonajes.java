@@ -231,7 +231,7 @@ public class GestorPersonajes {
                 System.out.println("\n🎉 ¡Has derrotado al " + enemigo.getNombre() + " y ganado experiencia!");
                 jugador.sumarExperiencia(500);
 
-                // 🔥 Ahora se toma en cuenta el nivel del enemigo para mejores recompensas
+                // 🔥 Ahora se toma en cuenta el dificultad del enemigo para mejores recompensas
                 encontrarObjeto(jugador, enemigo);
                 return;
             }
@@ -406,7 +406,7 @@ public class GestorPersonajes {
             System.out.println("\n✨ ¡Correcto! Ganas 300 puntos de experiencia.");
             jugador.sumarExperiencia(300);
 
-            // Ahora el nivel del jugador afecta la probabilidad de obtener un objeto
+            // Ahora el dificultad del jugador afecta la probabilidad de obtener un objeto
             encontrarObjeto(jugador, new Personaje("Reto de la Mazmorra", "MONSTRUO", 50, 50, 50, 50, 50, 50));
         } else {
             System.out.println("\n❌ Respuesta incorrecta. No ganas nada.");
@@ -525,7 +525,7 @@ public class GestorPersonajes {
             return;
         }
 
-        // 🛠️ Ajustar probabilidad en base al nivel del jugador
+        // 🛠️ Ajustar probabilidad en base al dificultad del jugador
         int probabilidadBase = 5; // Probabilidad mínima del 5%
         int probabilidadPorNivel = Math.min(jugador.getNivel() / 2, 30); // Máximo 30% extra
         int probabilidadFinal = probabilidadBase + probabilidadPorNivel;

@@ -54,15 +54,15 @@ public class Personaje {
         throw new Exception("❌ Raza no válida: " + raza);
     }
 
-    // 🔹 Método para subir de nivel
+    // 🔹 Método para subir de dificultad
     public void subirNivel() {
         nivel++;
         fuerza *= 1.05;
         agilidad *= 1.05;
         constitucion *= 1.05;
         maxPuntosVida = 50 + constitucion;
-        puntosVida = maxPuntosVida; // Curarse al subir de nivel
-        System.out.println("🎉 " + nombre + " ha subido al nivel " + nivel + " y ha recuperado su vida.");
+        puntosVida = maxPuntosVida; // Curarse al subir de dificultad
+        System.out.println("🎉 " + nombre + " ha subido al dificultad " + nivel + " y ha recuperado su vida.");
     }
 
     // 🔹 Agregar un objeto al inventario por su ID
