@@ -71,16 +71,40 @@ public class Feitizo {
     }
 
     public boolean addIngrediente(String ingrediente) {
-        return true;
-    }
-    public boolean removeIngrediente(String ingrediente) {
-        return true;
-    }
-    public boolean cambiarIngrediente(String ingredienteViejo, String ingredienteNuevo){
+        if (ingredientes.contains(ingrediente)) {
+            return false;
+        } else {
+            ingredientes.add(ingrediente);
+        }
         return true;
     }
 
-    public static List<Feitizo> feitizosUsanIngrediente(String ingrediente) {
-        return null;
+    public boolean removeIngrediente(String ingrediente) {
+        if (!ingredientes.contains(ingrediente)) {
+            return false;
+        } else {
+            ingredientes.remove(ingrediente);
+        }
+        return true;
+    }
+
+    public boolean cambiarIngrediente(String ingredienteViejo, String ingredienteNuevo){
+        if (ingredientes.contains(ingredienteNuevo) || !ingredientes.contains(ingredienteViejo)) {
+            return false;
+        } else {
+            ingredientes.remove(ingredienteViejo);
+            ingredientes.add(ingredienteNuevo);
+        }
+        return true;
+    }
+
+    public static List<Feitizo> feitizosUsanIngrediente(String ingrediente, Collection<Feitizo> feitizos) {
+        List<Feitizo> feitizosUsanIngrediente = new ArrayList<>();
+        for (Feitizo f : feitizos) {
+            if (f.ingredientes.contains(ingrediente)) {
+                feitizosUsanIngrediente.add(f);
+            }
+        }
+        return feitizosUsanIngrediente;
     }
 }
