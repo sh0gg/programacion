@@ -46,7 +46,7 @@ public class Meiga {
 
         Meiga[] meigas = new Meiga[nomes.length];
 
-        // Obtén todos os feitozos de exemplo e todos os seus ingredientes únicos
+        // Obtén todos os feitizos de exemplo e todos os seus ingredientes únicos
         Collection<Feitizo> feitizosExemplo = List.of(Feitizo.crearFeitizosExemplo());
         Collection<String> ingredientesExemplo = Feitizo.ingredientesUnicos(feitizosExemplo);
 
