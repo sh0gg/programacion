@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Metalworks">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/javafx/zulu21.42.19-ca-fx-jdk21.0.7-win_x64/demo/jfc/Metalworks/Metalworks.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javafx/zulu21.42.19-ca-fx-jdk21.0.7-win_x64/demo/jfc/Metalworks/src.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
