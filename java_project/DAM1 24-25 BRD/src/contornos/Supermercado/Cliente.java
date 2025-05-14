@@ -1,4 +1,5 @@
 package contornos.Supermercado;
 
-public class Cliente {
+public class Cliente extends Persona {
+    private int supermercadoFavorito;
 }

@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class LeerArchivoConBuffer {
+public class E1003 {
     public static void main(String[] args) {
         String ruta = "src/Main.java"; // Ruta relativa al archivo
 
