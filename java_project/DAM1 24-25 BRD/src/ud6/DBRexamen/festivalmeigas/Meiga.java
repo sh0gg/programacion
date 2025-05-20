@@ -34,7 +34,7 @@ public class Meiga {
                 return res;
             }
         });
-        //falta ordenar el inventario
+        List.of(inventario.keySet()).sort
         String str = nome + " (" + alcume + ")\n"
                     + "Feitizos: " + feitizos + "\n"
                     + "Inventario: " + inventario;
