@@ -37,20 +37,23 @@ public class AP103 {
             }
         }
 
-        class Jugador {
-            String nombre;
-            int edad;
-            double estatura;
-
-            public Jugador(String nombre, int edad, double estatura) {
-                this.nombre = nombre;
-                this.edad = edad;
-                this.estatura = estatura;
-            }
-
-            @Override
-            public String toString() {
-                return "Jugador [nombre=" + nombre + ", edad=" + edad + "]";
-            }
-        }
 }
+class Jugador {
+    String nombre;
+    int edad;
+    double estatura;
+
+    public Jugador(String nombre, int edad, double estatura) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.estatura = estatura;
+    }
+
+    @Override
+    public String toString() {
+        return "Jugador [nombre=" + nombre + ", edad=" + edad + "]";
+    }
+}
+
+
+
