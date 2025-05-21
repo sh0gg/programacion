@@ -32,6 +32,8 @@
       <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/apuntesinterfaces/ComparaSociosFecha.java" />
       <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/apuntesinterfaces/ComparaSociosNombre.java" />
       <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud5/DBRexamen/Servidor.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud7/JavaFX/src/empresas/AppEmpresa.java" />
+      <file url="file://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/src/ud7/JavaFX/src/empresas/EmpresaController.java" />
     </excludeFromCompile>
   </component>
 </project>
