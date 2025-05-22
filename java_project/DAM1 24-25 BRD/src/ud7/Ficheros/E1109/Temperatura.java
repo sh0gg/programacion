@@ -11,6 +11,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Temperatura implements Serializable{
@@ -25,6 +26,10 @@ public class Temperatura implements Serializable{
     static final String PATH = "java_project/DAM1 24-25 BRD/src/ud7/Ficheros/registrosTemperaturas.dat";
 
     public static void main(String[] args) {
+        menu();
+    }
+
+    private static void menu() {
         System.out.println("Registro de temperaturas");
         System.out.println("");
         System.out.println("1. Añadir un registro.");
@@ -39,16 +44,34 @@ public class Temperatura implements Serializable{
                 System.out.println("¿Qué temperatura hace?");
                 double temperatura = sc.nextDouble();
                 addRegister(temperatura, LocalDateTime.now());
+                System.out.println("¿Quieres hacer algo más? (Y/N)");
+                String res = sc.next();
+                if (res.equals("Y") || res.equals("y")) {
+                    System.out.println("");
+                    System.out.println("");
+                    menu();
+                }
                 break;
             case 2:
                 List<Temperatura> registros = showRegister();
+                System.out.println("Histórico de registros");
+                System.out.println("======================");
                 for (Temperatura temp : registros) {
-                    System.out.println(temp);
+                    System.out.println("El día " + temp.fecha.getDayOfMonth() + "/" + temp.fecha.getMonth() + "/" + temp.fecha.getYear() + " hubo un registro de " + temp.temperatura + " grados." );
+                }
+                System.out.println("");
+                System.out.println("¿Quieres hacer algo más? (Y/N)");
+                res = sc.next();
+                if (res.equals("Y") || res.equals("y")) {
+                    System.out.println("");
+                    System.out.println("");
+                    menu();
                 }
                 break;
             case 3:
                 break;
         }
+
     }
 
     private static void addRegister(double temp, LocalDateTime regTime) {
