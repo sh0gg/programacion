@@ -7,14 +7,7 @@ de la temperatura en grados centígrados, introducida por teclado, y la fecha y 
 se leerá del sistema en el momento de la creación del registro.
  */
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
-
-public class Temperatura implements Serializable{
+public class Temperatura implements Serializable {
     double temperatura;
     LocalDateTime fecha;
 
@@ -46,9 +39,8 @@ public class Temperatura implements Serializable{
                 addRegister(temperatura, LocalDateTime.now());
                 System.out.println("¿Quieres hacer algo más? (Y/N)");
                 String res = sc.next();
-                if (res.equals("Y") || res.equals("y")) {
-                    System.out.println("");
-                    System.out.println("");
+                if (res.equalsIgnoreCase("Y")) {
+                    System.out.println("\n");
                     menu();
                 }
                 break;
@@ -57,29 +49,39 @@ public class Temperatura implements Serializable{
                 System.out.println("Histórico de registros");
                 System.out.println("======================");
                 for (Temperatura temp : registros) {
-                    System.out.println("El día " + temp.fecha.getDayOfMonth() + "/" + temp.fecha.getMonth() + "/" + temp.fecha.getYear() + " hubo un registro de " + temp.temperatura + " grados." );
+                    System.out.println("El día " + temp.fecha.getDayOfMonth() + "/" + temp.fecha.getMonth() + "/" + temp.fecha.getYear()
+                            + " hubo un registro de " + temp.temperatura + " grados.");
                 }
                 System.out.println("");
                 System.out.println("¿Quieres hacer algo más? (Y/N)");
                 res = sc.next();
-                if (res.equals("Y") || res.equals("y")) {
-                    System.out.println("");
-                    System.out.println("");
+                if (res.equalsIgnoreCase("Y")) {
+                    System.out.println("\n");
                     menu();
                 }
                 break;
             case 3:
                 break;
         }
-
     }
 
     private static void addRegister(double temp, LocalDateTime regTime) {
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(PATH))) {
-            out.writeObject(new Temperatura(temp, regTime));
+        File file = new File(PATH);
+        boolean append = file.exists() && file.length() > 0;
+
+        try (FileOutputStream fos = new FileOutputStream(file, true);
+             ObjectOutputStream oos = append
+                     ? new ObjectOutputStream(fos) {
+                         protected void writeStreamHeader() throws IOException {
+                             // Evita volver a escribir la cabecera
+                             reset();
+                         }
+                     }
+                     : new ObjectOutputStream(fos)) {
+
+            oos.writeObject(new Temperatura(temp, regTime));
             System.out.println("Registro agregado exitosamente");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -87,16 +89,25 @@ public class Temperatura implements Serializable{
 
     private static List<Temperatura> showRegister() {
         List<Temperatura> registros = new ArrayList<>();
+        File file = new File(PATH);
+
+        if (!file.exists()) {
+            System.out.println("No hay registros aún.");
+            return registros;
+        }
+
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATH))) {
             while (true) {
-                registros.add((Temperatura) ois.readObject());
+                try {
+                    registros.add((Temperatura) ois.readObject());
+                } catch (EOFException e) {
+                    break;
+                }
             }
-        } catch (EOFException | FileNotFoundException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
+
         return registros;
     }
 }
-
