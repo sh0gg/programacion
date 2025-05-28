@@ -10,17 +10,19 @@ import org.json.*;
 
 public class Leaderboard {
 
-    private static final String JSON_PATH = "java_project/DAM1 24-25 BRD/src/ud7/JavaFX/src/Mapa/leaderboard.json";
+    private static final String JSON_PATH = System.getProperty("user.home") + File.separator + "leaderboard.json";
 
     public static void guardarResultado(String nombre, String tiempo) {
         List<JSONObject> datos = new ArrayList<>();
 
         // Leer archivo existente
         try {
-            String contenido = new String(Files.readAllBytes(Paths.get(JSON_PATH)));
-            JSONArray jsonArray = new JSONArray(contenido);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                datos.add(jsonArray.getJSONObject(i));
+            if (Files.exists(Paths.get(JSON_PATH))) {
+                String contenido = new String(Files.readAllBytes(Paths.get(JSON_PATH)));
+                JSONArray jsonArray = new JSONArray(contenido);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    datos.add(jsonArray.getJSONObject(i));
+                }
             }
         } catch (IOException | JSONException ignored) {}
 
@@ -41,12 +43,25 @@ public class Leaderboard {
 
     public static void mostrarLeaderboard() {
         try {
+            if (!Files.exists(Paths.get(JSON_PATH))) {
+                throw new FileNotFoundException("Archivo leaderboard.json no encontrado.");
+            }
+
             String contenido = new String(Files.readAllBytes(Paths.get(JSON_PATH)));
             JSONArray jsonArray = new JSONArray(contenido);
 
-            StringBuilder sb = new StringBuilder();
+            // Convertir JSONArray a List<JSONObject> para poder ordenarlo
+            List<JSONObject> lista = new ArrayList<>();
             for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject obj = jsonArray.getJSONObject(i);
+                lista.add(jsonArray.getJSONObject(i));
+            }
+
+            // Ordenar por el campo "tiempo" ascendente
+            lista.sort(Comparator.comparingDouble(obj -> Double.parseDouble(obj.getString("tiempo"))));
+
+            // Construir el texto
+            StringBuilder sb = new StringBuilder();
+            for (JSONObject obj : lista) {
                 sb.append(String.format("%s (%s) - %s\n",
                         obj.getString("nombre"),
                         obj.getString("fecha"),
