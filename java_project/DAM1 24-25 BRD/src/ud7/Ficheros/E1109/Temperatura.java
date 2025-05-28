@@ -1,5 +1,12 @@
 package ud7.Ficheros.E1109;
 
+import java.io.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
 /* E1109. Implementar un programa que registra la evolución temporal de la temperatura en
 una ciudad. La aplicación mostrará un menú que permite añadir nuevos registros de
 temperatura y mostrar el listado de todos los registros históricos. Cada registro constará
@@ -23,47 +30,67 @@ public class Temperatura implements Serializable {
     }
 
     private static void menu() {
-        System.out.println("Registro de temperaturas");
-        System.out.println("");
+    Scanner sc = new Scanner(System.in);
+
+    while (true) {
+        System.out.println("\n==============================");
+        System.out.println("     REGISTRO DE TEMPERATURAS");
+        System.out.println("==============================");
         System.out.println("1. Añadir un registro.");
         System.out.println("2. Mostrar registros.");
         System.out.println("3. Salir.");
-        System.out.println("");
+        System.out.print("Selecciona una opción: ");
 
-        Scanner sc = new Scanner(System.in);
-        int opcion = sc.nextInt();
+        int opcion;
+        try {
+            opcion = sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Entrada no válida. Introduce un número.");
+            sc.nextLine(); // Limpiar buffer
+            continue;
+        }
+
         switch (opcion) {
             case 1:
-                System.out.println("¿Qué temperatura hace?");
-                double temperatura = sc.nextDouble();
-                addRegister(temperatura, LocalDateTime.now());
-                System.out.println("¿Quieres hacer algo más? (Y/N)");
-                String res = sc.next();
-                if (res.equalsIgnoreCase("Y")) {
-                    System.out.println("\n");
-                    menu();
+                sc.nextLine(); // Limpiar buffer
+                System.out.print("¿Qué temperatura hace? ");
+                String tempStr = sc.nextLine().replace(",", ".");
+                try {
+                    double temperatura = Double.parseDouble(tempStr);
+                    addRegister(temperatura, LocalDateTime.now());
+                    System.out.println("Registro guardado.");
+                } catch (NumberFormatException e) {
+                    System.out.println("Temperatura no válida.");
                 }
                 break;
+
             case 2:
                 List<Temperatura> registros = showRegister();
-                System.out.println("Histórico de registros");
-                System.out.println("======================");
-                for (Temperatura temp : registros) {
-                    System.out.println("El día " + temp.fecha.getDayOfMonth() + "/" + temp.fecha.getMonth() + "/" + temp.fecha.getYear()
-                            + " hubo un registro de " + temp.temperatura + " grados.");
-                }
-                System.out.println("");
-                System.out.println("¿Quieres hacer algo más? (Y/N)");
-                res = sc.next();
-                if (res.equalsIgnoreCase("Y")) {
-                    System.out.println("\n");
-                    menu();
+                System.out.println("\n HISTÓRICO DE REGISTROS");
+                System.out.println("==============================");
+                if (registros.isEmpty()) {
+                    System.out.println("No hay registros guardados.");
+                } else {
+                    for (Temperatura temp : registros) {
+                        System.out.printf("%02d/%s/%d - %.2f ºC%n",
+                                temp.fecha.getDayOfMonth(),
+                                temp.fecha.getMonth(),
+                                temp.fecha.getYear(),
+                                temp.temperatura);
+                    }
                 }
                 break;
+
             case 3:
-                break;
+                System.out.println("Saliendo del programa...");
+                return;
+
+            default:
+                System.out.println("Opción no válida.");
         }
     }
+}
+
 
     private static void addRegister(double temp, LocalDateTime regTime) {
         File file = new File(PATH);
