@@ -1,0 +1,142 @@
+TUTORIAL BÁSICO DE SCENEBUILDER PARA JAVA FX – PRÁCTICO PARA EXAMEN
+
+------------------------------------------------------------
+¿QUÉ ES SCENEBUILDER?
+
+SceneBuilder es una herramienta gráfica que permite crear interfaces de usuario para JavaFX de forma visual, sin escribir código manualmente. Guarda el diseño en archivos .fxml que luego se cargan desde tu aplicación Java.
+
+------------------------------------------------------------
+PASOS BÁSICOS PARA USAR SCENEBUILDER
+
+1. Abre SceneBuilder.
+2. Ve a File > New.
+3. Guarda el archivo con nombre: Vista.fxml
+4. Elige un Layout raíz en la izquierda (por ejemplo VBox).
+5. Arrastra componentes desde la paleta izquierda al layout central.
+
+------------------------------------------------------------
+COMPONENTES FRECUENTES
+
+- Button: botón para hacer clic.
+- TextField: campo de texto de una sola línea.
+- Label: etiqueta para mostrar texto.
+- TextArea: campo de texto multilínea.
+- ListView: lista de elementos.
+- CheckBox: casilla de verificación.
+- RadioButton: opción única en un grupo.
+- VBox / HBox / StackPane / BorderPane: layouts para organizar elementos.
+
+------------------------------------------------------------
+FUNCIONALIDADES QUE PUEDES USAR EN EL EXAMEN
+
+A. ASIGNAR fx:id
+- Haz clic en el componente.
+- En el panel derecho (Code), pon el nombre en fx:id.
+- Ejemplo: nombreInput, botonAceptar, resultadoLabel
+
+B. ASOCIAR ACCIONES A BOTONES
+- Selecciona el botón.
+- En “On Action”, escribe el nombre del método que estará en tu controlador.
+- Ejemplo: saludar, calcular, mostrarDatos
+
+C. CAMBIAR TEXTO Y ESTILO
+- En el panel “Properties” puedes cambiar:
+  - text: lo que se muestra en pantalla.
+  - promptText: texto de sugerencia.
+  - alignment: alineación dentro del contenedor.
+
+D. LAYOUT Y ORDENACIÓN
+- En el panel Layout puedes configurar:
+  - spacing: espacio entre elementos (en VBox/HBox).
+  - padding: margen interior del layout.
+  - alignment: centrado, izquierda, etc.
+
+------------------------------------------------------------
+EJEMPLO: VENTANA QUE SALUDA CON UN NOMBRE INTRODUCIDO
+
+1. En SceneBuilder:
+   - Root: VBox (spacing: 10, alignment: CENTER)
+   - TextField → fx:id: nombreInput
+   - Button → text: "Saludar", On Action: saludar
+
+2. Controlador Java (Controlador.java):
+
+package ud7.JavaFX;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
+public class Controlador {
+
+    @FXML
+    private TextField nombreInput;
+
+    @FXML
+    public void saludar() {
+        String nombre = nombreInput.getText();
+        System.out.println("¡Hola, " + nombre + "!");
+    }
+}
+
+3. En SceneBuilder:
+   - En Controller Class (arriba a la derecha): pon ud7.JavaFX.Controlador
+
+4. Clase Main:
+
+package ud7.JavaFX;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Vista.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Saludo con SceneBuilder");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+------------------------------------------------------------
+▶️ FLUJO DE USO DE LA APLICACIÓN (SIMULACIÓN PARA USUARIO NUEVO)
+
+1. Abre SceneBuilder.
+2. Selecciona "New" para crear un nuevo diseño.
+3. Elige como layout principal un "VBox".
+4. Guarda el archivo como Vista.fxml en tu carpeta de proyecto.
+
+5. En la parte izquierda, arrastra un TextField y un Button al centro del VBox.
+6. Selecciona el TextField, ve al panel derecho y ponle fx:id = nombreInput.
+7. Selecciona el botón, cambia el texto visible a "Saludar".
+8. En el mismo botón, ve al campo "On Action" y escribe: saludar
+
+9. En la parte superior derecha, en "Controller Class", escribe: ud7.JavaFX.Controlador
+
+10. Guarda el archivo y cierra SceneBuilder.
+
+11. En tu proyecto Java, crea la clase Controlador.java con el método saludar().
+
+12. Asegúrate de tener una clase Main.java que cargue el archivo fxml.
+
+13. Ejecuta el programa. Al escribir tu nombre y pulsar el botón, deberías ver el saludo en la consola.
+
+------------------------------------------------------------
+RESUMEN RÁPIDO DE USO PARA EXAMEN
+
+- Crea archivo FXML en SceneBuilder.
+- Usa VBox o AnchorPane para organizar.
+- Asigna fx:id a cada control que quieras acceder en el código.
+- Usa “On Action” en botones para vincular métodos.
+- Usa Controlador.java con métodos públicos anotados con @FXML.
+- En Main.java usa FXMLLoader para cargar la escena.
+
+------------------------------------------------------------

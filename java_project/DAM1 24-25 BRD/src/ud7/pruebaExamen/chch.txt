@@ -1,0 +1,252 @@
+/*
+===============================================
+          CHULETA UD07 - PROGRAMACIÓN JAVA
+===============================================
+
+1. Ficheros de Texto
+---------------------
+
+// Leer fichero línea a línea con BufferedReader
+try (BufferedReader br = new BufferedReader(new FileReader("archivo.txt"))) {
+    String linea;
+    while ((linea = br.readLine()) != null) {
+        System.out.println(linea); // Procesar cada línea leída
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+// IMPORTANTE: Usar try-with-resources para cerrar el fichero automáticamente.
+// Revisar que la ruta del fichero sea correcta y que el fichero exista.
+
+// Escribir texto en fichero con BufferedWriter
+try (BufferedWriter bw = new BufferedWriter(new FileWriter("salida.txt"))) {
+    bw.write("Texto a escribir");
+    bw.newLine(); // Salto de línea
+} catch (IOException e) {
+    e.printStackTrace();
+}
+// Revisar que el fichero tenga permisos de escritura y el path sea válido.
+
+// Leer números con Scanner desde fichero
+try (Scanner sc = new Scanner(new File("numeros.txt"))) {
+    while (sc.hasNext()) {
+        if (sc.hasNextInt()) {
+            int num = sc.nextInt();
+            System.out.println(num);
+        } else {
+            sc.next(); // Ignorar token no numérico
+        }
+    }
+} catch (FileNotFoundException e) {
+    e.printStackTrace();
+}
+// Recomendado para archivos con datos mixtos (texto + números).
+// Validar los datos y manejar excepciones para evitar fallos.
+
+
+2. Ficheros Binarios y Serialización
+-------------------------------------
+
+// Clase que implementa Serializable para poder guardar objetos en fichero binario
+import java.io.Serializable;
+
+public class Producto implements Serializable {
+    private static final long serialVersionUID = 1L; // Control de versión en serialización
+    private int codigo;
+    private String nombre;
+    private int cantidad;
+    private double precio;
+
+    // Constructor, getters y setters (omitted para brevedad)
+}
+// IMPORTANTE: serialVersionUID para evitar errores tras cambios en la clase.
+// Todos los atributos deben ser serializables (primitivos o String).
+
+// Guardar objeto en fichero binario con ObjectOutputStream
+try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("productos.dat"))) {
+    oos.writeObject(producto);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+// IMPORTANTE: Si se añaden objetos, para no sobreescribir el header del fichero,
+// usar técnicas como guardar lista completa o usar ObjectOutputStream personalizado.
+
+// Leer objetos desde fichero binario con ObjectInputStream
+try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("productos.dat"))) {
+    while (true) {
+        Producto p = (Producto) ois.readObject();
+        System.out.println(p);
+    }
+} catch (EOFException e) {
+    // Fin normal del fichero
+} catch (IOException | ClassNotFoundException e) {
+    e.printStackTrace();
+}
+// IMPORTANTE: Capturar EOFException para saber cuando terminó la lectura.
+// Hacer cast al tipo correcto y manejar ClassNotFoundException.
+
+
+3. Excepciones
+---------------
+
+// Estructura básica try-catch-finally
+try {
+    // Código que puede lanzar excepción
+} catch (ExceptionTipo e) {
+    // Manejo de la excepción, mostrar mensaje o recuperarse
+} finally {
+    // Código que siempre se ejecuta, cierre de recursos, etc.
+}
+// REVISAR: Capturar excepciones específicas para no enmascarar errores.
+
+// Ejemplo: Leer entero seguro desde consola
+public static int leerEntero() {
+    Scanner sc = new Scanner(System.in);
+    while (true) {
+        try {
+            System.out.print("Introduce entero: ");
+            return sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Error: No es un entero válido.");
+            sc.next(); // limpiar entrada inválida
+        }
+    }
+}
+// RECOMENDACIÓN: Siempre validar entrada de usuario para evitar InputMismatchException.
+
+
+4. JSON - uso básico en Java
+------------------------------
+
+// Construcción de URL para petición a API (e.g. Nominatim OpenStreetMap)
+double lat = 42.3897;
+double lon = -8.7106;
+String url = "https://nominatim.openstreetmap.org/reverse?format=geojson&lat=" + lat + "&lon=" + lon;
+
+// Leer contenido de URL como String
+public static String leerUrl(String url) throws IOException {
+    StringBuilder contenido = new StringBuilder();
+    URLConnection conn = new URL(url).openConnection();
+    try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            contenido.append(linea).append("\n");
+        }
+    }
+    return contenido.toString();
+}
+// REVISAR: Manejar IOException y URLs mal formadas.
+// Puede mejorarse usando HttpURLConnection o librerías externas para JSON.
+
+
+5. JavaFX - Estructura básica
+------------------------------
+
+// Clase principal JavaFX extendiendo Application
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class App extends Application {
+    @Override
+    public void start(Stage stage) {
+        stage.setTitle("Mi Aplicación JavaFX");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}
+// REVISAR: Método start() es punto de entrada GUI, se ejecuta en hilo JavaFX.
+
+// Controles básicos y eventos
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+Button btn = new Button("Click");
+btn.setOnAction(e -> System.out.println("Botón pulsado"));
+
+TextField tf = new TextField();
+Label label = new Label();
+
+btn.setOnAction(e -> label.setText("Texto: " + tf.getText()));
+// RECOMENDACIÓN: Usar expresiones lambda para manejadores simples.
+
+// Layouts comunes: VBox, HBox, GridPane
+import javafx.scene.layout.VBox;
+import javafx.scene.Scene;
+
+VBox root = new VBox(10); // espacio de 10px entre nodos
+root.getChildren().addAll(tf, btn, label);
+Scene scene = new Scene(root, 300, 200);
+stage.setScene(scene);
+stage.show();
+
+// ListView con ObservableList
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
+
+ObservableList<String> items = FXCollections.observableArrayList("Item 1", "Item 2");
+ListView<String> listView = new ListView<>(items);
+// REVISAR: ObservableList actualiza la vista automáticamente al modificar la lista.
+
+// Evento para filtrar teclado (solo números)
+import javafx.scene.input.KeyEvent;
+
+scene.addEventFilter(KeyEvent.KEY_TYPED, e -> {
+    if (!Character.isDigit(e.getCharacter().charAt(0))) {
+        e.consume(); // bloquea la tecla no numérica
+    }
+});
+// IMPORTANTE: Útil para validar entrada en TextField en tiempo real.
+
+
+6. Otros conceptos importantes
+------------------------------
+
+// serialVersionUID en serialización
+private static final long serialVersionUID = 1L;
+// Evita incompatibilidades cuando se cambian las clases serializables.
+
+// Try-with-resources para cerrar flujos automáticamente
+try (BufferedReader br = new BufferedReader(new FileReader("fichero.txt"))) {
+    // uso del flujo
+} catch (IOException e) {
+    e.printStackTrace();
+}
+// Muy recomendable para evitar fugas de recursos (ficheros abiertos).
+
+
+===============================================
+             RESUMEN RÁPIDO
+===============================================
+
+| Tema                | Clases clave                         | Método/Concepto importante           |
+|---------------------|------------------------------------|-------------------------------------|
+| Ficheros de texto    | BufferedReader, BufferedWriter, Scanner | readLine(), write(), nextInt()       |
+| Ficheros binarios    | ObjectOutputStream, ObjectInputStream | writeObject(), readObject()          |
+| Excepciones          | try-catch-finally, Exception       | InputMismatchException, EOFException |
+| JSON (básico)        | URL, URLConnection, BufferedReader | Construcción URL, lectura respuesta  |
+| JavaFX              | Application, Stage, Scene, Controls| setOnAction(), layouts (VBox, HBox)  |
+| Serialización        | Serializable, serialVersionUID     | guardar y leer objetos                |
+
+===============================================
+
+RECOMENDACIONES PARA EL EXAMEN:
+
+- Siempre validar las entradas (números, texto) antes de procesar.
+- Manejar excepciones específicas para mostrar mensajes claros.
+- Cerrar flujos con try-with-resources para evitar errores de cierre.
+- En serialización, controlar versiones con serialVersionUID.
+- Para interfaces gráficas, usar ObservableList para actualizar listas.
+- Practicar manejo básico de eventos en JavaFX (botones, teclado).
+- Revisar la estructura de archivos y rutas relativas antes de leer o escribir.
+- Documentar bien el código con comentarios y mantener código legible.
+
+===============================================
+Autor: [Tu Nombre Completo]
+Fecha: [Fecha de realización]
+===============================================
+*/

@@ -5,6 +5,9 @@
       <root url="jar://$PROJECT_DIR$/java_project/DAM1 24-25 BRD/lib/gson-2.11.0.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/openjfx-24.0.1_windows-x64_bin-sdk/javafx-sdk-24.0.1" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Downloads/openjfx-24.0.1_windows-x64_bin-sdk/javafx-sdk-24.0.1" recursive="false" type="SOURCES" />
   </library>
 </component>
